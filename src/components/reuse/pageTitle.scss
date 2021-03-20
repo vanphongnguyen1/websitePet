@@ -1,0 +1,21 @@
+@import '../assets/avarlibel.scss';
+
+.page-title {
+  background-color: $color-white;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 1rem 0;
+
+  .ant-breadcrumb a {
+    color: $color-main-dark;
+  }
+
+  .ant-breadcrumb a,
+  .ant-breadcrumb-separator {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+
+  .ant-breadcrumb > span:last-child a {
+    color: #ffb300;
+  }
+}

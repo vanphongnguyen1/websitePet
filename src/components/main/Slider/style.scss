@@ -1,0 +1,239 @@
+@import '../../assets/avarlibel.scss';
+@import '../../assets/animation.scss';
+
+.banner {
+  .banner-group{
+    position: relative;
+
+    &__bg1,
+    &__bg2 {
+      width: 100%;
+      height: 50rem;
+      display: flex;
+      align-items: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &__bg1 {
+      background-image: url("http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/slider-shop-1.jpg");
+    }
+
+    &__bg2 {
+      background-image: url("http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/slider-shop-2.jpg");
+    }
+    .sale-mew,
+    .sale-dog {
+      position: absolute;
+      top: 10%;
+      z-index: 2;
+      visibility: hidden;
+      opacity: 0;
+
+      &__img {
+        width: 90%;
+      }
+    }
+
+    .sale-dog {
+      right: 8%;
+    }
+
+    .sale-mew {
+      left: 10%;
+    }
+
+    .text-inner {
+        position: absolute;
+        z-index: 2;
+        visibility: hidden;
+        opacity: 0;
+
+      &.dog {
+        left: 13%;
+      }
+
+      &.mew {
+        right: 15%;
+        top: 21%;
+      }
+
+      &__title {
+        font-size: 4.6rem;
+        font-weight: 700;
+        margin-bottom: 0;
+        color: #fff;
+      }
+
+      &__heading {
+        font-size: 5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #fff;
+      }
+
+      &__heading-sub {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+        color: #fff;
+      }
+
+      &__heading-sub2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 3.5rem;
+        color: #fff;
+      }
+    }
+
+    .animation-right-dog,
+    .animation-left-dog,
+    .animation-left-mew,
+    .animation-bottom {
+      opacity: 1;
+      visibility: visible ;
+    }
+  }
+
+  .overflow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .slick-dots li button:before {
+    transform: translateY(-150%);
+    font-size: 13px;
+    color: #fff !important;
+  }
+
+  .slick-prev,
+  .slick-next {
+    display: none !important;
+  }
+}
+
+// ------------------------Tables - desktop---------------------------------------------
+@media (max-width: 1024px) {
+  .banner {
+    .banner-group{
+      &__bg1,
+      &__bg2 {
+        height: 40rem;
+      }
+
+      .sale-mew,
+      .sale-dog {
+        &__img {
+          width: 80%;
+          margin: 0 auto;
+        }
+      }
+
+      .sale-dog {
+        right: 4%;
+      }
+
+      .sale-mew {
+        left: 5%;
+      }
+
+      .text-inner {
+        &.dog {
+          left: 10%;
+        }
+
+        &.mew {
+          right: 6%;
+          top: 15%;
+        }
+
+        &__title {
+          font-size: 4rem;
+        }
+
+        &__heading {
+          font-size: 4.6rem;
+          margin-bottom: 0;
+        }
+      }
+
+      .animation-right-dog,
+      .animation-left-dog,
+      .animation-left-mew,
+      .animation-bottom {
+        opacity: 1;
+        visibility: visible ;
+      }
+    }
+  }
+}
+
+// -------------------Table Modile Medium------------
+@media (max-width: 991px) {
+  .banner {
+    .banner-group{
+
+      .sale-mew,
+      .sale-dog {
+        &__img {
+          width: 65%;
+          margin: 0 auto;
+        }
+      }
+
+      .sale-dog {
+        right: 2%;
+      }
+
+      .sale-mew {
+        left: 4%;
+      }
+
+      .text-inner {
+        &.dog {
+          left: 10%;
+        }
+
+        &.mew {
+          right: 3%;
+          top: 15%;
+        }
+
+        &__title {
+          font-size: 2.8rem;
+        }
+
+        &__heading {
+          font-size: 3.4rem;
+          margin-bottom: 0;
+        }
+
+        &__heading-sub {
+          font-size: 1.4rem;
+        }
+
+        &__heading-sub2 {
+          font-size: 1.5rem;
+        }
+      }
+
+      .animation-right-dog,
+      .animation-left-dog,
+      .animation-left-mew,
+      .animation-bottom {
+        opacity: 1;
+        visibility: visible ;
+      }
+    }
+  }
+}
+
+// -----------------Modile-----------------
+// @media (max-width: 767px) {
+
+// }

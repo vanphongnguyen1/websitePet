@@ -1,0 +1,222 @@
+@import '../assets/avarlibel.scss';
+
+.footer {
+  background-color: #302021;
+  padding: 3rem 0;
+
+  &__box-logo {
+    width: 80%;
+  }
+  &__list {
+    padding: 1rem 0;
+  }
+
+  &__item {
+    padding: 0.5rem 0;
+    list-style-type: none;
+    font-size: 1.4rem;
+    color: #99a498;
+    font-weight: 500;
+
+    &--icon {
+      font-size: 1.6rem;
+      margin-right: 0.5rem;
+      width: 20px;
+      text-align: center;
+    }
+  }
+
+  &__link {
+    transition: all 0.4s ease-in-out;
+    display: block;
+
+    &:hover {
+      color: $color-main-dark;
+    }
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    color: #f5fbf6;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .registration {
+    &__text {
+      font-size: 1.6rem;
+      margin: 0.5rem 0;
+      color: #99a498;
+    }
+
+    &__from {
+      width: 100%;
+    }
+
+    &__gmail {
+      position: relative;
+    }
+
+    &__input {
+      height: 3.5rem;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding-left: 1rem;
+    }
+
+    &__icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      height: 3.5rem;
+      line-height: 3.5rem;
+      padding: 0 1rem;
+
+      &:hover {
+        color: #0d7d31;
+      }
+    }
+  }
+  .social-network {
+    margin-top: 2rem;
+
+    ul {
+      li {
+        display: inline-block;
+        margin: 0 0.5rem;
+      }
+    }
+
+    &__icon {
+      font-size: 1.8rem;
+      padding: 1px;
+      background: #2478ba;
+      border-radius: 50%;
+
+      width: 3rem;
+      height: 3rem;
+      display: inline-block;
+      text-align: center;
+      color: $color-white;
+    }
+  }
+}
+
+// ------------------------Tables - desktop---------------------------------------------
+@media (max-width: 1024px) {
+  .footer {
+    &__item {
+      font-size: 1.3rem;
+
+      &--icon {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    .registration {
+      &__text {
+        font-size: 1.5rem;
+      }
+
+      &__input {
+        height: 3.2rem;
+      }
+
+      &__icon {
+        height: 3.2rem;
+        line-height: 3.2rem;
+      }
+    }
+
+    .social-network {
+      margin-top: 1rem;
+    }
+  }
+}
+
+// -------------------Table Modile Medium------------
+@media (max-width: 991px) {
+  .footer {
+    &__box-logo {
+      width: 70%;
+    }
+
+    &__item {
+      font-size: 1.3rem;
+
+      &--icon {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    .registration {
+      &__text {
+        font-size: 1.5rem;
+      }
+
+      &__input {
+        height: 3.2rem;
+      }
+
+      &__icon {
+        height: 3.2rem;
+        line-height: 3.2rem;
+      }
+    }
+
+    .social-network {
+      margin-top: 1rem;
+    }
+  }
+}
+
+// -----------------Modile-----------------
+@media (max-width: 767px) {
+  .footer {
+    &__box {
+      margin-top: 1rem;
+    }
+
+    &__item {
+      font-size: 1.6rem;
+
+      &--icon {
+        font-size: 1.8rem;
+      }
+    }
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    .registration {
+      &__text {
+        font-size: 1.5rem;
+      }
+
+      &__input {
+        height: 3.2rem;
+      }
+
+      &__icon {
+        height: 3.2rem;
+        line-height: 3.2rem;
+      }
+    }
+
+    .social-network {
+      margin-top: 1rem;
+    }
+  }
+}

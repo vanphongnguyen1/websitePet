@@ -1,0 +1,87 @@
+@import '../../assets/avarlibel.scss';
+@import '../../assets/animation.scss';
+
+.modal-login {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+
+  width: 50rem;
+  background-color: $color-white;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+
+  .modal__login {
+    &-title {
+      padding: 1rem 2rem;
+      background: $color-main-dark;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $color-white;
+      position: relative;
+
+      &--close {
+        position: absolute;
+        top: 50%;
+        right: 2%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          color: #f90d0d;
+        }
+      }
+    }
+
+    .box-register,
+    .box-login {
+      padding: 1rem 2rem;
+      margin-top: 2rem;
+
+      .ant-form-item-label {
+        width: 9rem;
+        text-align: left;
+      }
+
+      &__btn,
+      .ant-checkbox-wrapper {
+        margin-left: 9rem;
+      }
+
+      .ant-btn {
+        width: 12rem;
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        font-weight: 600;
+      }
+
+      .forgot-password,
+      .ant-btn-link span {
+        text-decoration: underline;
+      }
+
+      .forgot-password {
+        color: #40a9ff;
+      }
+    }
+
+    .box-register {
+      .ant-form-item-label {
+        width: 13.5rem;
+      }
+
+      .ant-btn-primary,
+      .ant-checkbox-wrapper {
+        margin-left: 13.5rem;
+      }
+
+      .ant-form-item-explain-error:nth-child(6) {
+        margin-left: 13.5rem;
+      }
+    }
+  }
+}

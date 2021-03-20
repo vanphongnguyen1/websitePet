@@ -1,0 +1,178 @@
+@import '../../assets/avarlibel.scss';
+
+.news {
+  background-color: $color-white;
+  padding-bottom: 3rem;
+
+  &__box {
+    padding: 1rem 0;
+    cursor: pointer;
+
+    &:hover &-text--title {
+      color: #8c6e27;
+    }
+  }
+
+  &__link {
+    position: relative;
+  }
+
+  &__box-text {
+    &--title {
+      color: $color-main-dark;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 1rem;
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      transition: all 0.4s ease-in-out;
+    }
+
+    &--text {
+      margin-top: 0.5rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+  }
+
+  &__date {
+    position: absolute;
+    display: block;
+    top: 10%;
+    left: 0;
+
+    background: $color-main-dark;
+    color: $color-white;
+    padding: 0.7rem 1.2rem;
+
+    &--day {
+      font-size: 1.8rem;
+      font-weight: 600;
+      display: block;
+      line-height: 1.5rem;
+    }
+
+    &--month {
+      font-weight: 600;
+      line-height: 1.5rem;
+      display: block;
+    }
+  }
+
+  &__box-small {
+    .news__link {
+      display: flex;
+    }
+    .news__box-img {
+      height: 100%;
+      margin-right: 1.5rem;
+      width: 35rem;
+
+      &--img {
+        height: 15rem;
+        width: 100%;
+      }
+    }
+    .news__box-text {
+      width: 70%;
+    }
+  }
+}
+
+// ------------------------Tables - desktop---------------------------------------------
+@media (max-width: 1024px) {
+  .news {
+    &__box-text {
+      &--title {
+        font-size: 1.5rem;
+      }
+
+      &--text {
+        font-size: 1.3rem;
+      }
+    }
+
+    &__date {
+      &--day {
+        font-size: 1.7rem;
+      }
+
+      &--month {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+// -------------------Table Modile Medium------------
+@media (max-width: 991px) {
+  .news {
+    &__box-text {
+      &--title {
+        font-size: 1.5rem;
+      }
+
+      &--text {
+        font-size: 1.3rem;
+      }
+    }
+
+    &__date {
+      &--day {
+        font-size: 1.7rem;
+      }
+
+      &--month {
+        font-size: 1.3rem;
+      }
+    }
+
+    &__box-small {
+      .news__box-img {
+        height: auto;
+
+        &--img {
+          height: 11rem;
+        }
+      }
+      .news__box-text {
+        width: 90%;
+      }
+    }
+  }
+}
+
+// -----------------Modile-----------------
+@media (max-width: 767px) {
+  .news {
+    &__box-img {
+      &--img {
+        height: 25rem;
+        width: 100%;
+      }
+    }
+
+    &__box-small {
+      margin-top: 1rem;
+
+      .news__link {
+        display: block;
+      }
+      .news__box-img {
+        width: 100%;
+
+        &--img {
+          height: 25rem;
+        }
+      }
+      .news__box-text {
+        width: 100%;
+      }
+    }
+  }
+}

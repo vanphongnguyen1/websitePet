@@ -1,0 +1,207 @@
+@import '../../assets/avarlibel.scss';
+
+.my-cart {
+  margin-top: 2rem;
+
+  &__box-img {
+    display: inline-block;
+    height: 7rem;
+
+    &--img {
+      width: 100%;
+      height: 7rem;
+      // object-fit: cover;
+    }
+  }
+
+  .box-count {
+    display: flex;
+    align-items: center;
+
+    &--icon-plus,
+    &--icon-minus {
+      padding: 0 1rem;
+      height: 3rem;
+    }
+
+    &--input {
+      width: 40%;
+      text-align: center;
+      cursor: pointer;
+      height: 3rem;
+      border: 1px solid #d9d9d9;
+      background-color: #fff;
+
+      &[disabled] {
+        background: #f5f5f5;
+        border-color: #d9d9d9;
+        cursor: no-drop;
+      }
+
+      &:focus {
+        border-color: #40a9ff;
+      }
+    }
+  }
+
+  &--name {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  &--text {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  &__box-btn {
+    margin: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .box-subtotal {
+    padding: 3rem;
+    background: #fff;
+
+    &--text {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: right;
+    }
+  }
+
+  .ant-table-row .ant-table-cell:nth-child(2) {
+    width: 15rem;
+  }
+  .ant-table-row .ant-table-cell:nth-child(3) {
+    width: 30rem;
+  }
+  .my-cart .ant-table-row .ant-table-cell:last-child {
+    width: 10rem;
+  }
+}
+
+// ------------------------Tables - desktop---------------------------------------------
+@media (max-width: 1024px) {
+  .ant-table-row .ant-table-cell:nth-child(2) {
+    width: 10rem;
+  }
+  .ant-table-row .ant-table-cell:nth-child(3) {
+    width: 25rem;
+  }
+
+  .box-subtotal {
+    &--text {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+// -------------------Table Modile Medium------------
+@media (max-width: 991px) {
+  .my-cart {
+    &--name {
+      font-size: 1.4rem;
+    }
+
+    &--text {
+      font-size: 1.3rem;
+    }
+
+    .box-count {
+      &--icon-plus,
+      &--icon-minus {
+        padding: 0 5px;
+        height: 2.8rem;
+      }
+
+      &--input {
+        width: 55%;
+        height: 2.8rem;
+      }
+    }
+
+    .box-subtotal {
+      &--text {
+        font-size: 1.6rem;
+      }
+    }
+
+    .ant-table-row .ant-table-cell:nth-child(2) {
+      width: 10rem;
+    }
+    .ant-table-row .ant-table-cell:nth-child(3) {
+      width: 20rem;
+    }
+  }
+}
+
+// -----------------Modile-----------------
+@media (max-width: 767px) {
+  .box-subtotal {
+    &--text {
+      font-size: 1.5rem;
+    }
+  }
+
+  .my-cart .ant-table-cell{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .my-cart .ant-table-row .ant-table-cell:nth-child(3) {
+    width: 20rem;
+  }
+  .my-cart .ant-table-row .ant-table-cell:nth-child(4) {
+    width: 13rem;
+  }
+  .my-cart .ant-table-row .ant-table-cell:last-child {
+    width: 10rem;
+    text-align: center;
+  }
+  .my-cart .ant-table-row .ant-table-cell .ant-btn {
+    padding: 0 0.5rem;
+  }
+}
+
+// -----------------Modile-----------------
+@media (max-width: 575px) {
+  .my-cart {
+    &--name {
+      font-size: 1.2rem;
+    }
+
+    &--text {
+      font-size: 1.2rem;
+    }
+
+    .box-subtotal {
+      &--text {
+        font-size: 1.5rem;
+      }
+    }
+
+    .box-count {
+      &--icon-plus {
+        margin-left: 7px;
+      }
+      &--icon-minus {
+        margin-right: 7px;
+      }
+
+      &--icon-plus,
+      &--icon-minus {
+        padding: 0 5px;
+        height: 2.4rem;
+      }
+    }
+
+    .my-cart .ant-table-row .ant-table-cell:last-child {
+      width: 6rem;
+      text-align: center;
+    }
+    .my-cart .ant-table-row .ant-table-cell .ant-btn {
+      height: 2.4rem;
+    }
+  }
+}

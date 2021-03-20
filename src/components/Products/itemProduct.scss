@@ -1,0 +1,114 @@
+@import '../assets/avarlibel.scss';
+
+.box {
+  border-right: 1px solid #ccc;
+  background-color: $color-white;
+  position: relative;
+  cursor: pointer;
+
+  &:hover &--img-sub {
+    opacity: 1;
+  }
+
+  &:hover .box-text .box-text--name {
+    color: #04104c;
+  }
+
+  &--img-sub,
+  &--img {
+    width: 100%;
+    height: 22.7rem;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &--img-sub {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .box-text {
+    padding: 1rem;
+    padding-bottom: 0;
+
+    &--title {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      color: $color-black;
+      font-weight: 400;
+    }
+
+    &--name {
+      color: $color-black;
+      font-weight: 700;
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+    }
+
+    &--price {
+      color: $color-main-dark;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+  }
+
+  .btn-box {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+  }
+}
+
+// ------------------------Tables - desktop---------------------------------------------
+@media (max-width: 1024px) {
+  .box {
+    &--img-sub,
+    &--img {
+      height: 22rem;
+      object-fit: fill;
+    }
+
+    .box-text {
+      padding: 1rem;
+      padding-bottom: 0;
+
+      &--title {
+        font-size: 1.1rem;
+      }
+
+      &--name {
+        font-size: 1.3rem;
+      }
+
+      &--price {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+// -----------------Modile-----------------
+@media (max-width: 767px) {
+  .box {
+    .box-text {
+      padding: 1rem;
+      padding-bottom: 0;
+
+      &--title {
+        font-size: 1.4rem;
+      }
+
+      &--name {
+        font-size: 1.5rem;
+      }
+
+      &--price {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

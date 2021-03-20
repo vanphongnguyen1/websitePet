@@ -1,0 +1,81 @@
+@import '../../assets/animation.scss';
+
+.header-top {
+  background-color: #271a1b;
+  padding: 0.8rem;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    padding: 0 2rem;
+    line-height: 1.8rem;
+    height: 1.8rem;
+
+    &:last-child {
+      padding-right: 0;
+    }
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid #6C6465;
+    }
+
+    &--icon {
+      color: #6C6465;
+      padding-right: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    &--icon.icon-phone {
+      animation: phone 3s ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    &--text {
+      font-size: 1.6rem;
+      color: #6C6465;
+    }
+
+    &--icon-faceboock,
+    &--icon-instagram,
+    &--icon-twitter,
+    &--icon-email {
+      color: #6C6465;
+      margin: 0 0.3rem;
+    }
+
+    &--icon-faceboock:hover,
+    &--icon-instagram:hover,
+    &--icon-twitter:hover,
+    &--icon-email:hover {
+      color: #ddd;
+    }
+  }
+}
+
+// ------------------------Tables - desktop---------------------------------------------
+@media (max-width: 1024px) {
+  .header-top {
+    padding: 0.8rem;
+
+    &__item {
+      padding: 0 1rem;
+
+      &--icon {
+        font-size: 1.6rem;
+      }
+
+      &--text {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.box-logo {
+  &--logo {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+
+
+// -----------------Modile-----------------
+@media (max-width: 767px) {
+  .box-logo {
+    &--logo {
+      width: 70%;
+    }
+  }
+}

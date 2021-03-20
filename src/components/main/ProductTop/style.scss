@@ -1,0 +1,103 @@
+@import '../../assets/avarlibel.scss';
+
+.product-top {
+  margin-top: 1rem;
+  background-color: $color-white;
+
+  &__box-btn {
+    text-align: center;
+    padding: 3rem 0 2rem 0;
+  }
+
+  .slick-slider {
+    &:hover .slick-prev,
+    &:hover .slick-next {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .slick-prev,
+  .slick-next {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+    width: 3rem;
+    height: 3rem;
+    z-index: 2;
+  }
+  .slick-prev {
+    transform: translateX(25px);
+    padding-right: 1rem;
+  }
+  .slick-next {
+    transform: translateX(-25px);
+    padding-left: 1rem;
+  }
+
+  .slick-prev:before {
+    content: '\f053';
+  }
+  .slick-next:before {
+    content: '\f054';
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    font-family: "Font Awesome 5 Pro";
+    color: gray;
+    font-size: 3rem;
+  }
+}
+
+// -------------------Table Modile Medium------------
+@media (max-width: 991px) {
+  .product-top {
+    margin-top: 1rem;
+
+    .slick-slider {
+      &:hover .slick-prev {
+        transform: translateX(25px);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &:hover .slick-next {
+        transform: translateX(-25px);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .slick-prev,
+    .slick-next {
+      width: 2.5rem;
+      height: 5rem;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .slick-prev {
+      transform: translateX(50px);
+      padding-right: 0;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .slick-next {
+      transform: translateX(-50px);
+      padding-left: 0;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .slick-prev:before {
+      content: '\f053';
+    }
+    .slick-next:before {
+      content: '\f054';
+    }
+    .slick-prev:before,
+    .slick-next:before {
+      font-size: 2rem;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,246 @@
+@import '../../assets/avarlibel.scss';
+
+.info-product {
+  .slick-next,
+  .slick-prev {
+    display: none !important;
+  }
+
+  .slider-small {
+    margin-top: 2rem;
+    cursor: pointer;
+
+    &:hover .slick-next {
+      transform: translate(-25px, -50%);
+      opacity: 1;
+      visibility: visible;
+    }
+    &:hover .slick-prev {
+      transform: translate(25px, -50%);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .slick-prev,
+    .slick-next {
+      display: block !important;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease-in-out;
+      width: 3rem;
+      height: 4rem;
+      z-index: 2;
+      background: rgba($color-white, 0.3);
+      transition: all 0.3s ease-in-out;
+    }
+    .slick-prev {
+      transform: translate(50px, -50%);
+      border-radius: 0 5px 5px 0;
+    }
+    .slick-next {
+      transform: translate(-50px, -50%);
+      border-radius: 5px 0 0 5px;
+    }
+
+    .slick-prev:before {
+      content: '\f053';
+    }
+    .slick-next:before {
+      content: '\f054';
+    }
+    .slick-prev:before,
+    .slick-next:before {
+      font-family: "Font Awesome 5 Pro";
+      color:#000;
+      font-size: 2rem;
+    }
+
+  }
+
+  &__box {
+    padding: 3rem 0;
+
+    .box-info {
+      background-color: #f7f7f7;
+      padding: 0 2rem 2rem 2rem;
+
+      &__name {
+        padding: 1rem 0.5rem;
+        font-size: 2.2rem;
+        border-bottom: 1px dotted #ddd;
+      }
+
+      &__list-box {
+        flex: 0 0 48%;
+      }
+
+      &__list {
+        padding: 0 1rem 1rem 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &--item {
+          list-style-type: none;
+          margin: 1rem 0;
+
+          &-icon {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #78cb34;
+          }
+
+          &-text {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-left: 1rem;
+          }
+
+          &-textsub {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-left: 0.7rem;
+          }
+        }
+      }
+
+      &__price {
+        color: $color-main-dark;
+        font-weight: 500;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px dotted #ddd;
+        padding: 1rem;
+      }
+
+      .box-btn-info {
+        border-bottom: 1px dotted #ddd;
+        padding-bottom: 2rem;
+      }
+
+      &__category {
+        margin-top: 1rem;
+
+        &--title {
+          color: #999;
+        }
+
+        &--text {
+          text-transform: uppercase;
+          font-size: 1.3rem;
+          padding-left: 1rem;
+        }
+
+        .social-network {
+          margin-top: 1rem;
+
+          ul {
+            li {
+              display: inline-block;
+              margin: 0 0.5rem;
+            }
+          }
+
+          &__icon {
+            font-size: 1.6rem;
+            padding: 1px;
+            background: #d2d2d2;
+            border-radius: 50%;
+
+            width: 2.8rem;
+            height: 2.8rem;
+            display: inline-block;
+            text-align: center;
+            color: #f5fbf6;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              color: $color-white;
+              background-color: #2478ba;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__box-img {
+    height: 40rem;
+    padding: 0 0.5rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__img-small {
+    height: 13rem;
+    padding: 0 0.5rem;
+    opacity: 0.5;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__img-small &__box-img{
+    height: 100%;
+    padding: 0;
+  }
+
+  .similar-product {
+    padding: 2rem 0;
+    border-top: 1px solid #ccc;
+  }
+}
+
+// ------------------------Tables - desktop---------------------------------------------
+@media (max-width: 1024px) {
+  .info-product {
+    &__box {
+      .box-info {
+
+        &__name {
+          font-size: 2rem;
+        }
+
+        &__list-box {
+          flex: 0 0 50%;
+        }
+
+        &__list {
+          &--item {
+            &-icon {
+              font-weight: 700;
+              font-size: 1.5rem;
+            }
+
+            &-text {
+              font-size: 1.5rem;
+            }
+
+            &-textsub {
+              font-size: 1.4rem;
+            }
+          }
+        }
+
+        &__price {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}
+
+// -----------------Modile-----------------
+@media (max-width: 767px) {
+  .info-product {
+    &__box {
+      padding: 0;
+      padding-top: 3rem;
+    }
+  }
+}

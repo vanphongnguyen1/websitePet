@@ -1,0 +1,105 @@
+@import '../assets/avarlibel.scss';
+
+.product {
+  background-color: $color-white;
+  margin: 1rem 0 2rem 0;
+
+  &__box-btn {
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .list-product {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.box-item {
+  flex: 0 0 20%;
+  padding: 0 5px;
+  margin-bottom: 2rem;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+// ------------------------Tables - desktop---------------------------------------------
+@media (max-width: 1024px) {
+  .product {
+    .box-item {
+      padding: 0;
+
+      &:hover {
+        transform: scale(0.97);
+      }
+    }
+  }
+}
+
+// -------------------Table Modile Medium------------
+@media (max-width: 991px) {
+  .product {
+    background-color: $color-white;
+    margin-top: 1rem;
+
+    .list-product {
+      display: block;
+    }
+    .box-item {
+      padding: 0 2px;
+    }
+
+    .slick-slider {
+      &:hover .slick-prev {
+        transform: translateX(25px);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &:hover .slick-next {
+        transform: translateX(-25px);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .slick-prev,
+    .slick-next {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease-in-out;
+      width: 2.5rem;
+      height: 5rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+
+    .slick-prev {
+      transform: translateX(50px);
+      padding-right: 0;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .slick-next {
+      transform: translateX(-50px);
+      padding-left: 0;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .slick-prev:before {
+      content: '\f053';
+    }
+    .slick-next:before {
+      content: '\f054';
+    }
+    .slick-prev:before,
+    .slick-next:before {
+      font-family: "Font Awesome 5 Pro";
+      font-size: 2rem;
+      color: #fff;
+    }
+  }
+}

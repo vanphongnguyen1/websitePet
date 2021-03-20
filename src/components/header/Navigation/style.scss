@@ -1,0 +1,175 @@
+@import '../../assets/avarlibel.scss';
+@import './navDropdown.scss';
+
+.header-bottom {
+  background-color: $color-main;
+
+  .nav {
+    &__list {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+
+    &__item {
+      display: inline-block;
+      list-style: none;
+
+      &:hover>a::before{
+        width: 100%;
+      }
+    }
+
+    &__link {
+      color: $color-text-nav;
+      padding: 1.5rem;
+      font-size: 1.4rem;
+      display: inline-block;
+
+      text-transform: uppercase;
+      font-weight: 600;
+      position: relative;
+
+      &::before{
+        content: '';
+        width: 0%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background-color: #0c0c0c;
+        transition: all .4s ease-in-out;
+      }
+
+      &:hover {
+        color: #FF5440;
+       }
+    }
+
+    .active {
+      color: #FF5440;
+    }
+
+    &__icon {
+      margin-left: 3px;
+    }
+
+    .menu-child {
+      position: relative;
+      transition: all 0.4s ease-in-out;
+
+      &:hover .drop-down {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// ------------------------Tables - desktop---------------------------------------------
+@media (max-width: 1024px) {
+  .header-bottom {
+    .nav {
+      &__link {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+// -------------------Table Modile Medium------------
+@media (max-width: 991px) {
+  .header-bottom {
+    .nav {
+      &__link {
+        padding: 1.5rem 0.7rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+// -----------------Modile-----------------
+@media (max-width: 767px) {
+  .header-bottom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25rem;
+    height: 100vh;
+
+    z-index: 3;
+    background: #fff;
+    overflow-y: scroll;
+    animation: left-dog 0.3s ease-in-out;
+
+    .container {
+      padding: 0;
+    }
+
+    .nav {
+      &__list {
+        display: block;
+      }
+
+      &__item {
+        display: block;
+        list-style: none;
+        border-top: 1px solid #ccc;
+
+        &:hover>a::before{
+          width: 100%;
+        }
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
+
+      &__link {
+        padding: 1rem 2rem;
+        font-size: 1.3rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &::before{
+          content: '';
+          width: 0%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 1px;
+          background-color: #0c0c0c;
+          transition: all .4s ease-in-out;
+        }
+
+        &:hover {
+          color: initial;
+         }
+      }
+
+      &__icon {
+        transform: rotate(-90deg);
+      }
+
+      .menu-child {
+        position: relative;
+        transition: all 0.4s ease-in-out;
+
+        &:hover .drop-down {
+          // opacity: 1;
+          // visibility: visible;
+          display: block;
+        }
+      }
+
+      &__box-mobile {
+        padding: 2rem;
+        &--img {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}

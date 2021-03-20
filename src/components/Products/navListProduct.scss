@@ -1,0 +1,29 @@
+
+.nav-product {
+
+  &__item {
+    list-style: none;
+    margin-bottom: 3px;
+  }
+
+  &__link {
+    font-size: 1.4rem;
+    padding: 0.5rem 1.5rem;
+    display: block;
+    font-weight: 500;
+
+    &:hover {
+      color: #04104c;
+      background-color: #f1f1f1;
+    }
+  }
+}
+
+// ------------------------Tables - desktop---------------------------------------------
+@media (max-width: 1024px) {
+  .nav-product {
+    &__link {
+      font-size: 1.3rem;
+    }
+  }
+}

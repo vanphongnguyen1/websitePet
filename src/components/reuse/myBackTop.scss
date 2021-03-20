@@ -1,0 +1,23 @@
+@import '../assets/avarlibel.scss';
+
+.back-top {
+  .ant-back-top {
+    right: 3rem;
+    bottom: 4rem;
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba($color-main-dark, 0.8);
+    border-radius: 50%;
+
+    &--text {
+      font-size: 2rem;
+      color: $color-white;
+      padding: 1rem 0;
+    }
+  }
+}
