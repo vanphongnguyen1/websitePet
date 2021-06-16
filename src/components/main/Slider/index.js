@@ -70,15 +70,17 @@ const Banner = () => {
   return (
     <>
       <div className="banner">
-        <Slider {...settings}>
-          {
-            textBanner && (
-              textBanner.map((item, index) => {
-                return <ItemBanner item={item} key={index} index={index}/>
-              })
-            )
-          }
-        </Slider>
+        {/* <div className="container"> */}
+          <Slider {...settings}>
+            {
+              textBanner && (
+                textBanner.map((item, index) => {
+                  return <ItemBanner item={item} key={index} index={index}/>
+                })
+              )
+            }
+          </Slider>
+        {/* </div> */}
       </div>
     </>
   )

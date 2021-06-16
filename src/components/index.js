@@ -11,6 +11,7 @@ import ScrollToTop from './reuse/ScrollToTop'
 import './assets/layout.scss'
 import 'antd/dist/antd.css'
 import './assets/reset.scss'
+import './assets/override.scss'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 

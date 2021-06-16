@@ -21,13 +21,13 @@
     }
 
     &__link {
-      color: $color-text-nav;
+      color: $color-text-nav;;
       padding: 1.5rem;
-      font-size: 1.4rem;
-      display: inline-block;
+      font-size: 1.3rem;
 
+      display: inline-block;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
       position: relative;
 
       &::before{

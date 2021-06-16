@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Buttom from '../../reuse/Buttom'
 import { useDispatch } from 'react-redux'
 import { addProduct as addProductAction } from '../../redux/actions/addProduct'
+import { setStatusLogin } from '../../redux/statusLoginSlice'
 import { DATAICONTOOLTIP } from '../../dataConst'
 import ItemNetwork from '../../footer/ItemNetwork'
 import MyModal from '../../Modal/ModalBuyNow'
@@ -19,15 +20,20 @@ const BoxInfo = props => {
   const dispatch = useDispatch()
 
   const addProduct = item => {
-    dispatch(
-      addProductAction({
-        ...item,
-        subtotal: item.price * count,
-        count,
-      })
-    )
-
-    message.success('Đơn hàng đã được thêm vào giỏ.')
+    const id = sessionStorage.getItem('id')
+    if (id) {
+      dispatch(
+        addProductAction({
+          ...item,
+          subtotal: item.price * count,
+          count,
+        })
+      )
+  
+      message.success('Đơn hàng đã được thêm vào giỏ.')
+    } else {
+      dispatch(setStatusLogin(true))
+    }
   }
 
   const handleVisitleModal = () => {

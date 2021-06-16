@@ -1,15 +1,15 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import rootReducers from './components/redux/reducers'
-import reactThunk from 'redux-thunk'
+import { configureStore } from '@reduxjs/toolkit'
+// import logger from 'redux-logger'
+import { rootReducers } from './components/redux/rootReducers'
+// import { loadingBarMiddleware } from 'react-redux-loading-bar'
 
-const middlewareEnhacer = applyMiddleware(reactThunk)
-
-const store = createStore(
-  rootReducers,
-  compose(
-    middlewareEnhacer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
-)
+const store =  configureStore({
+  reducer: rootReducers,
+//   middleware: getDefaultMiddleware =>
+//     getDefaultMiddleware().concat(loadingBarMiddleware({
+//       scope: 'sectionBar',
+//     })
+// )
+})
 
 export default store

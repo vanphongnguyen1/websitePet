@@ -2,17 +2,86 @@
 
 .login {
   display: inline-block;
+  position: relative;
 
   &:hover &--icon {
     color: #c3bdbd;
   }
 
-  &--icon {
+  &__box {
+    display: flex;
+    align-items: center;
+
+    &:hover .login__text-name {
+      color: #c3bdbd;
+    }
+  }
+
+  &__icon {
+    font-size: 2.3rem;
+    color: #fff;
+    margin-left: 1.3rem;
+    display: inline-block;
+    line-height: 0.5rem;
+  }
+
+  &__text-name,
+  &__text {
     color: $color-white;
     font-size: 1.6rem;
     padding: 0 1.5rem;
     transition: all 0.4s ease-in-out;
     cursor: pointer;
+  }
+
+  &__text-name {
+    padding: 0 0.7rem;
+    transition: all .3s ease-in-out;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+  }
+
+  .module-user {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+
+    z-index: 5;
+    border-radius: 0.5rem;
+    box-shadow: 0px 1px 6px 1px #ccc;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    transform: scale(0);
+    transform-origin: top;
+
+    &__list {
+      list-style: none;
+    }
+
+    &__item {
+      font-weight: 500;
+      text-align: center;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        background-color: #e6e4e4;
+      }
+    }
+  }
+
+  .visit-module {
+    transform: scale(1);
   }
 }
 

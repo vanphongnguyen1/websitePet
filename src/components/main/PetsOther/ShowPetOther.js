@@ -11,9 +11,9 @@ import ShowAll from '../../Products/ShowAll'
 import { useHandleSort } from '../../customHooks'
 import PageTitle from '../../reuse/PageTitle'
 import MyBackTop from '../../reuse/MyBackTop'
-import { Link } from 'react-router-dom'
-import CartIcon from '../../Cart/CartIcon'
-import { MobileHiden } from '../../responsive'
+// import { Link } from 'react-router-dom'
+// import CartIcon from '../../Cart/CartIcon'
+// import { MobileHiden } from '../../responsive'
 
 const ShowPetOther = props => {
   const { match } = props
@@ -44,11 +44,11 @@ const ShowPetOther = props => {
 
       <MyBackTop />
 
-      <MobileHiden>
+      {/* <MobileHiden>
         <Link to="/cart">
           <CartIcon classType="cart-fixed"/>
         </Link>
-      </MobileHiden>
+      </MobileHiden> */}
     </>
   )
 }

@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom'
 import { DOG, MEW, ACCESSORIES } from '../dataConst'
 import './products.scss'
 
-const DEVICE_SIZE = {
-  SMALL_PC: 991,
-  TABLET: 767
-}
+// const DEVICE_SIZE = {
+//   SMALL_PC: 991,
+//   TABLET: 767
+// }
 
 const Products = props => {
   const { child, products, title} = props
@@ -84,8 +84,19 @@ const Products = props => {
       </div>
 
       <div className="product__box-btn">
-        <Link to={title === DOG ? '/dogs' : title === MEW ? '/mews' : title === ACCESSORIES ? '/accessories' : '/pet-other'}>
-          <Buttom title="Xem tất cả" classType="btn--show-all" icon="fad fa-angle-double-right"/>
+        <Link
+          to={
+            title === DOG
+            ? '/dogs' : title === MEW
+            ? '/mews' : title === ACCESSORIES
+            ? '/accessories' : '/pet-other'
+          }
+        >
+          <Buttom
+            title="Xem tất cả"
+            classType="btn--show-all"
+            icon="fad fa-angle-double-right"
+          />
         </Link>
       </div>
     </div>

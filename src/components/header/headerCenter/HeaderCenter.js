@@ -4,12 +4,15 @@ import Cart from '../../Cart'
 import Login from '../../Login'
 import { TabletHiden, MobileHiden, Mobile } from '../../responsive'
 import Navigation from '../Navigation/Navigation'
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom"
+import { useDispatch } from 'react-redux'
+import { setStatusLogin } from '../../redux/statusLoginSlice'
 import Logo from '../../reuse/Logo'
 import './style.scss'
 
 const HeaderCenter = () => {
-
+  const history = useHistory()
+  const dispatch = useDispatch()
   const [ isNavMobile, setIsNavMobile ] = useState(false)
   const navMobileRef = useRef(null)
 
@@ -25,7 +28,6 @@ const HeaderCenter = () => {
         ele.classList.remove('sroll-nav')
       }
     }
-
   }
 
   window.addEventListener('scroll', handleNavigation)
@@ -38,24 +40,45 @@ const HeaderCenter = () => {
     setIsNavMobile(false)
   }
 
+  const handleToCart = () => {
+    const id = sessionStorage.getItem('id')
+    if (id) {
+      history.push('/cart')
+    } else {
+      dispatch(setStatusLogin(true))
+    }
+  }
+
   return (
     <>
-      <div className="header-center" ref={navMobileRef}>
+      <div
+        className="header-center"
+        ref={navMobileRef}
+      >
         <div className="container">
           <div className="row align-center">
-
             <Mobile>
               {
                 isNavMobile && (
                   <>
                     <Navigation />
-                    <span className="close-nav-mobile far fa-arrow-left" onClick={handleHidenNavMobile} />
-                    <span className="follow" onClick={handleHidenNavMobile} />
+                    <span
+                      className="close-nav-mobile far fa-arrow-left"
+                      onClick={handleHidenNavMobile}
+                    />
+
+                    <span
+                      className="follow"
+                      onClick={handleHidenNavMobile}
+                    />
                   </>
                 )
               }
               <div className="col-sm-2 col-2">
-                <span className="nav-mobile far fa-bars" onClick={handleShowNavMobile}/>
+                <span
+                  className="nav-mobile far fa-bars"
+                  onClick={handleShowNavMobile}
+                />
               </div>
             </Mobile>
 
@@ -73,10 +96,9 @@ const HeaderCenter = () => {
 
             <div className="col-xl-3 col-lg-3 col-md-2 col-sm-2 col-2">
               <div className="header-center__box">
-
-                <Link to="/cart">
+                <div className="box-cart" onClick={handleToCart}>
                   <Cart />
-                </Link>
+                </div>
 
                 <TabletHiden>
                   <Login />
