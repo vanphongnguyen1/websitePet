@@ -1,16 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import Slider from "react-slick"
 import ItemProduct from "../../Products/ItemProduct"
 import BoxHeading from "../../reuse/BoxHeading"
 import Buttom from "../../reuse/Buttom"
-import { dataAll, PRODUCTHOT } from '../../dataConst'
+import { PRODUCTHOT } from '../../dataConst'
 import { Link } from 'react-router-dom'
-import { useHandleSort } from '../../customHooks'
+import { useSelector } from 'react-redux'
+import { handleSort } from '../../assets/js/handleSort'
 import './style.scss'
 
 const ProductTop = () => {
   const [isParentSort, setIsParentSort] = useState('')
-  const data = useHandleSort({dataAll, group: '', isParentSort})
+  const dataProductFetch = useSelector(state => state.products)
+
+  const data = useMemo(() => {
+    if (dataProductFetch.loading === 'success') {
+      return handleSort({dataAll: dataProductFetch.list, group: '', isParentSort})
+    }
+  }, [isParentSort, dataProductFetch])
 
   const settings = {
     slidesToShow: 5,
@@ -49,15 +56,17 @@ const ProductTop = () => {
 
             <Slider {...settings}>
               {
-                data.map(item => {
-                  return item.hot && (
-                    <Link to={`${item.group}/${item.url}`}
-                      key={item.id}
-                    >
-                      <ItemProduct item={item}/>
-                    </Link>
-                  )
-                })
+                  dataProductFetch.loading === 'success' && data.length > 0
+                  && data.map(item => {
+                    return item.isHot && (
+                      /* <Link to={`${item.group.name}/${item.lineage.name}/${item.url}`} */
+                      <Link to={`${item.lineage.name}/${item.url}`}
+                        key={item.id}
+                      >
+                        <ItemProduct item={item}/>
+                      </Link>
+                    )
+                  })
               }
             </Slider>
 

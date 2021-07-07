@@ -1,19 +1,71 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Form,
   Input,
-  Checkbox,
+  Select,
   Button,
 } from 'antd';
+import { customAxiosApi } from '../../reuse/CustomAxios'
+import { REGEX, API_NAME } from '../../dataConst'
 import './style.scss'
 
 const Register = props => {
   const { setIslogin } = props
   const [form] = Form.useForm()
+  const [validEmail , setValidEmail] = useState('')
+
+  const validatorEmail = (rules, value) => {
+    const regex = REGEX.EMAIL
+    const match = regex.test(value)
+
+    if (validEmail) {
+      return Promise.reject(validEmail)
+    }
+
+    if (!match) {
+      return Promise.reject('Email không hợp lệ !')
+    }
+
+    return Promise.resolve()
+  }
+
+  const validatorPhone = (rules, value) => {
+    const regex = REGEX.PHONE
+    const match = regex.test(value)
+
+    if (!match) {
+      return Promise.reject('Đầu số 09|03|08|05|07 gồm 10 số !')
+    }
+
+    return Promise.resolve()
+  }
+
+  const validatorPassWord = (rules, value) => {
+    const regex = REGEX.PASSWORD
+    const match = regex.test(value)
+
+    if (!match) {
+      return Promise.reject('Tối thiểu 8 ký tự, ít nhất một chữ cái và một số!')
+    }
+
+    return Promise.resolve()
+  }
 
   const onFinish = (values) => {
-    console.log('Received values of form: ', values)
-    setIslogin(true)
+    const data = {
+      ...values,
+      role: 0
+    }
+
+    customAxiosApi.post(API_NAME.USERS, data)
+      .then(resp => {
+        const { data } = resp
+
+        if (typeof data === 'string') {
+          setValidEmail('Email đã tồn tại !')
+        }
+        setIslogin(true)
+      })
   }
 
   return (
@@ -22,22 +74,18 @@ const Register = props => {
         form={form}
         name="register"
         onFinish={onFinish}
-        // initialValues={{
-        //   prefix: '86',
-        // }}
-        // scrollToFirstError
       >
         <Form.Item
-          name="nickname"
+          name="name"
           label={
             <span>
-              Nickname
+              User Name
             </span>
           }
           rules={[
             {
               required: true,
-              message: 'Please input your nickname!',
+              message: 'Hãy nhập User Name !',
               whitespace: true,
             },
           ]}
@@ -46,12 +94,49 @@ const Register = props => {
         </Form.Item>
 
         <Form.Item
+          name="email"
+          label="Email"
+          rules={[
+            {
+              validator: validatorEmail
+            },
+            {
+              required: true,
+              message: 'Hãy nhập Email !',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          name="genderID"
+          label="Gender"
+          rules={[
+            {
+              required: true,
+              message: 'Hãy nhập giới tính !',
+            },
+          ]}
+          initialValue="1"
+        >
+          <Select
+          >
+            <Select.Option value="1">Male</Select.Option>
+            <Select.Option value="0">Female</Select.Option>
+          </Select>
+        </Form.Item>
+
+        <Form.Item
           name="phone"
           label="Phone Number"
           rules={[
             {
+              validator: validatorPhone
+            },
+            {
               required: true,
-              message: 'Please input your phone number!',
+              message: 'Hãy nhập số điện thoại !',
             },
           ]}
         >
@@ -63,12 +148,29 @@ const Register = props => {
         </Form.Item>
 
         <Form.Item
+          name="address"
+          label="Address"
+          rules={[
+            {
+              required: true,
+              message: 'Hãy nhập địa chỉ !',
+              whitespace: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
           name="password"
           label="Password"
           rules={[
             {
+              validator: validatorPassWord
+            },
+            {
               required: true,
-              message: 'Please input your password!',
+              message: 'Hãy nhập mật khẩu !',
             },
           ]}
           hasFeedback
@@ -84,7 +186,7 @@ const Register = props => {
           rules={[
             {
               required: true,
-              message: 'Please confirm your password!',
+              message: 'Hãy nhập lại mật khẩu !',
             },
             ({ getFieldValue }) => ({
               validator(_, value) {
@@ -92,44 +194,12 @@ const Register = props => {
                   return Promise.resolve();
                 }
 
-                return Promise.reject('The two passwords that you entered do not match!');
+                return Promise.reject('Nhập lại mật khẩu không hợp lệ !');
               },
             }),
           ]}
         >
           <Input.Password />
-        </Form.Item>
-
-        <Form.Item
-          name="email"
-          label="E-mail"
-          rules={[
-            {
-              type: 'email',
-              message: 'The input is not valid E-mail!',
-            },
-            {
-              required: true,
-              message: 'Please input your E-mail!',
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          name="agreement"
-          valuePropName="checked"
-          rules={[
-            {
-              validator: (_, value) =>
-                value ? Promise.resolve() : Promise.reject('Should accept agreement'),
-            },
-          ]}
-        >
-          <Checkbox>
-            I have read the <a href="#sdf">agreement</a>
-          </Checkbox>
         </Form.Item>
 
         <Form.Item >

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './header'
 import Footer from './footer'
 import {
@@ -8,6 +8,9 @@ import {
 } from "react-router-dom"
 import { routes } from '../routes'
 import ScrollToTop from './reuse/ScrollToTop'
+import { useDispatch } from 'react-redux'
+import { fetchProductsAll } from './redux/productSlice'
+import { fetchGroups } from './redux/groupSlice'
 import './assets/layout.scss'
 import 'antd/dist/antd.css'
 import './assets/reset.scss'
@@ -16,6 +19,13 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 const PetShop = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchProductsAll())
+    dispatch(fetchGroups())
+  }, [dispatch])
+
   return (
     <>
       <Router>

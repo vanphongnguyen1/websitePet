@@ -13,9 +13,46 @@ export const COLOR = "#f69"
 export const PRODUCTHOT = "Sản phầm bán chạy"
 
 export const groupDogs = 'dogs'
-export const groupMews = 'mews'
-export const groupOther = 'pet-other'
+export const groupMews = 'cats'
+export const groupOther = 'pet orther'
 export const groupAccessories = 'accessories'
+
+export const REGEX = {
+  // EMAIL: /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/,
+  EMAIL: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/,
+  PHONE: /(09|03|08|05|07)+([0-9]{8})\b/,
+  PASSWORD: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+}
+
+export const STATUS_FETCH = {
+  SUCCESS: 'success',
+  LOADING: 'loading',
+  FAILED: 'failed'
+}
+
+export const API_NAME = {
+  USERS: 'users',
+  ORDERS: 'orders',
+  CUSTOMERS: 'customers',
+  COMMENTS: 'comments',
+  PRODUCTS: 'products',
+  DETAILORDER: 'detailOrder',
+
+  TYPEPRODUCT: 'typeProduct',
+  PRODUCTDETAILORDER: 'productDetailOrder',
+
+  GROUPS: 'groups',
+  LINEAGE: 'lineage',
+  GENDER: 'gender',
+
+  IMAGES: 'images',
+  KEYSEARCH: 'keySearch',
+  PEYMENT: 'peyment',
+  STATUS: 'status',
+  TRASPORT: 'trasport',
+  SLIDER: 'slider',
+  STATUSCOMMENTS: 'statusComments',
+}
 
 export const DATACONTACT = [
   {

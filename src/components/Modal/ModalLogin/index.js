@@ -22,7 +22,7 @@ const ModalLogin = props => {
         <div className="modal__login">
           <h3 className="modal__login-title">
             {
-              isLogin ?'Đăng nhập vào Website' : 'Đăng ký tài khoản'
+              isLogin ? 'Đăng nhập vào Website' : 'Đăng ký tài khoản'
             }
 
             <span

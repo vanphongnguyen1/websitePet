@@ -1,18 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import {
   DATANAV,
   MEW,
   COLOR,
-  dataAll,
   groupMews as group
  } from '../../dataConst'
 import Products from '../../Products/Products'
 import BoxHeading from '../../reuse/BoxHeading'
-import { useHandleSort } from '../../customHooks'
+import { handleSort } from '../../assets/js/handleSort'
+import { useSelector } from 'react-redux'
 
 const ProductMews = () => {
   const [isParentSort, setIsParentSort] = useState('')
-  const data = useHandleSort({dataAll, group, isParentSort})
+  const dataProductFetch = useSelector(state => state.products)
+  const dataGroupFetch = useSelector(state => state.groups)
+
+  const data = useMemo(() => {
+    const listData = dataProductFetch.list
+    const listGroup = dataGroupFetch.list
+
+    if (dataProductFetch.loading === 'success' && dataGroupFetch.loading === 'success') {
+      const findGroup = listGroup.find(item => item.name === group)
+
+      return handleSort({dataAll: listData, group: findGroup.id, isParentSort})
+    }
+  }, [isParentSort, dataProductFetch, dataGroupFetch])
 
   return (
     <>
@@ -25,7 +37,7 @@ const ProductMews = () => {
                   return <Products
                     title={item.title}
                     child={item.child}
-                    products={data}
+                    products={data ? data : [] }
                     key={index}
                   />
                 }
