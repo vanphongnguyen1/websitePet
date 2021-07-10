@@ -114,7 +114,7 @@ export const DATANAV = [
   },
   {
     title: MEW,
-    to: '/mews',
+    to: '/cats',
     child: [
       { title: 'Mèo Abyssinian' },
       { title: 'Mèo Ashera' },

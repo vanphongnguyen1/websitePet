@@ -9,7 +9,11 @@ const Nav = () => {
     <div className="nav">
       <Mobile>
         <div className="nav__box-mobile">
-          <img src="https://dogily.vn/wp-content/uploads/2020/07/dogily-logo.png" alt="" className="nav__box-mobile--img"/>
+          <img
+            src="https://dogily.vn/wp-content/uploads/2020/07/dogily-logo.png"
+            alt="Logo Dogily"
+            className="nav__box-mobile--img"
+          />
           <HeaderSearch/>
         </div>
       </Mobile>

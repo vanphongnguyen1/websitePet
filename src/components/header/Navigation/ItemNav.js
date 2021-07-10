@@ -13,16 +13,13 @@ const ItemMenu = props => {
           className="nav__link"
           exact
         >
-
           <span>{title}</span>
-
           {
             child && (
               <span className="nav__icon far fal fa-angle-down" />
             )
           }
         </NavLink>
-
         {
           child && (
             <NavDropdown child={child} to={to}/>

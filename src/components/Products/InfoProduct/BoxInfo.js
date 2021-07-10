@@ -29,7 +29,7 @@ const BoxInfo = props => {
           count,
         })
       )
-  
+
       message.success('Đơn hàng đã được thêm vào giỏ.')
     } else {
       dispatch(setStatusLogin(true))
@@ -37,7 +37,12 @@ const BoxInfo = props => {
   }
 
   const handleVisitleModal = () => {
-    setIsModal(true)
+    const id = sessionStorage.getItem('id')
+    if (id) {
+      setIsModal(true)
+    } else {
+      dispatch(setStatusLogin(true))
+    }
   }
 
   return (
@@ -48,11 +53,9 @@ const BoxInfo = props => {
 
           <p className="box-info__price">{item.price.toLocaleString()} VNĐ</p>
           {
-            !isDescription && <ListInfoPet description={description}/>
-          }
-
-          {
-            isDescription && <ListInfoAccessories description={description}/>
+            isDescription
+              ? <ListInfoPet description={description}/>
+              : <ListInfoAccessories description={description}/>
           }
 
           <CountProduct count={count} setCount={setCount}/>

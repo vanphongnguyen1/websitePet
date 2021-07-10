@@ -1,11 +1,45 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 
 const ListInfoPet = props => {
   const { description } = props
+  const tagParent = useRef(null)
+
+  useEffect(() => {
+    tagParent.current.querySelector('ul').classList.add('box-info__list')
+    const listEle = tagParent.current.querySelectorAll('ul>li')
+
+    listEle.forEach(item => {
+      const spanIcon = document.createElement('span')
+      const spanText = document.createElement('span')
+      item.classList.add('box-info__list--item')
+
+      const text = item.innerText
+      item.innerText = ''
+
+      spanIcon.classList.add('box-info__list--item-icon')
+      spanIcon.classList.add('far')
+      spanIcon.classList.add('fa-check')
+      spanText.classList.add('box-info__list--item-text')
+      spanText.innerText = text
+
+      item.insertAdjacentElement('afterbegin', spanIcon)
+      item.insertAdjacentElement('beforeend', spanText)
+    })
+  }, [])
+
+  const newData = description.split(',')
 
   return (
     <>
       {
+        newData.map((item, index) => (
+          <div className="editor"
+            dangerouslySetInnerHTML={{__html:item}}
+            ref={tagParent}
+            key={index}
+          />
+        ))}
+      {/* {
         description.map((item, index) => {
           return (
             <ul className="box-info__list" key={index}>
@@ -131,7 +165,7 @@ const ListInfoPet = props => {
             </ul>
           )
         })
-      }
+      } */}
     </>
   )
 }

@@ -1,15 +1,16 @@
 import React from 'react'
 
-const ModalInfoProduct = props => {
-  const { item, count } = props
+const ModalInfoProduct = ({ item, count }) => {
+  const { images, name, price } = item
+  const listImages = images.url.split('|')
 
   return (
     <div className="my-modal__box">
       <div className="my-modal__box--name-img">
-        <img src={item.src} alt="as" className="my-modal__box--img"/>
+        <img src={listImages[0]} alt={name} className="my-modal__box--img"/>
         <div>
-          <p className="my-modal__box--name">{item.name}</p>
-          <p className="my-modal__box--price">{item.price.toLocaleString()} VNĐ</p>
+          <p className="my-modal__box--name">{name}</p>
+          <p className="my-modal__box--price">{price.toLocaleString()} VNĐ</p>
           <p className="my-modal__box--count">Số lượng: {count}</p>
         </div>
       </div>

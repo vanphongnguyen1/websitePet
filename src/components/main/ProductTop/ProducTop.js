@@ -12,6 +12,7 @@ import './style.scss'
 const ProductTop = () => {
   const [isParentSort, setIsParentSort] = useState('')
   const dataProductFetch = useSelector(state => state.products)
+  const dataGroup = useSelector(state => state.groups)
 
   const data = useMemo(() => {
     if (dataProductFetch.loading === 'success') {
@@ -56,17 +57,18 @@ const ProductTop = () => {
 
             <Slider {...settings}>
               {
-                  dataProductFetch.loading === 'success' && data.length > 0
-                  && data.map(item => {
-                    return item.isHot && (
-                      /* <Link to={`${item.group.name}/${item.lineage.name}/${item.url}`} */
-                      <Link to={`${item.lineage.name}/${item.url}`}
-                        key={item.id}
-                      >
-                        <ItemProduct item={item}/>
-                      </Link>
-                    )
-                  })
+                dataProductFetch.loading === 'success' && data.length > 0 && dataGroup.loading === 'success'
+                && data.map(item => {
+                  return item.isHot && (
+                    /* <Link to={`${item.group.name}/${item.lineage.name}/${item.url}`} */
+                    <Link
+                      to={`${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${item.lineage.name}/${item.url}`}
+                      key={item.id}
+                    >
+                      <ItemProduct item={item}/>
+                    </Link>
+                  )
+                })
               }
             </Slider>
 

@@ -3,10 +3,15 @@ import ItemProduct from './ItemProduct'
 import NavListProduct from './NavListProduct'
 import { TabletHiden } from '../responsive'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import './products.scss'
 
 const ShowAll = props => {
   const { child, products } = props
+  const dataGroup = useSelector(state => state.groups.list)
+  // console.log(products);
+
+  // products.forEach(item => { console.log(item.lineage.name);})
 
   return (
     <div className="product">
@@ -25,7 +30,9 @@ const ShowAll = props => {
                 products.map(item => {
                   return(
                     <div className="box-item col-md-3 col-sm-4 col-6" key={item.id}>
-                      <Link to={`${item.group}/${item.url}`}>
+                      <Link
+                        to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${item.lineage.name}/${item.url}`}
+                      >
                         <ItemProduct item={item}/>
                       </Link>
                     </div>

@@ -12,7 +12,6 @@ export const handleSort = ({dataAll, group, isParentSort}) => {
       const newData = [...dataAll].sort((item1, item2) => {
         return item1.priceSale - item2.priceSale
       })
-      console.log(newData);
       return newData
     }
 

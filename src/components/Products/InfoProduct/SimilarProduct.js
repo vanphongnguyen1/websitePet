@@ -1,13 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Slider from 'react-slick'
-import { dataAll } from '../../dataConst'
 import ItemProduct from '../ItemProduct'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import  { removeAccents } from '../../assets/js/removeAccents'
+
 
 const SimilarProduct = (props) => {
-  const { group, id } = props
-  const data = dataAll.filter(item => group === item.group && item.id !== id)
-  const newData = data.slice(0, 10)
+  const { lineage, id } = props
+  const dataProductFetch = useSelector(state => state.products.list)
+  const dataGroup = useSelector(state => state.groups)
+  const [newData, setNewData] = useState([])
+
+  useEffect(() => {
+    const filterData = []
+
+    dataProductFetch.forEach(item => {
+      if (lineage === item.lineageID && item.id !== id) {
+        filterData.unshift(item)
+      }
+      if (filterData.length < 20) {
+        filterData.push(item)
+      }
+    })
+    setNewData(filterData)
+  }, [dataProductFetch, lineage, id])
+  // const newData = data.slice(0, 10)
 
   const settings = {
     slidesToShow: 5,
@@ -45,9 +63,11 @@ const SimilarProduct = (props) => {
     <>
       <Slider {...settings}>
         {
+          dataGroup.loading === 'success' &&
           newData.map(item => {
-            return group === item.group && (
-              <Link to={`/${item.group}/${item.url}`}
+            return (
+              <Link
+                to={`${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
                 key={item.id}
               >
                 <ItemProduct item={item}/>

@@ -6,6 +6,7 @@ import { Tablet, TabletHiden } from '../responsive'
 import Buttom from '../reuse/Buttom'
 import { Link } from 'react-router-dom'
 import { DOG, MEW, ACCESSORIES } from '../dataConst'
+import { useSelector } from 'react-redux'
 import './products.scss'
 
 // const DEVICE_SIZE = {
@@ -15,6 +16,7 @@ import './products.scss'
 
 const Products = props => {
   const { child, products, title} = props
+  const dataGroup = useSelector(state => state.groups.list)
   const settings = {
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -46,6 +48,7 @@ const Products = props => {
             <NavListProduct child={child}/>
           </div>
         </TabletHiden>
+
         <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12">
           <div className="list-product">
             <TabletHiden>
@@ -53,7 +56,8 @@ const Products = props => {
                 newProducts.map(item => {
                   return(
                     <div className="box-item" key={item.id}>
-                      <Link to={ `${item.group}/${item.url}` }
+                      <Link
+                        to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${item.lineage.name}/${item.url}`}
                       >
                         <ItemProduct item={item}/>
                       </Link>
@@ -63,22 +67,23 @@ const Products = props => {
               }
             </TabletHiden>
 
-              <Tablet>
-                <Slider {...settings}>
-                  {
-                    newProducts.map(item => {
-                      return(
-                        <div className="box-item" key={item.id}>
-                          <Link to={ `${item.group}/${item.url}` }
-                          >
-                            <ItemProduct item={item}/>
-                          </Link>
-                        </div>
-                      )
-                    })
-                  }
-                </Slider>
-              </Tablet>
+            <Tablet>
+              <Slider {...settings}>
+                {
+                  newProducts.map(item => {
+                    return(
+                      <div className="box-item" key={item.id}>
+                        <Link
+                          to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${item.lineage.name}/${item.url}`}
+                        >
+                          <ItemProduct item={item}/>
+                        </Link>
+                      </div>
+                    )
+                  })
+                }
+              </Slider>
+            </Tablet>
           </div>
         </div>
       </div>

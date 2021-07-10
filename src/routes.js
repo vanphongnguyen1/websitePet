@@ -30,7 +30,7 @@ export const routes = [
     main: ({match}) => <ShowDogs match={match}/>
   },
   {
-    path: '/mews',
+    path: '/cats',
     exact: true,
     main: ({ match }) => <ShowMews match={match}/>
   },
@@ -45,7 +45,7 @@ export const routes = [
     main: ({ match }) => <ShowPetOther match={match}/>
   },
   {
-    path: '/:group/:url',
+    path: '/:group/:lineage/:url',
     exact: true,
     auth: true,
     roles: [],

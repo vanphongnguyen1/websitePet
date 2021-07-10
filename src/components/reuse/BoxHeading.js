@@ -6,7 +6,6 @@ const BoxHeading = props => {
 
   const handleSort = e => {
     const { value } = e.target
-    console.log(value)
     setIsParentSort(value)
   }
 
