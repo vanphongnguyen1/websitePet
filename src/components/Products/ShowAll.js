@@ -16,12 +16,31 @@ const ShowAll = ({ products }) => {
   const [pageDefault, setPageDefault] = useState(1)
   const [pageSizeDefault, setPageSizeDefault] = useState(30)
 
+  const [dataShow, setDataShow] = useState([])
+  const [idLineage, setIdLineage] = useState(0)
+
   const dataGroup = useSelector(state => state.groups.list)
 
   const onShowSizeChange = (current, pageSize) => {
     setPageDefault(current)
     setPageSizeDefault(pageSize)
   }
+
+  const handleFetchLineage = id => {
+    setIdLineage(id)
+
+    if (id === 0) {
+      setDataShow(products)
+      return
+    }
+
+    const filterData = products.filter(item => item.lineageID === id)
+    setDataShow(filterData)
+  }
+
+  useEffect(() => {
+    setDataShow(products)
+  }, [products])
 
   useEffect(() => {
     if (products.length) {
@@ -36,9 +55,10 @@ const ShowAll = ({ products }) => {
 
   useEffect(() => {
     const defaule = pageDefault * pageSizeDefault
-    const newData = products.slice(defaule - pageSizeDefault, defaule)
+    const newData = dataShow.slice(defaule - pageSizeDefault, defaule)
+
     setDataPagination(newData)
-  }, [pageSizeDefault, pageDefault, products])
+  }, [pageSizeDefault, pageDefault, dataShow, idLineage])
 
   return (
     <div className="product">
@@ -46,7 +66,13 @@ const ShowAll = ({ products }) => {
         <TabletHiden>
           <div className="col-xl-2 col-lg-2">
             {
-              listLineage.length > 0 && <NavListProduct listLineage={listLineage}/>
+              listLineage.length > 0 && (
+                <NavListProduct
+                  listLineage={listLineage}
+                  handleFetchLineage={handleFetchLineage}
+                  idLineage={idLineage}
+                />
+              )
             }
           </div>
         </TabletHiden>
@@ -69,12 +95,12 @@ const ShowAll = ({ products }) => {
             </div>
 
             {
-              products.length >= 30 && (
+              dataShow.length >= pageSizeDefault && (
                 <div className="list-product__pagination">
                   <Pagination
                     onChange={onShowSizeChange}
                     current={pageDefault}
-                    total={products.length}
+                    total={dataShow.length}
                     pageSize={pageSizeDefault}
                   />
                 </div>

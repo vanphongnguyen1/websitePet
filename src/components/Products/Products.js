@@ -20,6 +20,8 @@ import './products.scss'
 const Products = ({ products, title }) => {
   const dispatch = useDispatch()
   const [listLineage, setListLineage] = useState([])
+  const [dataShow, setDataShow] = useState([])
+  const [idLineage, setIdLineage] = useState(0)
   const dataGroup = useSelector(state => state.groups.list)
 
   const settings = {
@@ -53,14 +55,33 @@ const Products = ({ products, title }) => {
     }
   }, [dispatch, products])
 
-  const newProducts = products.slice(0, 10)
+  useEffect(() => {
+    setDataShow(products)
+  }, [products])
+
+  const handleFetchLineage = id => {
+    setIdLineage(id)
+
+    if (id === 0) {
+      setDataShow(products)
+      return
+    }
+    const filterData = products.filter(item => item.lineageID === id)
+    setDataShow(filterData)
+  }
+
+  const newProducts = dataShow.slice(0, 10)
 
   return (
     <div className="product">
       <div className="row">
         <TabletHiden>
           <div className="col-xl-2 col-lg-2">
-            <NavListProduct listLineage={listLineage}/>
+            <NavListProduct
+              listLineage={listLineage}
+              handleFetchLineage={handleFetchLineage}
+              idLineage={idLineage}
+            />
           </div>
         </TabletHiden>
 
