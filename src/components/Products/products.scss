@@ -12,6 +12,10 @@
   .list-product {
     display: flex;
     flex-wrap: wrap;
+
+    &__pagination {
+      margin: 3rem auto;
+    }
   }
 }
 

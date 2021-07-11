@@ -1,66 +1,19 @@
-import React, { useState, useMemo } from 'react'
 import {
-  DATANAV,
   ACCESSORIES,
   COLOR,
   groupAccessories as group
 } from '../../dataConst'
-import BoxHeading from '../../reuse/BoxHeading'
-import ShowAll from '../../Products/ShowAll'
-import PageTitle from '../../reuse/PageTitle'
-import MyBackTop from '../../reuse/MyBackTop'
-// import { Link } from 'react-router-dom'
-// import CartIcon from '../../Cart/CartIcon'
-// import { MobileHiden } from '../../responsive'
-import { useSelector } from 'react-redux'
-import { handleSort } from '../../assets/js/handleSort'
+import ShowAllProductGroup from '../../Products/ShowAllProductGroup'
 
-const ShowAccess = props => {
-  const { match } = props
-  const [isParentSort, setIsParentSort] = useState('')
-  const dataGroupFetch = useSelector(state => state.groups)
-  const dataProductFetch = useSelector(state => state.products)
-
-
-  const data = useMemo(() => {
-    const listData = dataProductFetch.list
-    const listGroup = dataGroupFetch.list
-
-    if (dataProductFetch.loading === 'success' && dataGroupFetch.loading === 'success') {
-      const findGroup = listGroup.find(item => item.name === group)
-      return handleSort({dataAll: listData, group: findGroup.id, isParentSort})
-    }
-  }, [isParentSort, dataProductFetch, dataGroupFetch])
-
+const ShowAccess = ({ match }) => {
   return (
     <>
-      <PageTitle match={match}/>
-
-      <div className="product-access">
-        <div className="container">
-          <BoxHeading title={ACCESSORIES} color={COLOR} setIsParentSort={setIsParentSort}/>
-          {
-            DATANAV.map((item, index) => {
-              if (item.title === ACCESSORIES) {
-                return <ShowAll
-                  child={item.child}
-                  products={data ? data : []}
-                  key={index}
-                />
-              }
-              return false
-            })
-          }
-        </div>
-      </div>
-
-      <MyBackTop />
-
-      {/* <MobileHiden>
-        <Link to="/cart">
-          <CartIcon classType="cart-fixed"/>
-        </Link>
-      </MobileHiden> */}
+      <ShowAllProductGroup
+        match={match}
+        group={group}
+        color={COLOR}
+        title={ACCESSORIES}
+      />
     </>
   )
 }

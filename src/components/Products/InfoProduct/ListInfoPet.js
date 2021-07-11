@@ -5,8 +5,9 @@ const ListInfoPet = props => {
   const tagParent = useRef(null)
 
   useEffect(() => {
-    tagParent.current.querySelector('ul').classList.add('box-info__list')
-    const listEle = tagParent.current.querySelectorAll('ul>li')
+    const ele = tagParent.current.querySelector('ul')
+    ele.classList.add('box-info__list')
+    const listEle = ele.querySelectorAll('li')
 
     listEle.forEach(item => {
       const spanIcon = document.createElement('span')
@@ -27,18 +28,14 @@ const ListInfoPet = props => {
     })
   }, [])
 
-  const newData = description.split(',')
-
   return (
     <>
-      {
-        newData.map((item, index) => (
-          <div className="editor"
-            dangerouslySetInnerHTML={{__html:item}}
-            ref={tagParent}
-            key={index}
-          />
-        ))}
+      <div
+        className="editor"
+        dangerouslySetInnerHTML={{__html:description}}
+        ref={tagParent}
+      />
+
       {/* {
         description.map((item, index) => {
           return (

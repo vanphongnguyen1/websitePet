@@ -4,6 +4,7 @@ import { addOrder } from './reducers/addOrder'
 import statusLoginSlice from './statusLoginSlice'
 import productSlice from './productSlice'
 import groupSlice from './groupSlice'
+import lineageSlice from './lineageSlice'
 
 export const rootReducers = {
   login: loginSlice,
@@ -11,5 +12,6 @@ export const rootReducers = {
   addOrder,
   statusLogin: statusLoginSlice,
   products: productSlice,
-  groups: groupSlice
+  groups: groupSlice,
+  lineages: lineageSlice
 }

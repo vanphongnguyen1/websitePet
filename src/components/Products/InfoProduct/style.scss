@@ -70,10 +70,6 @@
         border-bottom: 1px dotted #ddd;
       }
 
-      &__list-box {
-        flex: 0 0 48%;
-      }
-
       &__list {
         padding: 0 1rem 1rem 1rem;
         display: flex;
@@ -83,7 +79,6 @@
         &--item {
           list-style-type: none;
           margin: 1rem 0;
-          flex: 0 0 50%;
 
           &-icon {
             font-weight: 700;
@@ -103,6 +98,10 @@
             margin-left: 0.7rem;
           }
         }
+
+        &--item:not(:last-child) {
+          flex: 0 0 48%;
+        }
       }
 
       &__price {
@@ -112,6 +111,13 @@
         margin-bottom: 1rem;
         border-bottom: 1px dotted #ddd;
         padding: 1rem;
+
+        &--default {
+          margin-left: 3rem;
+          font-size: 1.6rem;
+          color: #b3b3b3;
+          text-decoration: line-through;
+        }
       }
 
       .box-btn-info {
@@ -211,10 +217,6 @@
           font-size: 2rem;
         }
 
-        &__list-box {
-          flex: 0 0 50%;
-        }
-
         &__list {
           &--item {
             &-icon {
@@ -229,6 +231,10 @@
             &-textsub {
               font-size: 1.4rem;
             }
+          }
+
+          &--item:not(:last-child) {
+            flex: 0 0 50%;
           }
         }
 

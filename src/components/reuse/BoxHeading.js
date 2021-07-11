@@ -1,8 +1,9 @@
 import React from 'react'
+import { NEW } from '../dataConst'
 import './boxHeading.scss'
 
 const BoxHeading = props => {
-  const { title , color, setIsParentSort, url } = props
+  const { title , color, setIsParentSort } = props
 
   const handleSort = e => {
     const { value } = e.target
@@ -16,7 +17,7 @@ const BoxHeading = props => {
 
       <div className="sort">
         {
-          !url && (
+          title !== NEW && (
             <select name="sort" className="sort__select" onChange={handleSort}>
               <option value="all">Tất cả</option>
               <option value="hot">Phổ biến</option>

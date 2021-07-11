@@ -7,6 +7,7 @@ import { PRODUCTHOT } from '../../dataConst'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { handleSort } from '../../assets/js/handleSort'
+import { removeAccents } from '../../assets/js/removeAccents'
 import './style.scss'
 
 const ProductTop = () => {
@@ -62,8 +63,9 @@ const ProductTop = () => {
                   return item.isHot && (
                     /* <Link to={`${item.group.name}/${item.lineage.name}/${item.url}`} */
                     <Link
-                      to={`${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${item.lineage.name}/${item.url}`}
+                      to={`${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
                       key={item.id}
+                      className="product-top__box"
                     >
                       <ItemProduct item={item}/>
                     </Link>

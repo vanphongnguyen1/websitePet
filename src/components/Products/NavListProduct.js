@@ -1,16 +1,21 @@
 import React from 'react';
-import ItemNavListProduct from './ItemNavListProduct';
 import './navListProduct.scss'
 
 
-const NavListProduct = props => {
+const NavListProduct = ({ listLineage }) => {
   return (
     <>
       <div className="nav-product">
         <ul className="nav-product__list">
           {
-            props.child.map((item, index) => {
-              return <ItemNavListProduct item={item} key={index}/>
+            listLineage.map(item => {
+              return (
+                <li className="nav-product__item" key={item.id}>
+                  <a href="#f" className="nav-product__link">
+                    {item.name}
+                  </a>
+                </li>
+              )
             })
           }
         </ul>

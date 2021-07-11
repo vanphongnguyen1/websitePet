@@ -11,13 +11,12 @@ import ListInfoPet from './ListInfoPet'
 import ListInfoAccessories from './ListInfoAccessories'
 import CountProduct from './CountProduct'
 
-const BoxInfo = props => {
+const BoxInfo = ({ description, item }) => {
   const [isModal, setIsModal] = useState(false)
   const [count, setCount] = useState(1)
-  const { description, item } = props
   const isDescription = description.length > 1
-
   const dispatch = useDispatch()
+  const { name, price, priceSale} = item
 
   const addProduct = item => {
     const id = sessionStorage.getItem('id')
@@ -49,9 +48,17 @@ const BoxInfo = props => {
     <>
       <div className="info-product__box">
         <div className="box-info">
-          <h2 className="box-info__name">{item.name}</h2>
+          <h2 className="box-info__name">{name}</h2>
 
-          <p className="box-info__price">{item.price.toLocaleString()} VNĐ</p>
+          <p className="box-info__price">
+            <span className="box-info__price--sale">
+              {priceSale.toLocaleString()} VNĐ
+            </span>
+
+            <span className="box-info__price--default">
+              {price.toLocaleString()} VNĐ
+            </span>
+          </p>
           {
             isDescription
               ? <ListInfoPet description={description}/>

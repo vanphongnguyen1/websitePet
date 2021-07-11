@@ -69,6 +69,7 @@ const SimilarProduct = (props) => {
               <Link
                 to={`${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
                 key={item.id}
+                className="product-top__box"
               >
                 <ItemProduct item={item}/>
               </Link>

@@ -31,6 +31,8 @@
   .box-text {
     padding: 1rem;
     padding-bottom: 0;
+    height: 9rem;
+    position: relative;
 
     &--title {
       text-transform: uppercase;
@@ -53,6 +55,35 @@
       color: $color-main-dark;
       font-size: 1.4rem;
       font-weight: 600;
+    }
+
+    &--price-default {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #9e9e9e;
+      text-decoration: line-through;
+    }
+
+    &--sale {
+      position: absolute;
+      bottom: 100%;
+      right: -3px;
+      background: #f3ae00;
+      padding: 0.3rem 1rem;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #fff;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+
+        border-left: 1px solid transparent;
+        border-right: 2px solid transparent;
+        border-bottom: 4px solid #d49803;
+      }
     }
   }
 

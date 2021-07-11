@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Slider from "react-slick"
 import ItemProduct from './ItemProduct'
 import NavListProduct from './NavListProduct'
@@ -7,6 +7,9 @@ import Buttom from '../reuse/Buttom'
 import { Link } from 'react-router-dom'
 import { DOG, MEW, ACCESSORIES } from '../dataConst'
 import { useSelector } from 'react-redux'
+import { removeAccents } from '../assets/js/removeAccents'
+import { useDispatch } from 'react-redux'
+import { fetchLineageToGroup } from '../redux/lineageSlice'
 import './products.scss'
 
 // const DEVICE_SIZE = {
@@ -14,9 +17,11 @@ import './products.scss'
 //   TABLET: 767
 // }
 
-const Products = props => {
-  const { child, products, title} = props
+const Products = ({ products, title }) => {
+  const dispatch = useDispatch()
+  const [listLineage, setListLineage] = useState([])
   const dataGroup = useSelector(state => state.groups.list)
+
   const settings = {
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -38,6 +43,16 @@ const Products = props => {
     ]
   }
 
+  useEffect(() => {
+    if (products.length) {
+      const id = products[0].lineage.groupID
+      dispatch(fetchLineageToGroup(id))
+      .then(res => {
+        setListLineage(res.payload);
+      })
+    }
+  }, [dispatch, products])
+
   const newProducts = products.slice(0, 10)
 
   return (
@@ -45,7 +60,7 @@ const Products = props => {
       <div className="row">
         <TabletHiden>
           <div className="col-xl-2 col-lg-2">
-            <NavListProduct child={child}/>
+            <NavListProduct listLineage={listLineage}/>
           </div>
         </TabletHiden>
 
@@ -57,7 +72,7 @@ const Products = props => {
                   return(
                     <div className="box-item" key={item.id}>
                       <Link
-                        to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${item.lineage.name}/${item.url}`}
+                        to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
                       >
                         <ItemProduct item={item}/>
                       </Link>
@@ -74,7 +89,7 @@ const Products = props => {
                     return(
                       <div className="box-item" key={item.id}>
                         <Link
-                          to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${item.lineage.name}/${item.url}`}
+                          to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
                         >
                           <ItemProduct item={item}/>
                         </Link>
@@ -88,22 +103,26 @@ const Products = props => {
         </div>
       </div>
 
-      <div className="product__box-btn">
-        <Link
-          to={
-            title === DOG
-            ? '/dogs' : title === MEW
-            ? '/mews' : title === ACCESSORIES
-            ? '/accessories' : '/pet-other'
-          }
-        >
-          <Buttom
-            title="Xem tất cả"
-            classType="btn--show-all"
-            icon="fad fa-angle-double-right"
-          />
-        </Link>
-      </div>
+      {
+        products.length > 10 && (
+          <div className="product__box-btn">
+            <Link
+              to={
+                title === DOG
+                ? '/dogs' : title === MEW
+                ? '/mews' : title === ACCESSORIES
+                ? '/accessories' : '/pet-other'
+              }
+            >
+              <Buttom
+                title="Xem tất cả"
+                classType="btn--show-all"
+                icon="fad fa-angle-double-right"
+              />
+            </Link>
+          </div>
+        )
+      }
     </div>
   )
 }
