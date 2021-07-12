@@ -3,17 +3,19 @@ import { Table, Space, Button, Popconfirm } from 'antd';
 import CartNull from './CartNull';
 import { difference } from 'lodash/array'
 import { useSelector, useDispatch } from 'react-redux'
-import { updataCart } from '../../redux/actions/addProduct'
+// import { updataCart } from '../../redux/actions/addProduct'
 import { addOrder } from '../../redux/actions/addOrder'
 import { MobileSmallHiden, MobileSmall } from '../../responsive'
-
+import { customAxiosApi } from '../../reuse/CustomAxios'
+import { API_NAME } from '../../dataConst'
 
 const MyCart = () => {
-  const inti = useSelector(store => store.addProductCart)
+  const dataImages = useSelector(store => store.images.list)
   const order = useSelector(store => store.addOrder)
+  const dataProduct = useSelector(store => store.productInCart.list)
   const dispatch = useDispatch()
 
-  const [data, setData] = useState(inti)
+  const [data, setData] = useState([])
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const [doneOrder, setDoneOrder] = useState({})
   console.log('-----------------đơn hàng đã đặt', order)
@@ -24,6 +26,27 @@ const MyCart = () => {
       order: selectedRowKeys
     })
   }, [selectedRowKeys])
+
+  useEffect(() => {
+    const newData = []
+    dataProduct.forEach(item => {
+      const { id, count, price, productsID, products } = item
+      const images = dataImages.find(img => img.id === products.imagesID)
+      const newImage = images.url.split('|')[0]
+
+      newData.push({
+        id,
+        count,
+        name: products.name,
+        price: products.price,
+        subtotal: price,
+        productsID,
+        img: newImage
+      })
+
+      setData(newData)
+    })
+  }, [dataProduct, dataImages]);
 
   const selectorDisable = id => {
     return selectedRowKeys.find(item => item.id === id )
@@ -40,7 +63,7 @@ const MyCart = () => {
   const columns = [
     {
       title: 'Hình Ảnh',
-      dataIndex: 'src',
+      dataIndex: 'img',
       render: text => {
         return (
           <div className="my-cart__box-img">
@@ -55,7 +78,12 @@ const MyCart = () => {
       dataIndex: 'name',
       render: text => {
         return (
-          <p className="my-cart--name">{text}</p>
+          <p
+            className="my-cart--name"
+            title={text}
+          >
+            {text}
+          </p>
         )
       }
     },
@@ -124,7 +152,8 @@ const MyCart = () => {
           </p>
         )
       },
-      responsive: ['md']
+      responsive: ['md'],
+      width: '20%'
     },
 
     {
@@ -147,44 +176,52 @@ const MyCart = () => {
   ]
 
   const handleOnChangeCount = (id, number) => {
-    const newData = data.map(item => {
-        if (item.id === id && number > 0 && item.count < 10 ) {
-          return {
-            ...item,
-            count: item.count + number,
-            subtotal: item.price * (item.count + number)
-          }
-        }
+    const [...newData] = data
+    const index = newData.findIndex(item => item.id === id)
+    let newCount = newData[index].count
+    let newSubtotal = newData[index].subtotal
 
-        if (item.id === id && number < 0 && 1 < item.count ) {
-          return {
-            ...item,
-            count: item.count + number,
-            subtotal: item.price * (item.count + number)
-          }
-        }
-      return item
-    })
+    if ((number > 0 && newData[index].count < 10) || (number < 0 && 1 < newData[index].count)) {
+      newCount = newData[index].count + number
+      newSubtotal = newData[index].price * (newData[index].count + number)
+    }
+
+    const product = {
+      ...newData[index],
+      count: newCount,
+      subtotal: newSubtotal
+    }
+
+    newData.splice(index, 1, product)
     setData(newData)
-    dispatch(updataCart(newData))
+
+    const dataFormat = new FormData()
+    dataFormat.append('count', newCount)
+    dataFormat.append('subtotal', newSubtotal)
+    customAxiosApi.put(`${API_NAME.PRODUCTINCART}/${id}`, {
+      count: newCount,
+      price: newSubtotal
+    })
   }
 
   const handlePayOrder = () => {
     dispatch(addOrder(doneOrder))
     const newData = difference(data, selectedRowKeys)
 
-    setData(newData)
-    dispatch(updataCart(newData))
-    setSelectedRowKeys([])
+    setSelectedRowKeys.forEach(item => {
+      customAxiosApi.delete(`${API_NAME.PRODUCTINCART}/${item.id}`)
+    })
 
+    setData(newData)
+    // dispatch(updataCart(newData))
+    setSelectedRowKeys([])
     window.scrollTo(0, 0)
   }
 
   const handleRemoveProduct = id => {
     const newData = data.filter(item => item.id !== id)
-
     setData(newData)
-    dispatch(updataCart(newData))
+    customAxiosApi.delete(`${API_NAME.PRODUCTINCART}/${id}`)
   }
 
   const handleInputCount = (e, id) => {
@@ -193,22 +230,31 @@ const MyCart = () => {
     if (value > 10) {
       value = 10
     }
-    if (value < 1 ) {
+    if (value < 1) {
       value = 1
     }
 
-    const newData = data.map(item => {
-      if (item.id === id ) {
-        return {
-          ...item,
-          count: value,
-          subtotal: item.price * Number(value)
-        }
-      }
-      return item
-    })
+    const [...newData] = data
+    const index = newData.findIndex(item => item.id === id)
+    let newCount = value
+    let newSubtotal = newData[index].price * value
+
+    const product = {
+      ...newData[index],
+      count: newCount,
+      subtotal: newSubtotal
+    }
+
+    newData.splice(index, 1, product)
     setData(newData)
-    dispatch(updataCart(newData))
+
+    const dataFormat = new FormData()
+    dataFormat.append('count', newCount)
+    dataFormat.append('subtotal', newSubtotal)
+    customAxiosApi.put(`${API_NAME.PRODUCTINCART}/${id}`, {
+      count: newCount,
+      price: newSubtotal
+    })
   }
 
   const onSelectChange = (index, item) => {
@@ -222,7 +268,10 @@ const MyCart = () => {
   const handleRemoveAll = () => {
     const newData = difference(data, selectedRowKeys)
     setData(newData)
-    dispatch(updataCart(newData))
+
+    setSelectedRowKeys.forEach(item => {
+      customAxiosApi.delete(`${API_NAME.PRODUCTINCART}/${item.id}`)
+    })
     setSelectedRowKeys([])
   }
 

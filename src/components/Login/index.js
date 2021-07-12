@@ -1,9 +1,12 @@
 import React, { useState, useMemo } from 'react'
 import ModalLogin from '../Modal/ModalLogin'
-import { setToken } from '../redux/loginSlice'
+import { setToken, fetchUser } from '../redux/loginSlice'
 import { setStatusLogin } from '../redux/statusLoginSlice'
+import { fetchOrderofCart } from '../redux/ordersSlice'
+import { fetchCartOfUser } from '../redux/cartsSlice'
+import { fetchProductInCart } from '../redux/productInCartSlice'
 import { useSelector, useDispatch } from 'react-redux'
-import { customAxiosApi } from '../reuse/CustomAxios'
+// import { customAxiosApi } from '../reuse/CustomAxios'
 import './style.scss'
 
 const Login = () => {
@@ -18,11 +21,18 @@ const Login = () => {
     const id = sessionStorage.getItem('id')
 
     if (id || tokenId) {
-      customAxiosApi.get(`users/${id || tokenId}`)
+      // customAxiosApi.get(`users/${id || tokenId}`)
+      dispatch(fetchUser(id || tokenId))
       .then(response => {
-        const { data } = response.data
-        dispatch(setToken(data.id))
+        const data = response.payload
 
+        dispatch(fetchCartOfUser(data.id))
+          .then(res => {
+            const data = res.payload[0]
+            dispatch(fetchOrderofCart(data.id))
+            dispatch(fetchProductInCart(data.id))
+          })
+        dispatch(setToken(data.id))
         setDataUser(data)
       })
     }

@@ -3,6 +3,9 @@ import { Form, Input, Button, Checkbox } from 'antd'
 import { Link } from 'react-router-dom'
 import { fetchLogin, setError, setToken, defaulrError } from '../../redux/loginSlice'
 import { setStatusLogin } from '../../redux/statusLoginSlice'
+import { fetchCartOfUser } from '../../redux/cartsSlice'
+import { fetchOrderofCart } from '../../redux/ordersSlice'
+import { fetchProductInCart } from '../../redux/productInCartSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import './style.scss'
 
@@ -25,6 +28,13 @@ const Login = props => {
       const { payload } = data
 
       if (typeof payload === 'object') {
+        dispatch(fetchCartOfUser(payload.id))
+          .then(res => {
+            const data = res.payload[0]
+
+            dispatch(fetchOrderofCart(data.id))
+            dispatch(fetchProductInCart(data.id))
+          })
         dispatch(setToken(payload.id))
 
         sessionStorage.setItem('id', payload.id)
@@ -32,7 +42,6 @@ const Login = props => {
         dispatch(setStatusLogin(false))
         return
       }
-
       dispatch(setError(payload))
     })
   }

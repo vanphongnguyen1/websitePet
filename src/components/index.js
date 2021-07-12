@@ -11,6 +11,7 @@ import ScrollToTop from './reuse/ScrollToTop'
 import { useDispatch } from 'react-redux'
 import { fetchProductsAll } from './redux/productSlice'
 import { fetchGroups } from './redux/groupSlice'
+import { fetchImages } from './redux/imagesSlice'
 import './assets/layout.scss'
 import 'antd/dist/antd.css'
 import './assets/reset.scss'
@@ -24,6 +25,7 @@ const PetShop = () => {
   useEffect(() => {
     dispatch(fetchProductsAll())
     dispatch(fetchGroups())
+    dispatch(fetchImages())
   }, [dispatch])
 
   return (

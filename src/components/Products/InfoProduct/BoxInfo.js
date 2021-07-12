@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import Buttom from '../../reuse/Buttom'
-import { useDispatch } from 'react-redux'
-import { addProduct as addProductAction } from '../../redux/actions/addProduct'
+import { useDispatch, useSelector } from 'react-redux'
 import { setStatusLogin } from '../../redux/statusLoginSlice'
-import { DATAICONTOOLTIP } from '../../dataConst'
+import { fetchProductInCart } from '../../redux/productInCartSlice'
+import { DATAICONTOOLTIP, API_NAME } from '../../dataConst'
 import ItemNetwork from '../../footer/ItemNetwork'
 import MyModal from '../../Modal/ModalBuyNow'
 import { message } from 'antd'
 import ListInfoPet from './ListInfoPet'
-import ListInfoAccessories from './ListInfoAccessories'
 import CountProduct from './CountProduct'
+import { customAxiosApi } from '../../reuse/CustomAxios'
 
 const BoxInfo = ({ description, item }) => {
+  const idCart = useSelector(state => state.cart.list.id)
   const [isModal, setIsModal] = useState(false)
   const [count, setCount] = useState(1)
   const isDescription = description.length > 1
@@ -20,14 +21,17 @@ const BoxInfo = ({ description, item }) => {
 
   const addProduct = item => {
     const id = sessionStorage.getItem('id')
+
     if (id) {
-      dispatch(
-        addProductAction({
-          ...item,
-          subtotal: item.price * count,
-          count,
-        })
-      )
+      customAxiosApi.post(`${API_NAME.PRODUCTINCART}`, {
+        count: count,
+        price: count * item.priceSale,
+        cartID: idCart,
+        productsID: item.id
+      })
+      .then(() => {
+        dispatch(fetchProductInCart(idCart))
+      })
 
       message.success('Đơn hàng đã được thêm vào giỏ.')
     } else {
@@ -60,9 +64,7 @@ const BoxInfo = ({ description, item }) => {
             </span>
           </p>
           {
-            isDescription
-              ? <ListInfoPet description={description}/>
-              : <ListInfoAccessories description={description}/>
+            isDescription && <ListInfoPet description={description}/>
           }
 
           <CountProduct count={count} setCount={setCount}/>

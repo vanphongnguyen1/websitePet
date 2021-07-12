@@ -37,6 +37,8 @@ export const API_NAME = {
   COMMENTS: 'comments',
   PRODUCTS: 'products',
   DETAILORDER: 'detailOrder',
+  CART: 'carts',
+  PRODUCTINCART: 'productincart',
 
   TYPEPRODUCT: 'typeProduct',
   PRODUCTDETAILORDER: 'productDetailOrder',

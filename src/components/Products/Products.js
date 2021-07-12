@@ -22,7 +22,7 @@ const Products = ({ products, title }) => {
   const [listLineage, setListLineage] = useState([])
   const [dataShow, setDataShow] = useState([])
   const [idLineage, setIdLineage] = useState(0)
-  const dataGroup = useSelector(state => state.groups.list)
+  const dataGroup = useSelector(state => state.groups)
 
   const settings = {
     slidesToShow: 4,
@@ -88,12 +88,12 @@ const Products = ({ products, title }) => {
         <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12">
           <div className="list-product">
             <TabletHiden>
-              {
+              { dataGroup.loading === 'success' &&
                 newProducts.map(item => {
                   return(
                     <div className="box-item" key={item.id}>
                       <Link
-                        to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
+                        to={`${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
                       >
                         <ItemProduct item={item}/>
                       </Link>
@@ -105,12 +105,12 @@ const Products = ({ products, title }) => {
 
             <Tablet>
               <Slider {...settings}>
-                {
+                { dataGroup.loading === 'success' &&
                   newProducts.map(item => {
                     return(
                       <div className="box-item" key={item.id}>
                         <Link
-                          to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
+                          to={`${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
                         >
                           <ItemProduct item={item}/>
                         </Link>
