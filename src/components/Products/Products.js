@@ -86,7 +86,7 @@ const Products = ({ products, title }) => {
         </TabletHiden>
 
         <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12">
-          <div className="list-product">
+          <div className="list-product-home">
             <TabletHiden>
               { dataGroup.loading === 'success' &&
                 newProducts.map(item => {

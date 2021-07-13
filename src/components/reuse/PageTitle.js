@@ -21,9 +21,6 @@ const PageTitle = props => {
                   <NavLink to={`/${params.group}`} className="page-title--text">{params.group}</NavLink>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
-                  <NavLink to={`/${params.group}`} className="page-title--text">{params.lineage}</NavLink>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
                   <NavLink to={`/${params.url}`} className="page-title--text">{params.url}</NavLink>
                 </Breadcrumb.Item>
               </>

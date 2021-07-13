@@ -1,32 +1,14 @@
 import React from 'react'
-// import { infoProduct, COLOR } from '../../dataConst'
 import { COLOR } from '../../dataConst'
 import BoxHeading from '../../reuse/BoxHeading'
 import BoxImages from './BoxImages'
 import BoxInfo from './BoxInfo'
 import SimilarProduct from './SimilarProduct'
+import TabsInfoProduct from './TabsInfoProduct'
 
-const InfoProduct = props => {
-  const { item, url } = props
-
+const InfoProduct = ({ item, url }) => {
   return (
     <div className="container">
-      {/* {
-        infoProduct.map((info, index) => {
-          return info.lineageProductId === item.lineageId && (
-            <div className="row" key={index}>
-              <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                <BoxImages imgs={info.imgs}/>
-              </div>
-
-              <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                <BoxInfo description={info.description} item={item} />
-              </div>
-            </div>
-          )
-        })
-      } */}
-
       <div className="row">
         <div className="col-xl-5 col-lg-5 col-md-5 col-sm-12">
           <BoxImages imgs={item.images.url}/>
@@ -36,6 +18,8 @@ const InfoProduct = props => {
           <BoxInfo description={item.type_product.description} item={item} />
         </div>
       </div>
+
+      <TabsInfoProduct />
 
       <div className="similar-product">
         <div className="slider-small">

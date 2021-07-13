@@ -80,9 +80,10 @@ const ShowAll = ({ products }) => {
           <div className="list-product">
             <div className="row no-gutters">
               {
+                dataPagination.length ?
                 dataPagination.map(item => {
                   return(
-                    <div className="box-item col-md-3 col-sm-4 col-6" key={item.id}>
+                    <div className="box-item col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6" key={item.id}>
                       <Link
                         to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
                       >
@@ -91,6 +92,11 @@ const ShowAll = ({ products }) => {
                     </div>
                   )
                 })
+                : (
+                  <div className="list-product__not-product">
+                    <p className="list-product__not-product--text">Sản phẩm hết hàng</p>
+                  </div>
+                )
               }
             </div>
 

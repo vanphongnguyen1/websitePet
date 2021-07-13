@@ -7,6 +7,7 @@ import ShowMews from './components/main/ProductMews/ShowMews'
 import ShowAccess from './components/main/ProductAccess/ShowAccess'
 import ShowPetOther from './components/main/PetsOther/ShowPetOther'
 import RootInfoProduct from './components/Products/InfoProduct/index'
+import Page404 from './components/page404'
 
 export const routes = [
   {
@@ -50,5 +51,10 @@ export const routes = [
     auth: true,
     roles: [],
     main: ({match}) => <RootInfoProduct match={match}/>
+  },
+
+  {
+    path: '*',
+    main: ({ match }) => <Page404 match={match}/>
   },
 ]

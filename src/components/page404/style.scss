@@ -1,0 +1,76 @@
+.page-err {
+  height: 50rem;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__box {
+    width: 48rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box-404 {
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    &__background {
+      background: rgb(255,162,0);
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 12rem;
+      height: 12rem;
+      border: 3px dashed #000;
+      border-radius: 5px;
+
+      animation: auto 7s linear 0s infinite;
+    }
+
+    &__text {
+      font-size: 5rem;
+      font-weight: 500;
+      position: absolute;
+      letter-spacing: 9px;
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-47%, -52%);
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 2rem;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+@keyframes auto {
+  0%{
+    -webkit-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+  }
+  100%{
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+  }
+}
