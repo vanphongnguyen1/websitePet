@@ -21,12 +21,13 @@ const InfoDetailProduct = () => {
                   title="Embedded youtube"
                 />
               ) : (
-                <img
-                  src={item.img}
-                  alt="item.video"
-                  className="info-detail__group--video"
-                  onClick={() => setIsStatus(index)}
-                />
+                <div className="info-detail__box" onClick={() => setIsStatus(index)}>
+                  <img
+                    src={item.img}
+                    alt={item.video}
+                    className="info-detail__group--video"
+                  />
+                </div>
               )
             }
           </div>

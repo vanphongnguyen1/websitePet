@@ -1,8 +1,8 @@
 import { Tabs } from 'antd'
 import InfoDetailProduct from './InfoDetailProduct'
-import FormComponent from './FormComponent'
+import FormComponents from './FormComments'
 
-const TabsInfoProduct = () => {
+const TabsInfoProduct = ({ idProduct }) => {
   const { TabPane } = Tabs
 
   const callback = key => {
@@ -17,7 +17,7 @@ const TabsInfoProduct = () => {
         </TabPane>
 
         <TabPane tab="Bình luận" key="2">
-          <FormComponent />
+          <FormComponents idProduct={idProduct} />
         </TabPane>
       </Tabs>
     </div>

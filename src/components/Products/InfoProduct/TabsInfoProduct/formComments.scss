@@ -1,0 +1,40 @@
+.box-comments {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 2rem 5rem;
+
+  .avarta {
+    &__icon {
+      width: 4rem;
+      height: 3.5rem;
+      background: #ccc;
+      font-size: 3rem;
+
+      line-height: 5.2rem;
+      text-align: center;
+      color: #fff;
+      margin-right: 2rem;
+    }
+  }
+
+  .box-comment-action {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+
+    span {
+      margin-right: 0.5rem;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+    }
+
+    span:hover {
+      color: #1890ff;
+    }
+  }
+
+  .ant-comment-content-author-name {
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+}

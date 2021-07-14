@@ -19,12 +19,12 @@ const InfoProduct = ({ item, url }) => {
         </div>
       </div>
 
-      <TabsInfoProduct />
+      <TabsInfoProduct idProduct={item.id} />
 
       <div className="similar-product">
         <div className="slider-small">
           <BoxHeading title="Sản phẩm tương tự" color={COLOR} url={url}/>
-          <SimilarProduct lineage={item.lineageID} id={item.id}/>
+          <SimilarProduct lineage={item.lineageID} id={item.id} group={item.lineage.groupID}/>
         </div>
       </div>
     </div>

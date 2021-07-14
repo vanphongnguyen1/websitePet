@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Slider from 'react-slick'
 import ItemProduct from '../ItemProduct'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import  { removeAccents } from '../../assets/js/removeAccents'
 
 
 const SimilarProduct = (props) => {
-  const { lineage, id } = props
+  const { lineage, id, group } = props
+  const history = useHistory()
   const dataProductFetch = useSelector(state => state.products.list)
   const dataGroup = useSelector(state => state.groups)
   const [newData, setNewData] = useState([])
@@ -16,15 +17,15 @@ const SimilarProduct = (props) => {
     const filterData = []
 
     dataProductFetch.forEach(item => {
+      if (item.id === id) return;
       if (lineage === item.lineageID && item.id !== id) {
         filterData.unshift(item)
-      }
-      if (filterData.length < 20) {
+      } else if (group === item.lineage.groupID && filterData.length < 20) {
         filterData.push(item)
       }
     })
     setNewData(filterData)
-  }, [dataProductFetch, lineage, id])
+  }, [dataProductFetch, lineage, id, group])
   // const newData = data.slice(0, 10)
 
   const settings = {
@@ -66,13 +67,15 @@ const SimilarProduct = (props) => {
           dataGroup.loading === 'success' &&
           newData.map(item => {
             return (
-              <Link
-                to={`${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
+              <div
+                onDoubleClick={
+                  () => history.push(`/${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`)
+                }
                 key={item.id}
                 className="product-top__box"
               >
                 <ItemProduct item={item}/>
-              </Link>
+              </div>
             )
           })
         }

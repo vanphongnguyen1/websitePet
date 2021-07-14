@@ -4,7 +4,7 @@ import ItemProduct from './ItemProduct'
 import NavListProduct from './NavListProduct'
 import { Tablet, TabletHiden } from '../responsive'
 import Buttom from '../reuse/Buttom'
-import { Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { DOG, MEW, ACCESSORIES } from '../dataConst'
 import { useSelector } from 'react-redux'
 import { removeAccents } from '../assets/js/removeAccents'
@@ -19,6 +19,7 @@ import './products.scss'
 
 const Products = ({ products, title }) => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const [listLineage, setListLineage] = useState([])
   const [dataShow, setDataShow] = useState([])
   const [idLineage, setIdLineage] = useState(0)
@@ -92,11 +93,13 @@ const Products = ({ products, title }) => {
                 newProducts.map(item => {
                   return(
                     <div className="box-item" key={item.id}>
-                      <Link
-                        to={`${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
+                      <div
+                        onDoubleClick={
+                          () => history.push(`/${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`)
+                        }
                       >
                         <ItemProduct item={item}/>
-                      </Link>
+                      </div>
                     </div>
                   )
                 })
@@ -109,11 +112,13 @@ const Products = ({ products, title }) => {
                   newProducts.map(item => {
                     return(
                       <div className="box-item" key={item.id}>
-                        <Link
-                          to={`${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
+                        <div
+                          onDoubleClick={
+                            () => history.push(`/${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`)
+                          }
                         >
                           <ItemProduct item={item}/>
-                        </Link>
+                        </div>
                       </div>
                     )
                   })

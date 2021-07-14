@@ -2,7 +2,7 @@ import React, { useState,  useEffect } from 'react'
 import ItemProduct from './ItemProduct'
 import NavListProduct from './NavListProduct'
 import { TabletHiden } from '../responsive'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeAccents } from '../assets/js/removeAccents'
 import { Pagination } from 'antd';
@@ -11,6 +11,7 @@ import './products.scss'
 
 const ShowAll = ({ products }) => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const [dataPagination, setDataPagination] = useState([])
   const [listLineage, setListLineage] = useState([])
   const [pageDefault, setPageDefault] = useState(1)
@@ -84,11 +85,13 @@ const ShowAll = ({ products }) => {
                 dataPagination.map(item => {
                   return(
                     <div className="box-item col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6" key={item.id}>
-                      <Link
-                        to={`${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`}
+                      <div
+                        onDoubleClick={
+                          () => history.push(`/${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`)
+                        }
                       >
                         <ItemProduct item={item}/>
-                      </Link>
+                      </div>
                     </div>
                   )
                 })
