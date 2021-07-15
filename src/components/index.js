@@ -4,7 +4,8 @@ import Footer from './footer'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom"
 import { routes } from '../routes'
 import ScrollToTop from './reuse/ScrollToTop'
@@ -35,6 +36,7 @@ const PetShop = () => {
         <Header />
 
           <Switch>
+            <Redirect from="/tin-tuc" exact to="/news" />
             {
               routes.map((item, index) => {
                 return <Route

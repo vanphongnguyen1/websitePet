@@ -10,6 +10,7 @@ import ordersSlice from './ordersSlice'
 import productInCartSlice from './productInCartSlice'
 import imagesSlice from './imagesSlice'
 import commentsSlice from './commentsSlice'
+import newAction from './newAction'
 
 export const rootReducers = {
   login: loginSlice,
@@ -23,5 +24,6 @@ export const rootReducers = {
   orders: ordersSlice,
   productInCart: productInCartSlice,
   images: imagesSlice,
-  comments: commentsSlice
+  comments: commentsSlice,
+  newAction
 }

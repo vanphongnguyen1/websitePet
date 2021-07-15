@@ -7,6 +7,10 @@ import ShowMews from './components/main/ProductMews/ShowMews'
 import ShowAccess from './components/main/ProductAccess/ShowAccess'
 import ShowPetOther from './components/main/PetsOther/ShowPetOther'
 import RootInfoProduct from './components/Products/InfoProduct/index'
+import News from './components/main/New/NewPet'
+import NewPetAll from './components/main/New/NewPet/NewPetAll'
+import PostNew from './components/main/New/NewPet/PostNew'
+import ServicePet from './components/main/ServicePet'
 import Page404 from './components/page404'
 
 export const routes = [
@@ -51,6 +55,38 @@ export const routes = [
     auth: true,
     roles: [],
     main: ({match}) => <RootInfoProduct match={match}/>
+  },
+
+  {
+    path: '/news',
+    exact: true,
+    auth: true,
+    roles: [],
+    main: ({match}) => <News match={match}/>
+  },
+
+  {
+    path: '/news/:url',
+    exact: true,
+    auth: true,
+    roles: [],
+    main: ({match}) => <NewPetAll match={match}/>
+  },
+
+  {
+    path: '/tin-tuc/:url',
+    exact: true,
+    auth: true,
+    roles: [],
+    main: ({match}) => <PostNew match={match}/>
+  },
+
+  {
+    path: '/dich-vu',
+    exact: true,
+    auth: true,
+    roles: [],
+    main: ({match}) => <ServicePet match={match}/>
   },
 
   {

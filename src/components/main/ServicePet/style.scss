@@ -1,0 +1,142 @@
+.page-news-header {
+  border: none;
+  background: #fff;
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+
+  &__title {
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  &__text {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    padding: 0 0.75rem;
+  }
+}
+
+.page-news-main {
+  border: none;
+  margin-bottom: 6rem;
+  background: #fff;
+
+  &__box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #E3E3E3;
+    margin-bottom: 3rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+    .box-img {
+      height: 20rem;
+      width: 45rem;
+      margin-right: 2rem;
+      width: calc(5/12 * 100%);
+    }
+
+    &--img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .box-content {
+      padding: 1rem 5rem 1rem 0;
+      width: calc(7/12 * 100%);
+
+      &__title {
+        font-size: 2.2rem;
+        font-weight: 500;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+      }
+
+      &__title-sub {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+      }
+
+      &__title-comment {
+        text-transform: uppercase;
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  &__box-address {
+    height: 100%;
+    border-left: 1px solid #ddd;
+
+    .box-search {
+      position: relative;
+      border-top: 3px solid #E9A301;
+
+      &__input {
+        width: 100%;
+        border: 1px solid #ddd;
+        padding: 0 .75em;
+        height: 4rem;
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+
+      &__icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: #e9a301;
+        width: 71px;
+
+        display: inline-block;
+        text-align: center;
+        height: 100%;
+        line-height: 4rem;
+        font-size: 2rem;
+        color: #fff;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: #bb8301;
+        }
+      }
+    }
+
+    .box-address {
+      margin-top: 2rem;
+      border: 1px solid #ddd;
+
+      &__title {
+        border: 1px solid #ddd;
+        border-top: 3px solid #e9a301;
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+      }
+
+      &__link {
+        margin-left: 1rem;
+        color: #e9a301;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__pagination {
+    margin-bottom: 3rem;
+  }
+
+  .ant-pagination-options {
+    display: none;
+  }
+}
