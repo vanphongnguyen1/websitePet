@@ -1,11 +1,17 @@
 import React from 'react'
 import { DATACONTACT, SUPORT, DATANAV} from '../dataConst'
 import Logo from '../reuse/Logo'
-import ItemText from './ItemText'
 import RegisFooter from './RegisFooter'
+import { useHistory } from 'react-router-dom'
 import './style.scss'
 
 const Footer = () => {
+  const history = useHistory()
+
+  const handMenuFooter = url => {
+    history.push(url)
+  }
+
   return (
     <>
       <div className="footer">
@@ -20,7 +26,7 @@ const Footer = () => {
                     {
                       DATACONTACT.map((item, index) => {
                         return (
-                          <li className="footer__item" key={index}>
+                          <li className="footer__item" key={index} >
                             <span className={`footer__item--icon ${item.iconHeader}`} />
                             {item.text}
                           </li>
@@ -39,7 +45,11 @@ const Footer = () => {
                     DATANAV.map((ele, i) => {
                       if ( ele.title === SUPORT) return '';
 
-                      return <ItemText ele={ele} key={i}/>
+                      return (
+                        <li className="footer__item" onClick={() => handMenuFooter(ele.to)} key={i}>
+                          <p className="footer__link">{ele.title}</p>
+                        </li>
+                      )
                     })
                   }
                 </ul>
@@ -54,7 +64,11 @@ const Footer = () => {
                     DATANAV.map(item => {
                       if ( item.title === SUPORT) {
                         return item.child.map((ele, i) => {
-                          return <ItemText ele={ele} key={i}/>
+                          return (
+                            <li className="footer__item" key={i}>
+                              <p className="footer__link">{ele.title}</p>
+                            </li>
+                          )
                         })
                       }
                       return ''

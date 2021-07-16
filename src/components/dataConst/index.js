@@ -12,7 +12,7 @@ export const PRODUCTHOT = "Sản phầm bán chạy"
 
 export const groupDogs = 'dogs'
 export const groupMews = 'cats'
-export const groupOther = 'pet orther'
+export const groupOther = 'pet other'
 export const groupAccessories = 'accessories'
 
 export const REGEX = {
@@ -111,7 +111,7 @@ export const DATANAV = [
   },
   {
     title: ACCESSORIES,
-    to: '/accessories'
+    to: '/phu-kien'
   },
   {
     title: SERVICE,
@@ -133,7 +133,7 @@ export const DATANAV = [
   },
   {
     title: SUPORT,
-    to: '/suport',
+    to: '/ho-tro',
     child: [
       { title: 'Hướng dẫn mua hàng'},
       { title: 'Chính sách bảo hành'},
@@ -230,7 +230,7 @@ export const textBanner = [
 //   'https://www.youtube.com/embed/wRlrKF4sueg?autoplay=1&origin=http://localhost:3000"'
 // ]
 
-export const DATAVIDEO = [
+export const dataDetailDog = [
   {
     video: '//www.youtube.com/embed/QLayz79GrrI?autoplay=1&mute=1&enablejsapi=1',
     img: 'https://i.ytimg.com/vi/QLayz79GrrI/hqdefault.jpg'
@@ -283,6 +283,52 @@ export const DATAVIDEO = [
   {
     video: '//www.youtube.com/embed/wRlrKF4sueg?autoplay=1&mute=1&enablejsapi=1',
     img: 'https://i.ytimg.com/vi/wRlrKF4sueg/hqdefault.jpg'
+  },
+]
+export const dataDetailCart = [
+  {
+    video: "//www.youtube.com/embed/hMT1MKOro4c?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/hMT1MKOro4c/hqdefault.jpg",
+  },
+  {
+    video: "//www.youtube.com/embed/ZRA18pQFZng?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/ZRA18pQFZng/hqdefault.jpg",
+  },
+  {
+    video: "//www.youtube.com/embed/bZazfTRLRW0?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/bZazfTRLRW0/hqdefault.jpg",
+  },
+  {
+    video: "//www.youtube.com/embed/J8wLajIgoss?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/J8wLajIgoss/hqdefault.jpg",
+  },
+  {
+    video: "//www.youtube.com/embed/jC8P78GLRK8?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/jC8P78GLRK8/hqdefault.jpg",
+  },
+  {
+    video: "//www.youtube.com/embed/-K8Ckxt49i4?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/-K8Ckxt49i4/hqdefault.jpg",
+  },
+  {
+    video: "//www.youtube.com/embed/h6MYVy7SisA?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/h6MYVy7SisA/hqdefault.jpg",
+  },
+  {
+    video: "//www.youtube.com/embed/MiM8uVoTcVM?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/MiM8uVoTcVM/hqdefault.jpg",
+  },
+  {
+    video: "//www.youtube.com/embed/LeQHBvua7XU?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/LeQHBvua7XU/hqdefault.jpg",
+  },
+  {
+    video: "//www.youtube.com/embed/0Tk8b4vHlLw?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/0Tk8b4vHlLw/hqdefault.jpg",
+  },
+  {
+    video: "//www.youtube.com/embed/wRlrKF4sueg?autoplay=1&mute=1&enablejsapi=1",
+    img: "https://i.ytimg.com/vi/wRlrKF4sueg/hqdefault.jpg",
   },
 ]
 
@@ -524,13 +570,13 @@ activate: 2
     activate: 1
   },
   {
-    img: "https://dogily.vn/wp-content/uploads/2019/09/dai-t…a-nang-tieu-thu-cho-alaska-trung-quoc-300x193.jpg",
+    img: "https://dogily.vn/wp-content/uploads/2019/09/dai-thieu-gia-vuong-tu-thong-va-nang-tieu-thu-cho-alaska-trung-quoc-300x193.jpg",
     title: "Cuộc sống sang chảnh của tiểu thư chó Alaska Trung Quốc",
     sub: "Ngày nay rất dễ để ta bắt gặp những cô chiêu cậu ấm tặng nhau [...]",
     activate: 2
   },
   {
-    img: "https://dogily.vn/wp-content/uploads/2019/08/Cac-s…n-thuong-co-so-luong-thu-cung-da-dang-300x300.jpg",
+    img: "https://dogily.vn/wp-content/uploads/2019/08/Cac-shop-thu-cung-uy-tin-thuong-co-so-luong-thu-cung-da-dang-300x300.jpg",
     title: "Shop thú cưng – cách lựa chọn địa chỉ uy tín bạn không thể bỏ qua",
     sub: "Các shop thú cưng đang là lựa chọn của nhiều người. Với độ uy tín [...]",
     activate: 1
@@ -584,19 +630,19 @@ activate: 2
     activate: 1
   },
   {
-    img: "https://dogily.vn/wp-content/uploads/2019/01/H%C3%…BA%ADt_B%E1%BA%A3n_-_Dogily_Petshop_7-300x200.jpg",
+    img: "https://dogily.vn/wp-content/uploads/2019/01/Hình_ảnh_chó_Akita_tại_tỉnh_Akita_đảo_Honsu_-_Nhật_Bản_-_Dogily_Petshop_7-300x200.jpg",
     title: "Trải nghiệm google street view với góc nhìn một chú chó Akita",
     sub: "Google đã thu thập hình ảnh ở tất cả mọi nơi trên thế giới vào [...]",
     activate: 2
   },
   {
-    img: "https://dogily.vn/wp-content/uploads/2019/01/H%C3%…ta_v%C3%A0_Shiba_Inu_Dogily_Petshop_1-600x400.jpg",
+    img: "https://dogily.vn/wp-content/uploads/2019/01/Hình_ảnh_chó_Akita_và_Shiba_Inu_Dogily_Petshop_1-600x400.jpg",
     title: "Phân biệt chó akita và shiba inu",
     sub: "Chó akita và shiba Inu đều là hai giống chó nổi tiếng nhất của Nhật [...]",
     activate: 1
   },
   {
-    img: "https://dogily.vn/wp-content/uploads/2018/12/Ch%E1…a-Shimba-c%E1%BB%A7a-Dogily-Petshop-1-300x200.jpg",
+    img: "https://dogily.vn/wp-content/uploads/2018/12/Chị-Vương-Trang-đang-tâm-sự-cùng-chú-chó-Akita-Shimba-của-Dogily-Petshop-1-300x200.jpg",
     title: "Bộ ảnh chó Akita Inu trong ánh hoàng hôn tuyệt đẹp…ại Vườn nhãn Long Biên. Thêm một lần nhớ Hachiko…",
     sub: "Đến với vườn nhãn Long Biên, nơi bạn như được lạc vào một khu rừng [...]",
     activate: 1
@@ -773,10 +819,370 @@ export const contentPost = [
 
 export const dataServices = [
   {
-    img: 'https://dogily.vn/wp-content/uploads/2020/05/cua-hang-cho-canh-dogilypetshop-400x600.jpg',
-    title: 'Top 8 cửa hàng bán chó cảnh uy tín nhất tại Hà Nội',
-    sub: '“Người yêu có thể không có, nhưng chó phải có một con.” Bạn nào đang [...]',
+    img: "https://dogily.vn/wp-content/uploads/2019/09/spa-cat-tia-long-cho-thu-cung-300x200.jpg",
+    title: "Spa Chó Mèo – Dịch Vụ Làm Đẹp Thú Cưng Chuyên Nghiệp",
+    sub: "Dịch vụ spa chó mèo tại Dogily với các phương pháp chăm sóc thú cưng [...]",
+    activate: 4
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/06/benh-o-cho-kieng-va-cach-dieu-tri-600x400.jpg",
+    title: "Các bệnh ở chó kiểng và cách điều trị",
+    sub: "Chó có rất nhiều bệnh, nhiều nhất là các bệnh ngoài da, kế đó là [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/06/benh-ben-trong-o-cho-600x400.jpg",
+    title: "Bệnh bên trong ở chó và cách chăm sóc, điều trị",
+    sub: "Từ “chăm sóc” dùng trong chương này hợp lý hơn từ “chữa trị”, bởi vì [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/06/cap-cuu-cho-cho-600x400.jpg",
+    title: "Cấp cứu cho chó",
+    sub: "John Steinbeck, tác giả đã từng đoạt giải Nôben khi viết quyển “Những cuộc du [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/06/benh-ngoai-da-o-cho-600x426.jpg",
+    title: "Bệnh ngoài da ở chó cảnh",
+    sub: "Các nhà nuôi chó cảnh tài tử hễ nhìn thấy các  vết lở loét ngoài [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/06/ky-sinh-trung-duong-ruot-o-cho-400x600.jpeg",
+    title: "Ký sinh trùng đường ruột ở chó và cách điều trị",
+    sub: "Có rất nhiều loại giun sống ở ruột chó. Ngay cả những người có kinh [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/06/ky-sinh-trung-o-cho-400x600.jpg",
+    title: "Ký sinh trùng ngoài da ở chó",
+    sub: "Trong phần này chúng ta bàn đến các loại ký sinh trùng ngoài da phổ [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/05/dieu-tri-benh-ghe-o-cho-2-600x400.jpg",
+    title: "Điều trị bệnh ghẻ ở chó như thế nào mới đúng?",
+    sub: "Nên điều trị bệnh ghẻ ở chó như thế nào là một câu hỏi được [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/04/benh-thuong-gap-o-cho-va-cach-dieu-tri-450x600.jpg",
+    title: "Bệnh ở chó và cách điều trị hiệu quả",
+    sub: "CHẨN ĐOÁN CÁC DẤU HIỆU CHÓ BỊ MẮC BỆNH. Mệt mỏi, ủ rũ: Hàng ngày [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/04/cho-an-xuong-co-an-toan-khong-600x400.jpg",
+    title: "Chó ăn xương được không? Các loại xương gặm an toàn cho chó?",
+    sub: "Bạn thường nghe nói là chó cảnh thích gặm xương. Nhưng cũng có người cho [...]",
     activate: 1
   },
 
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/03/benh-thuong-gap-o-cho-va-cach-dieu-tri-600x400.jpg",
+    title: "Các bệnh thường gặp ở chó và cách điều trị khoa học – Dogily Petshop",
+    sub: "Con chó luôn gần gũi vớí các thành viên trong gia đình, nhất là các [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/01/cho-can.jpg",
+    title: "Những nguy hiểm khi bị chó cắn. Cách xử lý và sơ c…hó cắn! Những trung tâm tiêm phòng khi bị chó cắn",
+    sub: "Hiện nay, chó là một trong giống thú cưng được nhiều người nuôi nhất. Và [...]",
+    activate: 1
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/01/tiem-vacxin-cho-cho-1.jpg",
+    title: "Những lưu ý khi tiêm và cho chó uống thuốc",
+    sub: "Chó là một thú cưng phổ biến ở Việt Nam. Khi nuôi dưỡng chúng thì [...]",
+    activate: 1
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/01/kinh-nghiem-cat-tia-mong-chan-cho-cho.jpg",
+    title: "Hướng dẫn chi tiết các bước cắt móng cho chó. Vật dụng cần thiết để cắt móng",
+    sub: "Khi nuôi chócảnh nhiều bạn chỉ quan tâm đến việc tắm rửa với cắt tỉa [...]",
+    activate: 4
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/01/tam-cho-meo-dung-cach.jpg",
+    title: "Quy trình tắm cho chó cưng từ đầu đến đuôi – 5 sản phẩm sữa tắm tốt nhất hiện nay",
+    sub: "Tắm cho chó mang lại rất nhiều lợi ích. Giúp chúng ta phòng tránh được [...]",
+    activate: 4
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/01/chu-cho2.jpg",
+    title: "Các phương pháp bổ sung chất dinh dưỡng cho chó gầy gò, ốm yếu, thiếu dinh dưỡng.",
+    sub: "Chó bị gầy gò, ốm yếu thường là hậu quả do chế độ dinh dưỡng [...]",
+    activate: 4
+  },
+
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/01/Cho-bi-ghe-co-nen-tam-khong-600x600.jpg",
+    title: "Bí kíp trị ghẻ cho chó – Bốn nhãn hiệu sữa tắm trị ghẻ tốt nhất",
+    sub: "Tuy bệnh ghẻ không phải là bệnh nguy hại đến cho nhưng cũng là nỗi [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/01/cho-thiếu-canxi-ăn-gì1.jpg",
+    title: "Làm sao nhận biết chó thiếu canxi? Bổ sung canxi cho chó như nào là hợp lý?",
+    sub: "Theo điều tra thì chó cần canxi gấp 4 lần so với con người. Nhu [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2020/01/trieu-chung-benh-viem-phuc-mac-o-meo-600x400.jpg",
+    title: "BỆNH VIÊM PHÚC MẠC Ở MÈO GÂY CHẾT MÈO HAY CHỮA ĐƯỢC?",
+    sub: "Một hội chứng nguy hiểm các sen cần phải nắm rõ để biết cách phòng [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Phong-benh-di-ung-cho-cho-Rottweiler-dung-cach-de-giam-nguy-co-tu-vong-600x426.jpg",
+    title: "Các bệnh hay gặp ở chó Rottweiler – Nguyên nhân, điều trị và cách phòng tránh",
+    sub: "Rottweiler thuộc giống chó cảnh dễ nuôi, sức khỏe tốt và tính tình rất ngoan [...]",
+    activate: 2
+  },
+
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/10-2-600x426.jpg",
+    title: "Cách tắm cho chó Poodle tại nhà đơn giản mà hiệu quả nhất",
+    sub: "Giống chó Poodle đáng yêu được rất nhiều người chọn nuôi làm thú cưng. Các [...]",
+    activate: 4
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Phong-benh-viem-duong-ruot-o-cho-Poodle-dung-cach-tuy-vao-tung-nguyen-nhan-600x426.jpg",
+    title: "Những căn bệnh hay gặp ở chó Poodle và cách chăm sóc thú cưng",
+    sub: "Chó Poodle là giống chó cảnh có thân hình rất dễ thương và đáng yêu. [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Dieu-tri-benh-hieu-qua-se-khien-tinh-than-trang-thai-cua-Doberman-khoi-sac-hon-300x213.jpg",
+    title: "Những bệnh thường gặp của chó Doberman và cách điều trị",
+    sub: "Doberman đang là một cái tên nhận được rất nhiều sự quan tâm từ những [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/rung-long-la-mot-bieu-hien-khi-boss-bi-ghe-300x300.jpeg",
+    title: "Cách nhận biết chó bị ghé chính xác và hiệu quả nhất",
+    sub: "Ghẻ gây ra tình trạng viêm da được sinh ra từ các loài ve nhỏ [...]",
+    activate: 1
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/cach-dieu-tri-benh-cho-cac-be-300x213.jpg",
+    title: "Tất tần tật thông tin về bệnh bại liệt ở chó từ A – Z",
+    sub: "Các bé Cún luôn cần được chăm sóc thật kỹ càng. Do đó, nếu chủ [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/meo-tai-cup-mau-tabby-blance-duc-1-300x200.jpg",
+    title: "Nguyên nhân, triệu chứng và cách chữa trị bệnh giảm bạch cầu ở mèo",
+    sub: "Với những người từng nuôi mèo chắc hẳn đều trải qua cảm giác lo lắng [...]",
+    activate: 1
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Cac-loai-hinh-dieu-tri-benh-viem-da-o-cho-300x213.jpg",
+    title: "Mách bạn cách điều trị bệnh viêm da ở chó an toàn và hiệu quả",
+    sub: "Không chỉ xuất hiện ở mèo mà căn bệnh viêm da cũng thường gặp ở [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/nguyên-nhân-gây-ra-bệnh-parvo-300x213.jpg",
+    title: "Hai căn bệnh nguy hiểm thường gặp ở chó và cách phòng tránh",
+    sub: "Có rất nhiều căn bệnh nguy hiểm thường gặp ở chó. Trong đó có hai [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Cach-chuan-doan-benh-lepto-o-cho-chinh-xac-213x300.jpg",
+    title: "Bệnh lepto ở chó: triệu chứng và cách chuẩn đoán chính xác nhất",
+    sub: "Các bạn thường rất đau lòng khi phải chứng kiến các bé cưng của mình [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Cach-danh-rang-cho-cho-hieu-qua-va-dung-cach-300x200.jpg",
+    title: "Cách đánh răng cho chó: bạn có chắc đã làm đúng",
+    sub: "Bạn là một người thương yêu và cưng chiều cún cưng? Nếu đúng vậy thì [...]",
+    activate: 4
+  },
+
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Mac-benh-khien-cac-be-can-nhieu-su-tro-giup-tu-cac-bac-si-thu-y-300x213.jpg",
+    title: "Nguyên nhân chó bị bệnh đường ruột và những điều cơ bản bạn nên biết",
+    sub: "Nếu bạn là một người nuôi, yêu và quan tâm đến những bé chó cưng [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/demodex-la-mot-dang-benh-ghe-o-cho-300x213.jpg",
+    title: "Bệnh ghẻ ở chó : phân biệt 2 loại ghẻ thường gặp",
+    sub: "Một căn bệnh về da do các loài ký sinh đáng ghét mà các chú [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Cho-tro-nen-dong-danh-va-thuong-phot-lo-moi-thu-300x213.jpg",
+    title: "Cách nhận biết chó có thai cực hiệu quả dành cho những người chủ nuôi",
+    sub: "Bất kỳ ai đang nuôi chó trong nhà sẽ đều trải qua một khoảng thời [...]",
+    activate: 3
+  },
+
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/tiem-vacxin-cho-cho-300x213.jpg",
+    title: "Kinh nghiệm từ bác sĩ thú y về cách tiêm cho chó",
+    sub: "Nếu biết cách tiêm cho chó thì chúng ta hoàn toàn có thể chủ động [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Khach-hang-vo-cung-hai-long-voi-dich-vu-kham-chua-benh-tai-nha-cua-Dogily-300x300.jpg",
+    title: "Dịch vụ khám chữa tại nhà siêu hot dành cho các bé cưng tại Dogily",
+    sub: "Ngày nay, khi đời sống vật chất của con người càng được nâng cao thì [...]",
+    activate:2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Meo-duoi-6-tuan-tuoi-con-non-not-nen-can-duoc-uong-sua-day-du-300x213.jpg",
+    title: "Kinh nghiệm chăm sóc mèo con từ nhỏ đến trưởng thành",
+    sub: "Mèo là vật nuôi khá gần gũi và được nhiều gia đình ưa chuộng. Nhất [...]",
+    activate: 4
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/khi-tri-benh-cho-boss-can-chu-y-dieu-gi-300x213.jpg",
+    title: "Cách phòng ngừa và điều trị bệnh Parvo ở chó hiệu quả",
+    sub: "Bệnh Parvo ở chó là một trong những chứng bệnh gây tử vong cao nhất, [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/lam-the-nao-phat-hien-cho-bi-benh-300x213.jpg",
+    title: "Chó bị viêm phổi – Nguyên nhân và cách chữa trị hiệu quả nhất",
+    sub: "Viêm phổi là một căn bệnh thường gặp nhất ở mọi giống cún và không [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/chan-doan-benh-care-o-cho-300x300.jpg",
+    title: "Chẩn đoán bệnh Care ở chó – Những căn bệnh thường gặp ở chó",
+    sub: "Bệnh Care là một trong những căn bệnh rất hay gặp ở chó. Triệu chứng [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/nhung-buoc-tien-hanh-cao-long-cho-boss-300x213.jpg",
+    title: "Hướng dẫn tất tần tật cách tạo lông cho đúng cách cho các bạn",
+    sub: "Nếu bạn là một người chủ tốt, bạn nên chăm sóc cho bé yêu của [...]",
+    activate: 4
+  },
+
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/su-dung-dich-vu-ben-ngoai-de-diet-tan-goc-ve-bo-300x213.jpg",
+    title: "Xem ngay xem ngay: cách trị ve chó đơn giản, tận gốc hiệu quả 100%",
+    sub: "Ve chó – một kẻ thù không đội trời chung với những ai nuôi chó [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/cho-bi-chay-mau-mui-la-nhu-the-nao-300x300.jpg",
+    title: "Chó bị chảy máu mũi – Sự thật là như thế nào ?",
+    sub: "Một vấn đề mà những người nuôi thú cưng hiện nay rất lo lắng về [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Cho-bo-an-nguyen-nhan-la-do-dau-300x213.jpg",
+    title: "Chó bỏ ăn – Nguyên nhân do đâu và những cách khắc phục ai cũng nên biết",
+    sub: "Theo tâm lý chung của những người nuôi chó cưng, nếu thấy các bé bỏ [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Ve-cho-thuong-khien-cac-be-cam-thay-ngua-va-dau-rat-300x213.jpg",
+    title: "Bật mí cách trị ve chó nhanh, gọn, nhẹ mà không phải ai cũng biết",
+    sub: "Việc tìm bắt ve rận cho chó gần như là công việc hết sức quen [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/cach-phan-biet-benh-care-o-boss-300x213.jpg",
+    title: "Triệu chứng bệnh Care ở chó dễ nhận thấy nhất có thể bạn chưa biết",
+    sub: "Việc mua và rước một chú cún cưng về nhà nuôi là một vấn đề [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Can-nho-ngay-phoi-giong-de-xac-dinh-thoi-gian-cac-be-cun-con-ra-doi-300x213.jpg",
+    title: "Biểu hiện chó sắp đẻ và những lưu ý quan trọng không phải ai cũng biết",
+    sub: "Có lẽ điều vui nhất và cũng là sợ hãi nhất đối với mỗi người [...]",
+    activate: 3
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Cac-be-trong-yeu-ot-han-di-khi-mac-benh-300x213.jpg",
+    title: "Có những cách gì điều trị bệnh viêm đường ruột ở chó bạn có biết?",
+    sub: "Viêm đường ruột ở chó luôn là nỗi ám ảnh với những người đang nuôi [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/bao-lau-thi-nen-tam-cho-boss-mot-lan-300x213.jpg",
+    title: "Nên tắm cho thú cưng bao lâu một lần và tắm như thế nào là hiệu quả?",
+    sub: "Những chú cún tí hon khi được chủ của mình tắm đúng cách thì đem [...]",
+    activate: 4
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/11/Nhanh-chong-so-cuu-cho-nguoi-bi-cho-dai-can-300x213.jpg",
+    title: "Những bệnh hay gặp ở chó Becgie và cách phòng tránh",
+    sub: "Các chú chó Becgie Đức tuy to lớn là vậy nhưng cũng không thể tránh [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/Dia-chi-phoi-giong-cho-Alaska-tai-TPHCM-–-Dogily-vn-300x300.jpg",
+    title: "Phối giống chó Alaska giá bao nhiêu? Và những lưu ý cần biết",
+    sub: "Chó Alaska hiện đang rất được yêu thích ở Việt Nam. Sở hữu một chú [...]",
+    activate: 3
+  },
+
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/Cac-be-rat-de-mac-can-benh-beo-phi-600x600.jpg",
+    title: "Những bệnh chó Corgi hay gặp phải có thể bạn chưa biết?",
+    sub: "Corgi là một giống chó có tuổi thọ khá cao từ 13-15 năm. Tuy nhiên [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/cho-bi-viem-da-1-600x395.jpg",
+    title: "Tìm hiểu về căn bệnh chó bị viêm da và cách điều trị hiệu quả",
+    sub: "Chó bị viêm da là một căn bệnh hết sức phổ biến ở các bạn [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/Cho-dai-co-the-tan-cong-con-nguoi-va-cac-vat-nuoi-khac-300x213.jpg",
+    title: "Chó dại – Biểu hiện và các phương pháp phòng chống",
+    sub: "Bệnh dại ở chó là một căn bệnh truyền nhiễm vô cùng nguy hiểm. Chó [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/Nho-thuoc-sau-gay-doc-theo-song-lung-cua-be-cun-600x600.jpg",
+    title: "Các cách trị ve chó đơn giản nhưng vô cùng hiệu quả",
+    sub: "Chắc hẳn những ai từng nuôi cún cưng đều không còn lạ lẫm với ve [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/Cac-chu-cho-bi-rung-long-va-ngua-khong-phai-la-hien-tuong-hiem-gap-1-600x600.jpg",
+    title: "Phương pháp điều trị, phòng ngừa chó bị rụng lông và ngứa",
+    sub: "“Rụng lông” là một trong những biểu hiện bình thường của loài chó. Tuy nhiên [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/Con-bo-chet-cho-truong-thanh-300x300.jpg",
+    title: "Phương pháp chữa trị và phòng chống rận chó, bọ chét chó hữu hiệu",
+    sub: "Rận chó và bọ chét chó thực sự là cơn ác mộng kinh hoàng với [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/Giun-dua-o-cho-tu-dau-ma-co-300x213.jpg",
+    title: "Giun đũa ở chó – Cách nhận biết và chữa trị hiệu quả không phải ai cũng biết",
+    sub: "Với loài chó, việc bị “tấn công” bởi các loại giun cũng như các sinh [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/Cho-bi-so-mui-300x300.jpg",
+    title: "Chó bị chảy nước mũi, máu cam – Nguyên do và cách khắc phục",
+    sub: "Trong quá trình nuôi nấng và chăm sóc các chú cún cưng, việc cún mắc [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/Cham-soc-cho-bi-non-300x300.jpg",
+    title: "Chó bị nôn bỏ ăn – Nguyên do và cách xử lý mà người nuôi cún cưng nên biết",
+    sub: "Hiện tượng chó bị nôn bỏ ăn là điều thường thấy trong khi nuôi các [...]",
+    activate: 2
+  },
+  {
+    img: "https://dogily.vn/wp-content/uploads/2019/10/Cac-be-co-the-bi-sot-do-viem-amidan-nhiem-khuan-hoac-nhiem-doc-chi-300x300.jpg",
+    title: "Những điều mà người nuôi cần phải biết khi chó bị sốt",
+    sub: "Các chú chó bị sốt cũng giống như con người bị sốt. Tuy nhiên biểu [...]",
+    activate: 2
+  }
 ]

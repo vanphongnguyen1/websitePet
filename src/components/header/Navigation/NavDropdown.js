@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { removeAccents } from '../../assets/js/removeAccents'
 import { useDispatch } from 'react-redux'
 import { setStatusNavNew } from '../../redux/newAction'
+import { setStatusService } from '../../redux/serviceSlice'
 
 const NavDropdown = ({ child }) => {
   const dispatch = useDispatch()
@@ -10,6 +11,13 @@ const NavDropdown = ({ child }) => {
   const handleClickNav = (id, title) => {
     if (child.length === 2) {
       dispatch(setStatusNavNew({
+        id,
+        title
+      }))
+    }
+
+    if (child.length === 4) {
+      dispatch(setStatusService({
         id,
         title
       }))
@@ -24,11 +32,10 @@ const NavDropdown = ({ child }) => {
             child && (
               child.map((item, index) => {
                 return (
-                  <li className="drop-down__item" key={index}>
+                  <li className="drop-down__item" key={index} onClick={() => handleClickNav(index + 1, item.title)}>
                     <NavLink
-                      to={`/news/${removeAccents(item.title)}`}
+                      to={`${child.length === 2 ? '/news/'+removeAccents(item.title) : child.length === 4 ? '/dich-vu/'+removeAccents(item.title) : 'ho-tro'}`}
                       className="drop-down__link"
-                      onClick={() => handleClickNav(index + 1, item.title)}
                     >
                       { item.title }
                     </NavLink>

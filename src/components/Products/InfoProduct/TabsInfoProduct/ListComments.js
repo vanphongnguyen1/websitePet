@@ -2,6 +2,7 @@ import React, { useState, useEffect } from'react'
 import { Comment, Avatar, Form, Button, Input } from 'antd';
 import { fetchUser } from '../../../redux/loginSlice'
 import { fetchComments } from '../../../redux/commentsSlice'
+import { setStatusLogin } from '../../../redux/statusLoginSlice'
 import moment from 'moment';
 import Comments from './Comments'
 import { useSelector, useDispatch } from 'react-redux'
@@ -77,6 +78,12 @@ const ListComments = ({ idProduct }) => {
   }, [dataCommentProduct])
 
   const handleSubmit = () => {
+    const id = sessionStorage.getItem('id')
+    if (!id) {
+      dispatch(setStatusLogin(true))
+      return;
+    }
+
     if (!value) {
       return;
     }

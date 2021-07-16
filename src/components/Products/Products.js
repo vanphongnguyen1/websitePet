@@ -95,7 +95,7 @@ const Products = ({ products, title }) => {
                     <div className="box-item" key={item.id}>
                       <div
                         onDoubleClick={
-                          () => history.push(`/${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`)
+                          () => history.push(`/${removeAccents(dataGroup.list.find(ele => ele.id === item.lineage.groupID).name)}/${removeAccents(item.lineage.name)}/${item.url}`)
                         }
                       >
                         <ItemProduct item={item}/>
@@ -114,7 +114,7 @@ const Products = ({ products, title }) => {
                       <div className="box-item" key={item.id}>
                         <div
                           onDoubleClick={
-                            () => history.push(`/${dataGroup.list.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`)
+                            () => history.push(`/${removeAccents(dataGroup.list.find(ele => ele.id === item.lineage.groupID).name)}/${removeAccents(item.lineage.name)}/${item.url}`)
                           }
                         >
                           <ItemProduct item={item}/>
@@ -136,8 +136,8 @@ const Products = ({ products, title }) => {
               to={
                 title === DOG
                 ? '/dogs' : title === MEW
-                ? '/mews' : title === ACCESSORIES
-                ? '/accessories' : '/pet-other'
+                ? '/cats' : title === ACCESSORIES
+                ? '/phu-kien' : '/pet-other'
               }
             >
               <Buttom

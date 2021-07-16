@@ -19,7 +19,7 @@ const InfoProduct = ({ item, url }) => {
         </div>
       </div>
 
-      <TabsInfoProduct idProduct={item.id} />
+      <TabsInfoProduct idProduct={item.id} idGroup={item.lineage.groupID}/>
 
       <div className="similar-product">
         <div className="slider-small">

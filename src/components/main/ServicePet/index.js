@@ -1,5 +1,5 @@
 import React from 'react'
-import { dataPost } from '../../dataConst'
+import { dataServices } from '../../dataConst'
 import PageService from './PageService'
 import PageTitle from '../../reuse/PageTitle'
 import MyBackTop from '../../reuse/MyBackTop'
@@ -9,7 +9,7 @@ const ServicePet = ({ match }) => {
   return (
     <>
       <PageTitle match={match} />
-      <PageService data={dataPost} title={'Dịch vụ'}/>
+      <PageService data={dataServices} title={'Dịch vụ'}/>
       <MyBackTop />
     </>
   )

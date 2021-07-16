@@ -11,6 +11,8 @@ import productInCartSlice from './productInCartSlice'
 import imagesSlice from './imagesSlice'
 import commentsSlice from './commentsSlice'
 import newAction from './newAction'
+import serviceAction from './serviceSlice'
+import keySearchProductSlice from './keySearchproductSlice'
 
 export const rootReducers = {
   login: loginSlice,
@@ -25,5 +27,7 @@ export const rootReducers = {
   productInCart: productInCartSlice,
   images: imagesSlice,
   comments: commentsSlice,
-  newAction
+  newAction,
+  services: serviceAction,
+  keySearchProduct: keySearchProductSlice
 }

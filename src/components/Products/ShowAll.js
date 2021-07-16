@@ -59,7 +59,7 @@ const ShowAll = ({ products }) => {
     const newData = dataShow.slice(defaule - pageSizeDefault, defaule)
 
     setDataPagination(newData)
-  }, [pageSizeDefault, pageDefault, dataShow, idLineage])
+  }, [pageSizeDefault, pageDefault, dataShow])
 
   return (
     <div className="product">
@@ -87,7 +87,7 @@ const ShowAll = ({ products }) => {
                     <div className="box-item col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6" key={item.id}>
                       <div
                         onDoubleClick={
-                          () => history.push(`/${dataGroup.find(ele => ele.id === item.lineage.groupID).name}/${removeAccents(item.lineage.name)}/${item.url}`)
+                          () => history.push(`/${removeAccents(dataGroup.find(ele => ele.id === item.lineage.groupID).name)}/${removeAccents(item.lineage.name)}/${item.url}`)
                         }
                       >
                         <ItemProduct item={item}/>

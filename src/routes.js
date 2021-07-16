@@ -11,6 +11,8 @@ import News from './components/main/New/NewPet'
 import NewPetAll from './components/main/New/NewPet/NewPetAll'
 import PostNew from './components/main/New/NewPet/PostNew'
 import ServicePet from './components/main/ServicePet'
+import ShowGroupService from './components/main/ServicePet/ShowGroupService'
+import PageSearchProduct from './components/main/PageSearchProduct'
 import Page404 from './components/page404'
 
 export const routes = [
@@ -40,7 +42,7 @@ export const routes = [
     main: ({ match }) => <ShowMews match={match}/>
   },
   {
-    path: '/accessories',
+    path: '/phu-kien',
     exact: true,
     main: ({ match }) => <ShowAccess match={match}/>
   },
@@ -87,6 +89,20 @@ export const routes = [
     auth: true,
     roles: [],
     main: ({match}) => <ServicePet match={match}/>
+  },
+  {
+    path: '/dich-vu/:url',
+    exact: true,
+    auth: true,
+    roles: [],
+    main: ({match}) => <ShowGroupService match={match}/>
+  },
+  {
+    path: '/tim-kiem/:url',
+    exact: true,
+    auth: true,
+    roles: [],
+    main: ({match}) => <PageSearchProduct match={match}/>
   },
 
   {

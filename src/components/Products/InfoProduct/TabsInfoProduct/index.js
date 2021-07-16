@@ -2,18 +2,13 @@ import { Tabs } from 'antd'
 import InfoDetailProduct from './InfoDetailProduct'
 import FormComponents from './FormComments'
 
-const TabsInfoProduct = ({ idProduct }) => {
+const TabsInfoProduct = ({ idProduct, idGroup }) => {
   const { TabPane } = Tabs
-
-  const callback = key => {
-    console.log(key)
-  }
-
   return (
     <div className="info-detail">
-      <Tabs defaultActiveKey="1" onChange={callback}>
+      <Tabs defaultActiveKey="1">
         <TabPane tab="Video giới thiệu" key="1">
-          <InfoDetailProduct />
+          <InfoDetailProduct idGroup={idGroup}/>
         </TabPane>
 
         <TabPane tab="Bình luận" key="2">

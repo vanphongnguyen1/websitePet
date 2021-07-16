@@ -1,14 +1,23 @@
-import { useState } from 'react'
-import { DATAVIDEO } from '../../../dataConst'
+import { useState, useEffect } from 'react'
+import { dataDetailDog, dataDetailCart } from '../../../dataConst'
 import './infoDetailProduct.scss'
 
-const InfoDetailProduct = () => {
+const InfoDetailProduct = ({ idGroup }) => {
   const [isStatus, setIsStatus] = useState(null)
+  const [dataShow, setDataShow] = useState([])
+
+  useEffect(() => {
+    if (idGroup === 1) {
+      setDataShow(dataDetailDog)
+    } else if (idGroup === 2) {
+      setDataShow(dataDetailCart)
+    }
+  }, [idGroup])
 
   return (
     <div className="info-detail">
       {
-        DATAVIDEO.map((item, index) => (
+        dataShow.map((item, index) => (
           <div className="info-detail__group" key={index}>
             {
               isStatus === index ? (
