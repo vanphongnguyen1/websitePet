@@ -13,6 +13,8 @@ import { useDispatch } from 'react-redux'
 import { fetchProductsAll } from './redux/productSlice'
 import { fetchGroups } from './redux/groupSlice'
 import { fetchImages } from './redux/imagesSlice'
+import { fetchGender } from './redux/genderSlice'
+// import MessengerCustomerChat from 'react-messenger-customer-chat';
 import './assets/layout.scss'
 import 'antd/dist/antd.css'
 import './assets/reset.scss'
@@ -27,6 +29,7 @@ const PetShop = () => {
     dispatch(fetchProductsAll())
     dispatch(fetchGroups())
     dispatch(fetchImages())
+    dispatch(fetchGender())
   }, [dispatch])
 
   return (
@@ -48,6 +51,11 @@ const PetShop = () => {
               })
             }
           </Switch>
+{/*
+          <MessengerCustomerChat
+            pageId="502018333467885"
+            appId="336352381303829"
+          /> */}
 
         <Footer />
       </Router>

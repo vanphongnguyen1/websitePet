@@ -13,6 +13,7 @@ import PostNew from './components/main/New/NewPet/PostNew'
 import ServicePet from './components/main/ServicePet'
 import ShowGroupService from './components/main/ServicePet/ShowGroupService'
 import PageSearchProduct from './components/main/PageSearchProduct'
+import SettingUser from './components/SettingUser'
 import Page404 from './components/page404'
 
 export const routes = [
@@ -20,6 +21,11 @@ export const routes = [
     path: '/',
     exact: true,
     main: ({ match }) => <Main match={match}/>
+  },
+  {
+    path: '/account',
+    exact: true,
+    main: ({ match }) => <SettingUser match={match}/>
   },
   {
     path: '/cart',

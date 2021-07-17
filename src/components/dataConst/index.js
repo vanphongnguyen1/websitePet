@@ -156,8 +156,8 @@ export const DATANEWS = [
       Hình ảnh khách hàng mua chó con check in tại hệ thống
       Dogily Petshop Video Giới Thiệu Giống Chó Phốc Sóc Tại Dogily.
       Hình ảnh khách hàng mua chó con check in tại hệ thống Dogily Petshop`,
-    day: 13,
-    month: 'Th1'
+    day: 15,
+    month: 'Th7'
   },
   {
     id: 1,
@@ -168,8 +168,8 @@ export const DATANEWS = [
       Hình ảnh khách hàng mua chó con check in tại hệ thống
       Dogily Petshop Video Giới Thiệu Giống Chó Phốc Sóc Tại Dogily.
       Hình ảnh khách hàng mua chó con check in tại hệ thống Dogily Petshop`,
-    day: 13,
-    month: 'Th1'
+    day: 15,
+    month: 'Th7'
   },
   {
     id: 2,
@@ -179,8 +179,8 @@ export const DATANEWS = [
     text: `Nhận được nhiều thắc mắc về việc mua chó Golden
       Rettriever thuần chủng giá rẻ của nhiều bạn trẻ như ở hệ thống Dogily Petshop.
       Hình ảnh khách hàng mua chó con check in tại hệ thống Dogily Petshop `,
-    day: 13,
-    month: 'Th1'
+    day: 15,
+    month: 'Th7'
   },
   {
     id: 3,
@@ -190,8 +190,8 @@ export const DATANEWS = [
     text: `4 LÝ DO KHIẾN BẠN PHẢI TÌM MUA NGAY MỘT CÚN GOLDEN VỀ NUÔI,
       mua chó con check in tại hệ thống Dogily Petshop
       Video Giới Thiệu Giống Chó Phốc Sóc Tại Dogily.`,
-    day: 13,
-    month: 'Th1'
+    day: 15,
+    month: 'Th7'
   },
 ]
 

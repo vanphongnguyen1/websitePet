@@ -1,0 +1,60 @@
+.info-user {
+  &__text {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
+  &__box {
+    padding: 1rem 2rem 1rem 4rem;
+  }
+
+  .title-list {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+  }
+
+  .list-category {
+    &__item {
+      list-style: none;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+
+      &--icon {
+        margin-right: 0.7rem;
+        width: 20px;
+        text-align: center;
+      }
+
+      &:hover {
+        color: #1890ff;
+      }
+    }
+  }
+
+  .category-action {
+    color: #ffca44;
+  }
+
+  .box-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 2rem;
+
+    .title-info {
+      font-size: 2rem;
+      color: #ffca44;
+    }
+  }
+}

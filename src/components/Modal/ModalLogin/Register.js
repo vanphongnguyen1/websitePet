@@ -7,12 +7,13 @@ import {
 } from 'antd';
 import { customAxiosApi } from '../../reuse/CustomAxios'
 import { REGEX, API_NAME } from '../../dataConst'
+import { useSelector } from 'react-redux'
 import './style.scss'
 
-const Register = props => {
-  const { setIslogin } = props
+const Register = ({ setIslogin }) => {
   const [form] = Form.useForm()
   const [validEmail , setValidEmail] = useState('')
+  const dataGender = useSelector(state => state.gender.list)
 
   const validatorEmail = (rules, value) => {
     const regex = REGEX.EMAIL
@@ -122,8 +123,13 @@ const Register = props => {
         >
           <Select
           >
-            <Select.Option value="1">Male</Select.Option>
-            <Select.Option value="0">Female</Select.Option>
+            {
+              dataGender.map(item => (
+                <Select.Option value={item.id} key={item.id}>
+                  {item.name}
+                </Select.Option>
+              ))
+            }
           </Select>
         </Form.Item>
 

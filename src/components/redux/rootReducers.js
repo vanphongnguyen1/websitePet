@@ -13,6 +13,7 @@ import commentsSlice from './commentsSlice'
 import newAction from './newAction'
 import serviceAction from './serviceSlice'
 import keySearchProductSlice from './keySearchproductSlice'
+import genderSlice from './genderSlice'
 
 export const rootReducers = {
   login: loginSlice,
@@ -29,5 +30,6 @@ export const rootReducers = {
   comments: commentsSlice,
   newAction,
   services: serviceAction,
-  keySearchProduct: keySearchProductSlice
+  keySearchProduct: keySearchProductSlice,
+  gender: genderSlice
 }

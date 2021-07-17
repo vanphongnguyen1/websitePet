@@ -14,7 +14,8 @@ const HeaderSearch = () => {
     setKeySearch(value)
   }
 
-  const clickSearch = () => {
+  const clickSearch = e => {
+    e.preventDefault()
     dispatch(setKeySearchProduct(removeAccents(keySearch)))
     history.push(`/tim-kiem/${removeAccents(keySearch)}`)
     setKeySearch('')
@@ -23,17 +24,19 @@ const HeaderSearch = () => {
   return (
     <div className="header-center__box">
       <div className="header-center__search">
-        <input
-          type="text"
-          className="header-center__search--input"
-          placeholder="Tìm kiếm sản phẩm..."
-          onChange={handleSearchProduct}
-          value={keySearch}
-        />
-        <span
-          className="header-center__search--icon fal fa-search"
-          onClick={clickSearch}
+        <form onSubmit={clickSearch}>
+          <input
+            type="text"
+            className="header-center__search--input"
+            placeholder="Tìm kiếm sản phẩm..."
+            onChange={handleSearchProduct}
+            value={keySearch}
           />
+          <span
+            className="header-center__search--icon fal fa-search"
+            onClick={clickSearch}
+          />
+        </form>
       </div>
     </div>
   )

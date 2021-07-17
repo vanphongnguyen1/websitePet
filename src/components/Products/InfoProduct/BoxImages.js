@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import Slider from "react-slick"
 
-const BoxImages = props => {
-  const { imgs } = props
+const BoxImages = ({ imgs }) => {
   const listImages = imgs.split('|')
 
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
-
   return (
     <div className="info-product__box">
       <Slider asNavFor={nav2} ref={slider => setNav1(slider)}>

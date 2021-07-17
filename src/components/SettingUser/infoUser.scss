@@ -1,0 +1,32 @@
+.box-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 2rem;
+
+  .title-info {
+    font-size: 2rem;
+    color: #ffca44;
+  }
+
+  .btn-edit-user {
+    background: #1890ff;
+    color: #fff;
+    padding: 0.3rem 1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+
+    &--icon {
+      margin-right: 0.5rem;
+    }
+  }
+}
+.ant-select-selection-item,
+.ant-input[disabled] {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.ant-btn-primary {
+  margin-right: 1rem;
+}

@@ -18,8 +18,6 @@ const FormInfo = props => {
     })
   }, [dispatch])
 
-  console.log(infoUser ? true : false);
-
   const orderDetails = [
     {
       subTotal: item.price * count,

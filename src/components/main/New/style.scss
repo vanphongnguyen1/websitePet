@@ -5,8 +5,9 @@
   padding-bottom: 3rem;
 
   &__box {
-    padding: 1rem 0;
+    padding-top: 1rem;
     cursor: pointer;
+    margin-bottom: 1.5rem;
 
     &:hover &-text--title {
       color: #8c6e27;

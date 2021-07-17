@@ -4,13 +4,15 @@ import { setToken, fetchUser } from '../redux/loginSlice'
 import { setStatusLogin } from '../redux/statusLoginSlice'
 import { fetchOrderofCart } from '../redux/ordersSlice'
 import { fetchCartOfUser } from '../redux/cartsSlice'
-import { fetchProductInCart } from '../redux/productInCartSlice'
+import { fetchProductInCart, defaultState } from '../redux/productInCartSlice'
 import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 // import { customAxiosApi } from '../reuse/CustomAxios'
 import './style.scss'
 
 const Login = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   // const [isModal, setIsModal] = useState(false)
   const tokenId = useSelector(state => state.login.token)
   const statusLogin = useSelector(state => state.statusLogin.status)
@@ -41,7 +43,12 @@ const Login = () => {
   const handleLogOut = () => {
     sessionStorage.clear()
     dispatch(setToken(null))
+    dispatch(defaultState())
     setIsModel(false)
+  }
+
+  const handleSetting = () => {
+    history.push('/account')
   }
 
   return (
@@ -64,7 +71,7 @@ const Login = () => {
 
               <div className={`module-user ${isModel && 'visit-module'}`}>
                 <ul className="module-user__list">
-                  <li className="module-user__item">
+                  <li className="module-user__item" onClick={handleSetting}>
                     Setting
                   </li>
 
