@@ -28,6 +28,13 @@ export const STATUS_FETCH = {
   FAILED: 'failed'
 }
 
+export const STATUS_HANDLE = {
+  PENDING: 'pending',
+
+  DELIVERED: 'delivered',
+  CANCELLED: 'cancelled',
+}
+
 export const API_NAME = {
   USERS: 'users',
   ORDERS: 'orders',

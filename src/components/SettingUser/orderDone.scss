@@ -1,0 +1,22 @@
+.order-box {
+  margin-bottom: 5rem;
+
+  .status {
+    font-weight: 500;
+    text-transform: capitalize;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 0.5rem 0;
+    text-align: center;
+    color: #fff;
+  }
+
+  .done-order {
+    background: #1c7415;
+  }
+
+  .pendding-order {
+    background: #2478ba;
+  }
+}
+

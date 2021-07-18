@@ -18,7 +18,7 @@ const ModalLogin = props => {
 
   return (
     <>
-      <div className={ statusLogin ? 'modal-login visiteModal' : 'modal-login'}>
+      <div className={`modal-login ${statusLogin ? 'visiteModal' : ''}`}>
         <div className="modal__login">
           <h3 className="modal__login-title">
             {

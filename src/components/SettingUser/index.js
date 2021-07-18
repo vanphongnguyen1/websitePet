@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { setToken } from '../redux/loginSlice'
 import { defaultState } from '../redux/productInCartSlice'
+import OrderDone from './OrderDone'
 import './style.scss'
 
 const SettingUser = () => {
@@ -26,7 +27,7 @@ const SettingUser = () => {
         </h3>
 
         <div className="row">
-          <div className="col-xl-3">
+          <div className="col-xl-2">
             <div className="info-user__box">
               <h6 className="title-list">Tài khoản</h6>
               <ul className="list-category">
@@ -54,10 +55,10 @@ const SettingUser = () => {
             </div>
           </div>
 
-          <div className="col-xl-9">
+          <div className="col-xl-10">
             <div className="info-user__box">
               { isCategory === 1 && <InfoUser /> }
-
+              { isCategory === 2 && <OrderDone /> }
             </div>
           </div>
         </div>

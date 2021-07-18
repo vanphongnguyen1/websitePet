@@ -21,7 +21,7 @@ const PageSearchAndTop = ({ match, products, title }) => {
   // const [dataProducts, setDataProducts] = useState([])
   const dataGroup = useSelector(state => state.groups.list)
   const [pageDefault, setPageDefault] = useState(1)
-  const [pageSizeDefault, setPageSizeDefault] = useState(20)
+  const [pageSizeDefault, setPageSizeDefault] = useState(16)
   const [dataPagination, setDataPagination] = useState([])
 
   // useEffect(() => {
@@ -33,6 +33,7 @@ const PageSearchAndTop = ({ match, products, title }) => {
   const onShowSizeChange = (current, pageSize) => {
     setPageDefault(current)
     setPageSizeDefault(pageSize)
+    window.scrollTo(0, 0)
   }
 
   const data = useMemo(() => {

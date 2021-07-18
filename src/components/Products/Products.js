@@ -9,13 +9,7 @@ import { DOG, MEW, ACCESSORIES } from '../dataConst'
 import { useSelector } from 'react-redux'
 import { removeAccents } from '../assets/js/removeAccents'
 import { useDispatch } from 'react-redux'
-import { fetchLineageToGroup } from '../redux/lineageSlice'
 import './products.scss'
-
-// const DEVICE_SIZE = {
-//   SMALL_PC: 991,
-//   TABLET: 767
-// }
 
 const Products = ({ products, title }) => {
   const dispatch = useDispatch()
@@ -24,6 +18,7 @@ const Products = ({ products, title }) => {
   const [dataShow, setDataShow] = useState([])
   const [idLineage, setIdLineage] = useState(0)
   const dataGroup = useSelector(state => state.groups)
+  const dataLineage = useSelector(state => state.lineages.list)
 
   const settings = {
     slidesToShow: 4,
@@ -47,18 +42,14 @@ const Products = ({ products, title }) => {
   }
 
   useEffect(() => {
-    if (products.length) {
+    if (products.length && dataLineage) {
+      setDataShow(products)
       const id = products[0].lineage.groupID
-      dispatch(fetchLineageToGroup(id))
-      .then(res => {
-        setListLineage(res.payload);
-      })
+      const filterLineage = dataLineage.filter(item => item.groupID === id)
+      setListLineage(filterLineage);
     }
-  }, [dispatch, products])
+  }, [dispatch, products, dataLineage])
 
-  useEffect(() => {
-    setDataShow(products)
-  }, [products])
 
   const handleFetchLineage = id => {
     setIdLineage(id)

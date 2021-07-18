@@ -119,7 +119,7 @@ const Register = ({ setIslogin }) => {
               message: 'Hãy nhập giới tính !',
             },
           ]}
-          initialValue="1"
+          initialValue={1}
         >
           <Select
           >

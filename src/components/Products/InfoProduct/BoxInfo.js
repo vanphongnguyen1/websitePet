@@ -13,6 +13,7 @@ import { customAxiosApi } from '../../reuse/CustomAxios'
 
 const BoxInfo = ({ description, item }) => {
   const idCart = useSelector(state => state.cart.list.id)
+  const dataProductInCart = useSelector(state => state.productInCart.list)
   const [isModal, setIsModal] = useState(false)
   const [count, setCount] = useState(1)
   const isDescription = description.length > 1
@@ -23,17 +24,27 @@ const BoxInfo = ({ description, item }) => {
     const id = sessionStorage.getItem('id')
 
     if (id) {
-      customAxiosApi.post(`${API_NAME.PRODUCTINCART}`, {
-        count: count,
-        price: count * item.priceSale,
-        cartID: idCart,
-        productsID: item.id
-      })
-      .then(() => {
-        dispatch(fetchProductInCart(idCart))
-      })
+      const findData = dataProductInCart.find(ele => ele.productsID === item.id)
+      if (findData) {
+        customAxiosApi.put(`${API_NAME.PRODUCTINCART}/${findData.id}`,{count: findData.count + count})
+        .then(() => {
+          dispatch(fetchProductInCart(idCart))
+          message.success('Đơn hàng đã được thêm vào giỏ.')
+        })
 
-      message.success('Đơn hàng đã được thêm vào giỏ.')
+      } else {
+        customAxiosApi.post(`${API_NAME.PRODUCTINCART}`, {
+          count,
+          price: count * item.priceSale,
+          cartID: idCart,
+          productsID: item.id
+        })
+        .then(() => {
+          dispatch(fetchProductInCart(idCart))
+          message.success('Đơn hàng đã được thêm vào giỏ.')
+        })
+
+      }
     } else {
       dispatch(setStatusLogin(true))
     }

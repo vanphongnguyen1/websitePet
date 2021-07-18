@@ -12,7 +12,7 @@ const MyModal = props => {
 
   return (
     <>
-      <div className={isModal ? 'my-modal visiteModal' : 'my-modal'}>
+      <div className={`my-modal ${isModal ? 'visiteModal' : ''}`}>
         <h2 className='my-modal__name'>
           {item.name}
           <span className="my-modal__close far fa-times-circle" onClick={handleCloseModal}/>

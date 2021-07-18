@@ -3,29 +3,20 @@ import { Table, Space, Button, Popconfirm } from 'antd';
 import CartNull from './CartNull';
 import { difference } from 'lodash/array'
 import { useSelector, useDispatch } from 'react-redux'
-// import { updataCart } from '../../redux/actions/addProduct'
-import { addOrder } from '../../redux/actions/addOrder'
 import { MobileSmallHiden, MobileSmall } from '../../responsive'
 import { customAxiosApi } from '../../reuse/CustomAxios'
+import { fetchProductInCart } from '../../redux/productInCartSlice'
 import { API_NAME } from '../../dataConst'
+import FormOrder from './FormOrder'
 
 const MyCart = () => {
-  const dataImages = useSelector(store => store.images.list)
-  const order = useSelector(store => store.addOrder)
-  const dataProduct = useSelector(store => store.productInCart.list)
   const dispatch = useDispatch()
-
+  const dataImages = useSelector(store => store.images.list)
+  const idCart = useSelector(store => store.cart.list.id)
+  const dataProduct = useSelector(store => store.productInCart.list)
   const [data, setData] = useState([])
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
-  const [doneOrder, setDoneOrder] = useState({})
-  console.log('-----------------đơn hàng đã đặt', order)
-
-  useEffect(() => {
-    setDoneOrder({
-      total: subTotals(selectedRowKeys),
-      order: selectedRowKeys
-    })
-  }, [selectedRowKeys])
+  const [isPopupPayOrder, setIsPopupPayOrder] = useState(false)
 
   useEffect(() => {
     const newData = []
@@ -204,20 +195,6 @@ const MyCart = () => {
     })
   }
 
-  const handlePayOrder = () => {
-    dispatch(addOrder(doneOrder))
-    const newData = difference(data, selectedRowKeys)
-
-    setSelectedRowKeys.forEach(item => {
-      customAxiosApi.delete(`${API_NAME.PRODUCTINCART}/${item.id}`)
-    })
-
-    setData(newData)
-    // dispatch(updataCart(newData))
-    setSelectedRowKeys([])
-    window.scrollTo(0, 0)
-  }
-
   const handleRemoveProduct = id => {
     const newData = data.filter(item => item.id !== id)
     setData(newData)
@@ -265,14 +242,16 @@ const MyCart = () => {
     onChange: onSelectChange
   };
 
-  const handleRemoveAll = () => {
+  const handleRemoveAll = async () => {
     const newData = difference(data, selectedRowKeys)
     setData(newData)
 
-    setSelectedRowKeys.forEach(item => {
-      customAxiosApi.delete(`${API_NAME.PRODUCTINCART}/${item.id}`)
-    })
-    setSelectedRowKeys([])
+    for (let item of selectedRowKeys) {
+      await customAxiosApi.delete(`${API_NAME.PRODUCTINCART}/${item.id}`)
+    }
+
+    await setSelectedRowKeys([])
+    await dispatch(fetchProductInCart(idCart))
   }
 
   const isDisabel = selectedRowKeys.length > 0
@@ -286,7 +265,7 @@ const MyCart = () => {
           rowSelection={{...rowSelection}}
           columns={columns}
           dataSource={data}
-          pagination={false}
+          pagination={data.length > 10}
         />
 
         {
@@ -313,15 +292,24 @@ const MyCart = () => {
           <Button
             type="primary"
             disabled={!isDisabel}
-            onClick={handlePayOrder}
+            onClick={() => setIsPopupPayOrder(true)}
           >
             Đặt hàng
           </Button>
         </div>
 
-        {
-          !isCartNull && <CartNull />
-        }
+        { isPopupPayOrder && (
+          <>
+            <FormOrder
+              products={selectedRowKeys}
+              setIsPopupPayOrder={setIsPopupPayOrder}
+              handleRemoveAll={handleRemoveAll}
+            />
+            <div className="overllow" />
+          </>
+        ) }
+
+        { !isCartNull && <CartNull /> }
       </div>
     </>
   )

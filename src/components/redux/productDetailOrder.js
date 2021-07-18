@@ -2,10 +2,10 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { customAxiosApi } from '../reuse/CustomAxios'
 import { STATUS_FETCH, API_NAME } from '../dataConst'
 
-export const fetchLineageAll = createAsyncThunk(
-  'lineages/fetchLineageAll',
+export const fetchProductDetailOrderAll = createAsyncThunk(
+  'productDetailOrder/fetchProductDetailOrderAll',
   async () => {
-    return customAxiosApi.get(API_NAME.LINEAGE)
+    return customAxiosApi.get(API_NAME.PRODUCTDETAILORDER)
       .then(response => {
         const { data } = response.data
         return data
@@ -13,10 +13,10 @@ export const fetchLineageAll = createAsyncThunk(
   }
 )
 
-export const fetchLineageToGroup = createAsyncThunk(
-  'lineages/fetchLineageToGroup',
+export const fetchDetailOrder = createAsyncThunk(
+  'productDetailOrder/fetchDetailOrder',
   async (id) => {
-    return customAxiosApi.get(`${API_NAME.LINEAGE}?groupID=${id}`)
+    return customAxiosApi.get(`${API_NAME.PRODUCTDETAILORDER}?detailOrderID=${id}`)
       .then(response => {
         const { data } = response.data
         return data
@@ -24,11 +24,11 @@ export const fetchLineageToGroup = createAsyncThunk(
   }
 )
 
-export const lineageSlice = createSlice({
-  name: 'lineages',
+export const productDetailOrderSlice = createSlice({
+  name: 'productDetailOrder',
   initialState: {
     list: [],
-    loading: 'idle',
+    loading: 'idle'
   },
 
   reducers: {
@@ -37,7 +37,7 @@ export const lineageSlice = createSlice({
       state.loading = 'idle'
     },
 
-    defaultList: (state, action) => {
+    defaultListOrders: (state, action) => {
       state.list = []
     },
 
@@ -47,32 +47,28 @@ export const lineageSlice = createSlice({
   },
 
   extraReducers: {
-    [fetchLineageAll.pending]: (state, action) => {
+    [fetchProductDetailOrderAll.pending]: (state, action) => {
       // Add user to the state array
-      // state.list = [...state.list]
+      state.list = [...state.list]
       state.loading = STATUS_FETCH.LOADING
     },
 
-    [fetchLineageAll.fulfilled]: (state, action) => {
+    [fetchProductDetailOrderAll.fulfilled]: (state, action) => {
       // Add user to the state array
 
       state.list = action.payload
       state.loading = STATUS_FETCH.SUCCESS
     },
 
-    [fetchLineageAll.rejected]: (state, action) => {
+    [fetchProductDetailOrderAll.rejected]: (state, action) => {
       // Add user to the state array
       state.loading = STATUS_FETCH.FAILED
     },
   }
 })
 
-const { actions, reducer } = lineageSlice
+const { actions, reducer } = productDetailOrderSlice
 
-export const {
-  defaultLoading,
-  defaultState,
-  defaultListOrders
-} = actions
+export const { defaultLoading, defaultState, defaultListOrders  } = actions
 
 export default reducer

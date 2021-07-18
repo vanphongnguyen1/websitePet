@@ -22,6 +22,7 @@ const PageService = ({ data, title }) => {
   const onShowSizeChange = (current, pageSize ) => {
     setPageDefault(current)
     setPageSizeDefault(pageSize)
+    window.scrollTo(0, 0)
   }
 
   const clickPost = post => {

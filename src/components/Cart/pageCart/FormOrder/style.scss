@@ -1,0 +1,119 @@
+.form-order {
+  margin: 3rem auto;
+  overflow: hidden;
+  padding: 2rem;
+
+  width: calc(100% * 6/12);
+  border: 1px solid #e0e0e0;
+  border-radius: 1rem;
+
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background: #fff;
+  transform: translate(-50%, -60%);
+  z-index: 60;
+
+  &__title {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .group {
+    margin-bottom: 3rem;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  &__box {
+    .totals {
+      .table {
+        &__td {
+          &--name,
+          &--price {
+            width: 50%;
+
+          }
+
+          &--price {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    .table {
+      margin-bottom: 2rem;
+
+      &__item {}
+      &__tr {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #E0E0E0;
+      }
+
+      &__td,
+      &__th {
+        &--name {
+          width: calc(100% * 5 / 12);
+        }
+
+        &--price ,
+        &--count {
+          width: calc(100% * 2 / 12);
+        }
+        &--totalPrice  {
+          width: calc(100% * 3 / 12);
+        }
+        &--action {
+          width: calc(100% * 1 / 12);
+          text-align: right;
+        }
+
+        &--name,
+        &--price ,
+        &--count ,
+        &--totalPrice ,
+        &--action {
+          font-weight: 500;
+          padding: 1.5rem 1rem;
+        }
+      }
+
+      &__td {
+        &--name,
+        &--price ,
+        &--count ,
+        &--totalPrice {
+          font-weight: 400;
+        }
+
+        &--action {
+          color: #F44336;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: rgba(255, 0, 0, 0.616);
+          }
+        }
+      }
+    }
+  }
+
+  .box-submit {
+    display: flex;
+    margin-bottom: 2.5rem;
+    justify-content: flex-end;
+  }
+
+  &__box--text {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+}

@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeAccents } from '../assets/js/removeAccents'
 import { Pagination } from 'antd';
-import { fetchLineageToGroup } from '../redux/lineageSlice'
 import './products.scss'
 
 const ShowAll = ({ products }) => {
@@ -15,16 +14,18 @@ const ShowAll = ({ products }) => {
   const [dataPagination, setDataPagination] = useState([])
   const [listLineage, setListLineage] = useState([])
   const [pageDefault, setPageDefault] = useState(1)
-  const [pageSizeDefault, setPageSizeDefault] = useState(30)
+  const [pageSizeDefault, setPageSizeDefault] = useState(16)
 
   const [dataShow, setDataShow] = useState([])
   const [idLineage, setIdLineage] = useState(0)
 
   const dataGroup = useSelector(state => state.groups.list)
+  const dataLineage = useSelector(state => state.lineages.list)
 
   const onShowSizeChange = (current, pageSize) => {
     setPageDefault(current)
     setPageSizeDefault(pageSize)
+    window.scrollTo(0, 0)
   }
 
   const handleFetchLineage = id => {
@@ -40,18 +41,13 @@ const ShowAll = ({ products }) => {
   }
 
   useEffect(() => {
-    setDataShow(products)
-  }, [products])
-
-  useEffect(() => {
-    if (products.length) {
+    if (products.length && dataLineage) {
+      setDataShow(products)
       const id = products[0].lineage.groupID
-      dispatch(fetchLineageToGroup(id))
-      .then(res => {
-        setListLineage(res.payload);
-      })
+      const filterLineage = dataLineage.filter(item => item.groupID === id)
+      setListLineage(filterLineage);
     }
-  }, [dispatch, products])
+  }, [dispatch, products, dataLineage])
 
 
   useEffect(() => {

@@ -14,6 +14,7 @@ import { fetchProductsAll } from './redux/productSlice'
 import { fetchGroups } from './redux/groupSlice'
 import { fetchImages } from './redux/imagesSlice'
 import { fetchGender } from './redux/genderSlice'
+import { fetchLineageAll } from './redux/lineageSlice'
 // import MessengerCustomerChat from 'react-messenger-customer-chat';
 import './assets/layout.scss'
 import 'antd/dist/antd.css'
@@ -30,6 +31,7 @@ const PetShop = () => {
     dispatch(fetchGroups())
     dispatch(fetchImages())
     dispatch(fetchGender())
+    dispatch(fetchLineageAll())
   }, [dispatch])
 
   return (

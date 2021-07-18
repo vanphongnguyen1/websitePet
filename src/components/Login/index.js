@@ -5,6 +5,7 @@ import { setStatusLogin } from '../redux/statusLoginSlice'
 import { fetchOrderofCart } from '../redux/ordersSlice'
 import { fetchCartOfUser } from '../redux/cartsSlice'
 import { fetchProductInCart, defaultState } from '../redux/productInCartSlice'
+import { fetchProductDetailOrderAll } from '../redux/productDetailOrder'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 // import { customAxiosApi } from '../reuse/CustomAxios'
@@ -33,6 +34,7 @@ const Login = () => {
             const data = res.payload[0]
             dispatch(fetchOrderofCart(data.id))
             dispatch(fetchProductInCart(data.id))
+            dispatch(fetchProductDetailOrderAll())
           })
         dispatch(setToken(data.id))
         setDataUser(data)
@@ -49,6 +51,7 @@ const Login = () => {
 
   const handleSetting = () => {
     history.push('/account')
+    setIsModel(false)
   }
 
   return (

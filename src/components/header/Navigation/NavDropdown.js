@@ -34,7 +34,7 @@ const NavDropdown = ({ child }) => {
                 return (
                   <li className="drop-down__item" key={index} onClick={() => handleClickNav(index + 1, item.title)}>
                     <NavLink
-                      to={`${child.length === 2 ? '/news/'+removeAccents(item.title) : child.length === 4 ? '/dich-vu/'+removeAccents(item.title) : 'ho-tro'}`}
+                      to={`${child.length === 2 ? '/news/'+removeAccents(item.title) : child.length === 4 ? '/dich-vu/'+removeAccents(item.title) : '/ho-tro'}`}
                       className="drop-down__link"
                     >
                       { item.title }

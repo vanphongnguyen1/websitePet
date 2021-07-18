@@ -5,6 +5,7 @@
 
 .page-cart {
   padding-bottom: 2rem;
+  min-height: 100vh;
 
   &__box-null {
     height: 20rem;
@@ -19,5 +20,9 @@
       font-weight: 500;
       margin-bottom: 1rem;
     }
+  }
+
+  .ant-table-pagination.ant-pagination {
+    position: absolute;
   }
 }
