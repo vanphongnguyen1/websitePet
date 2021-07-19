@@ -3,20 +3,21 @@
   overflow: hidden;
   padding: 2rem;
 
-  width: calc(100% * 6/12);
-  border: 1px solid #e0e0e0;
+  width: calc(100% * 11/12);
+  // border: 1px solid #e0e0e0;
   border-radius: 1rem;
 
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  background: #fff;
-  transform: translate(-50%, -60%);
-  z-index: 60;
+  // position: absolute;
+  // top: 100%;
+  // left: 50%;
+  // background: #fff;
+  // transform: translate(-50%, -60%);
+  // z-index: 60;
 
   &__title {
     font-size: 2.4rem;
     margin-bottom: 2rem;
+    color: #434343;
   }
 
   .group {
@@ -30,6 +31,12 @@
   }
 
   &__box {
+    border: 1px solid #ddd;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 5px;
+  }
+
     .totals {
       .table {
         &__td {
@@ -103,12 +110,12 @@
         }
       }
     }
-  }
+
 
   .box-submit {
     display: flex;
     margin-bottom: 2.5rem;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
   &__box--text {

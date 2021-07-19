@@ -39,6 +39,11 @@ const MyCart = () => {
     })
   }, [dataProduct, dataImages]);
 
+  const handlePayment = () => {
+    setIsPopupPayOrder(true)
+    window.scrollTo(0, 0);
+  }
+
   const selectorDisable = id => {
     return selectedRowKeys.find(item => item.id === id )
   }
@@ -260,54 +265,58 @@ const MyCart = () => {
   return (
     <>
       <div className="my-cart">
-        <Table
-          rowKey="id"
-          rowSelection={{...rowSelection}}
-          columns={columns}
-          dataSource={data}
-          pagination={data.length > 10}
-        />
-
         {
-          isCartNull && (
-            <div className="box-subtotal">
-              <h3 className="box-subtotal--text">
-                Tổng cộng: { subTotals(selectedRowKeys).toLocaleString() || 0 } VNĐ
-              </h3>
-            </div>
+          isPopupPayOrder ? (
+            <>
+              <FormOrder
+                products={selectedRowKeys}
+                setIsPopupPayOrder={setIsPopupPayOrder}
+                handleRemoveAll={handleRemoveAll}
+              />
+              {/* <div className="overllow" /> */}
+            </>
+          ) : (
+            <>
+              <Table
+                rowKey="id"
+                rowSelection={{...rowSelection}}
+                columns={columns}
+                dataSource={data}
+                pagination={data.length > 10}
+              />
+
+              {
+                isCartNull && (
+                  <div className="box-subtotal">
+                    <h3 className="box-subtotal--text">
+                      Tổng cộng: { subTotals(selectedRowKeys).toLocaleString() || 0 } VNĐ
+                    </h3>
+                  </div>
+                )
+              }
+
+              <div className="my-cart__box-btn">
+                <Popconfirm
+                  placement="top"
+                  title="Bạn có muốn xóa sản phẩm"
+                  onConfirm={handleRemoveAll}
+                  okText="Yes"
+                  cancelText="No"
+                >
+                  <Button danger disabled={!isDisabel}>Xóa tất cả</Button>
+                </Popconfirm>
+
+                <Button
+                  type="primary"
+                  disabled={!isDisabel}
+                  onClick={handlePayment}
+                >
+                  Đặt hàng
+                </Button>
+              </div>
+            </>
           )
         }
-
-        <div className="my-cart__box-btn">
-          <Popconfirm
-            placement="top"
-            title="Bạn có muốn xóa sản phẩm"
-            onConfirm={handleRemoveAll}
-            okText="Yes"
-            cancelText="No"
-          >
-            <Button danger disabled={!isDisabel}>Xóa tất cả</Button>
-          </Popconfirm>
-
-          <Button
-            type="primary"
-            disabled={!isDisabel}
-            onClick={() => setIsPopupPayOrder(true)}
-          >
-            Đặt hàng
-          </Button>
-        </div>
-
-        { isPopupPayOrder && (
-          <>
-            <FormOrder
-              products={selectedRowKeys}
-              setIsPopupPayOrder={setIsPopupPayOrder}
-              handleRemoveAll={handleRemoveAll}
-            />
-            <div className="overllow" />
-          </>
-        ) }
 
         { !isCartNull && <CartNull /> }
       </div>

@@ -8,13 +8,11 @@ import { fetchProductInCart, defaultState } from '../redux/productInCartSlice'
 import { fetchProductDetailOrderAll } from '../redux/productDetailOrder'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-// import { customAxiosApi } from '../reuse/CustomAxios'
 import './style.scss'
 
 const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  // const [isModal, setIsModal] = useState(false)
   const tokenId = useSelector(state => state.login.token)
   const statusLogin = useSelector(state => state.statusLogin.status)
   const [dataUser, setDataUser] = useState({})
@@ -24,7 +22,6 @@ const Login = () => {
     const id = sessionStorage.getItem('id')
 
     if (id || tokenId) {
-      // customAxiosApi.get(`users/${id || tokenId}`)
       dispatch(fetchUser(id || tokenId))
       .then(response => {
         const data = response.payload
@@ -44,6 +41,7 @@ const Login = () => {
 
   const handleLogOut = () => {
     sessionStorage.clear()
+    history.push('/')
     dispatch(setToken(null))
     dispatch(defaultState())
     setIsModel(false)

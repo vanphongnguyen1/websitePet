@@ -2,11 +2,11 @@
 @import '../../assets/animation.scss';
 
 .banner {
+  min-height: 50rem;
   .banner-group{
     position: relative;
 
-    &__bg1,
-    &__bg2 {
+    &__bg {
       width: 100%;
       height: 50rem;
       display: flex;
@@ -16,13 +16,6 @@
       background-position: center;
     }
 
-    &__bg1 {
-      background-image: url("http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/slider-shop-1.jpg");
-    }
-
-    &__bg2 {
-      background-image: url("http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/10/slider-shop-2.jpg");
-    }
     .sale-mew,
     .sale-dog {
       position: absolute;
@@ -96,6 +89,18 @@
     }
   }
 
+  .btn--start {
+    text-transform: uppercase;
+    background-color: #FF5440;
+    padding: 1rem 2.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    &:hover {
+      box-shadow: inset 0 0 0px 10rem rgba(0, 0, 0, 0.2);
+    }
+  }
+
   .overflow {
     position: absolute;
     top: 0;
@@ -120,10 +125,10 @@
 // ------------------------Tables - desktop---------------------------------------------
 @media (max-width: 1024px) {
   .banner {
+    min-height: 40rem;
     .banner-group{
-      &__bg1,
-      &__bg2 {
-        height: 40rem;
+      &__bg {
+        height: 40rem
       }
 
       .sale-mew,

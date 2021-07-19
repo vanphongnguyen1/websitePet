@@ -1,30 +1,32 @@
 import React from 'react'
-import Buttom from '../../reuse/Buttom'
 import { MobileHiden } from '../../responsive'
 import './style.scss'
 
-const ItemBanner = props => {
-  const { item, index } = props
-  const { sale, title, heading, sub1, sub2, btn } = item
+const ItemBanner = ({ item }) => {
+  const { title, subTitle, url, imageUrl } = item
   return (
     <>
       <div className="banner-group">
-        <div className={index === 0 ? 'banner-group__bg1' : 'banner-group__bg2'} >
+        <div className="banner-group__bg" style={{backgroundImage: `url(${imageUrl})`}} >
           <MobileHiden>
-            <div className={sale.includes('30') ? 'sale sale-dog' : 'sale sale-mew'}>
-              <img src={sale} className="sale-dog__img" alt="asd" />
+            <div className={!imageUrl.includes('slider-shop-1') ? 'sale sale-dog' : 'sale sale-mew'}>
+              <img
+                src={imageUrl.includes('slider-shop-1') ? 'http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/11/sale-25.png' : 'http://mauweb.monamedia.net/petcare/wp-content/uploads/2019/11/sale-30.png'}
+                className="sale-dog__img"
+                alt="asd"
+              />
             </div>
-            <div className={`text-inner ${sale.includes('30') ? 'dog' : 'mew'}`}>
-              <h2 className="text-inner__title">{title}</h2>
-              <h1 className="text-inner__heading">{heading}</h1>
-              <p className="text-inner__heading-sub">{sub1}</p>
-              <p className="text-inner__heading-sub2">{sub2}</p>
-              <Buttom title={btn} classType="btn--start"/>
+            <div className={`text-inner ${!imageUrl.includes('slider-shop-1') ? 'dog' : 'mew'}`}>
+              <h2 className="text-inner__title">{subTitle}</h2>
+              <h1 className="text-inner__heading">{title}</h1>
+              <p className="text-inner__heading-sub">Tiết kiệm cho những thứ quan trọng của bạn</p>
+              <p className="text-inner__heading-sub2">Tại cửa hàng và trực tuyến</p>
+              <a href={url} title={url} className="btn--start" >Bắt đầu</a>
             </div>
           </MobileHiden>
         </div>
         {
-         sale.includes('30') && <div className="overflow" />
+          !imageUrl.includes('slider-shop-1') && <div className="overflow" />
         }
       </div>
     </>

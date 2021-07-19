@@ -68,6 +68,11 @@ const FormOrder = ({ products, setIsPopupPayOrder, handleRemoveAll }) => {
     })
   }
 
+  const handleRemoveOrder = () => {
+    setIsPopupPayOrder(false)
+    window.scrollTo(0, 0);
+  }
+
   return (
     <>
       <div className="form-order">
@@ -77,6 +82,10 @@ const FormOrder = ({ products, setIsPopupPayOrder, handleRemoveAll }) => {
             name="nest-messages"
             onFinish={onFinish}
           >
+          <div className="row">
+            <div className="col-xl-7">
+              <div className="form-order__box">
+              <h2>Thông tin khách hàng:</h2>
             <Form.Item
               name='name'
               initialValue={dataUsers.name}
@@ -132,7 +141,7 @@ const FormOrder = ({ products, setIsPopupPayOrder, handleRemoveAll }) => {
               <Input.TextArea placeholder="Chú thích"/>
             </Form.Item>
 
-            <div className="form-order__box">
+            <div>
               <h2>Sản phẩm:</h2>
 
               <div className="table">
@@ -157,7 +166,10 @@ const FormOrder = ({ products, setIsPopupPayOrder, handleRemoveAll }) => {
                 </div>
               </div>
             </div>
+            </div>
+            </div>
 
+            <div className="col-xl-5">
             <div className="form-order__box">
               {/* <SubHeading title="Totals" /> */}
               <h2>Thông tin:</h2>
@@ -165,45 +177,48 @@ const FormOrder = ({ products, setIsPopupPayOrder, handleRemoveAll }) => {
               <div className="totals">
                 <div className="table">
                   <div className="table__tr">
-                    <p className="table__td--name">totalPrice</p>
+                    <p className="table__td--name">Tổng tiền:</p>
                     <p className="table__td--price">
                       { totalPrice.toLocaleString() } đ
                     </p>
                   </div>
 
                   <div className="table__tr">
-                    <p className="table__td--name">totalCount</p>
+                    <p className="table__td--name">Số lượng:</p>
                     <p className="table__td--price">
                       { totalCount }
                     </p>
                   </div>
 
                   <div className="table__tr">
-                    <p className="table__td--name">Peyment</p>
+                    <p className="table__td--name">Phương thức thanh toán:</p>
                     <p className="table__td--price">
                       Nhận hàng thanh toán
                     </p>
                   </div>
 
                   <div className="table__tr">
-                    <p className="table__td--name">intoMeny</p>
+                    <p className="table__td--name">Thành tiền:</p>
                     <p className="table__td--price">
                         { totalPrice.toLocaleString() } đ
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
+
 
             <div className="box-submit">
-              <div
-                className="box-submit__save"
-              >
+                <Button type="primary" danger onClick={handleRemoveOrder}>
+                  Hủy bỏ
+                </Button>
+
                 <Button type="primary" htmlType="submit">
                   Đặt hàng
                 </Button>
-              </div>
             </div>
+            </div>
+            </div>
+          </div>
           </Form>
         )}
       </div>

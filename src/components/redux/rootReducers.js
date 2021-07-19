@@ -15,6 +15,7 @@ import serviceAction from './serviceSlice'
 import keySearchProductSlice from './keySearchproductSlice'
 import genderSlice from './genderSlice'
 import productDetailOrderSlice from './productDetailOrder'
+import sliderSlice from './sliderSlice'
 
 export const rootReducers = {
   login: loginSlice,
@@ -33,5 +34,6 @@ export const rootReducers = {
   services: serviceAction,
   keySearchProduct: keySearchProductSlice,
   gender: genderSlice,
-  productDetaiOrder: productDetailOrderSlice
+  productDetaiOrder: productDetailOrderSlice,
+  sliders: sliderSlice
 }

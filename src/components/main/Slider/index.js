@@ -1,10 +1,11 @@
 import React from 'react'
 import Slider from "react-slick"
-import { textBanner } from '../../dataConst'
 import ItemBanner from './ItemBanner'
+import { useSelector } from 'react-redux'
 import '../../assets/override.scss'
 
 const Banner = () => {
+  const dataSlider = useSelector(state => state.sliders.list)
   const beforeChange = (index) => {
     const element = document.querySelector('.slick-active')
     const textInner = element.querySelector('.text-inner')
@@ -73,9 +74,9 @@ const Banner = () => {
         {/* <div className="container"> */}
           <Slider {...settings}>
             {
-              textBanner && (
-                textBanner.map((item, index) => {
-                  return <ItemBanner item={item} key={index} index={index}/>
+              dataSlider && (
+                dataSlider.map((item, index) => {
+                  return item.isStatus && <ItemBanner item={item} key={index} index={index}/>
                 })
               )
             }

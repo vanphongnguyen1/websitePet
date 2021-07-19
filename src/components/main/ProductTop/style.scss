@@ -3,6 +3,11 @@
 .product-top {
   margin-top: 1rem;
   background-color: $color-white;
+  margin-bottom: 5rem;
+
+  .list-product__pagination {
+    padding: 2rem 0 4rem 0;
+  }
 
   &__box {
     padding: 0 0.5rem;
