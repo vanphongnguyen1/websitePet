@@ -95,3 +95,21 @@ input[type=number] {
     top: 0;
   }
 }
+
+
+
+// ---------------------------------Custom boxChat---------------------------------------------------------------------------
+.fb_dialog .fb_dialog_advanced + iframe {
+  width: 50rem !important;
+  height: 50rem !important;
+
+  svg {
+    width: 50rem !important;
+    height: 50rem !important;
+  }
+}
+
+
+.justify-center {
+  justify-content: center;
+}

@@ -78,8 +78,8 @@ const Products = ({ products, title }) => {
         </TabletHiden>
 
         <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12">
-          <div className="list-product-home">
-            <TabletHiden>
+          <TabletHiden>
+            <div className="list-product-home">
               { dataGroup.loading === 'success' &&
                 newProducts.map(item => {
                   return(
@@ -95,28 +95,28 @@ const Products = ({ products, title }) => {
                   )
                 })
               }
-            </TabletHiden>
+            </div>
+          </TabletHiden>
 
-            <Tablet>
-              <Slider {...settings}>
-                { dataGroup.loading === 'success' &&
-                  newProducts.map(item => {
-                    return(
-                      <div className="box-item" key={item.id}>
-                        <div
-                          onDoubleClick={
-                            () => history.push(`/${removeAccents(dataGroup.list.find(ele => ele.id === item.lineage.groupID).name)}/${removeAccents(item.lineage.name)}/${item.url}`)
-                          }
-                        >
-                          <ItemProduct item={item}/>
-                        </div>
+          <Tablet>
+            <Slider {...settings}>
+              { dataGroup.loading === 'success' &&
+                newProducts.map(item => {
+                  return(
+                    <div className="box-item" key={item.id}>
+                      <div
+                        onDoubleClick={
+                          () => history.push(`/${removeAccents(dataGroup.list.find(ele => ele.id === item.lineage.groupID).name)}/${removeAccents(item.lineage.name)}/${item.url}`)
+                        }
+                      >
+                        <ItemProduct item={item}/>
                       </div>
-                    )
-                  })
-                }
-              </Slider>
-            </Tablet>
-          </div>
+                    </div>
+                  )
+                })
+              }
+            </Slider>
+          </Tablet>
         </div>
       </div>
 

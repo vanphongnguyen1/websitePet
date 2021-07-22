@@ -19,6 +19,8 @@ const Register = ({ setIslogin }) => {
     const regex = REGEX.EMAIL
     const match = regex.test(value)
 
+    if (!value) return
+
     if (validEmail) {
       return Promise.reject(validEmail)
     }
@@ -34,6 +36,8 @@ const Register = ({ setIslogin }) => {
     const regex = REGEX.PHONE
     const match = regex.test(value)
 
+    if (!value) return
+
     if (!match) {
       return Promise.reject('Đầu số 09|03|08|05|07 gồm 10 số !')
     }
@@ -44,6 +48,8 @@ const Register = ({ setIslogin }) => {
   const validatorPassWord = (rules, value) => {
     const regex = REGEX.PASSWORD
     const match = regex.test(value)
+
+    if (!value) return
 
     if (!match) {
       return Promise.reject('Tối thiểu 8 ký tự, ít nhất một chữ cái và một số!')

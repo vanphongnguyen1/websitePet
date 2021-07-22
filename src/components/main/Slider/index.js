@@ -6,6 +6,7 @@ import '../../assets/override.scss'
 
 const Banner = () => {
   const dataSlider = useSelector(state => state.sliders.list)
+
   const beforeChange = (index) => {
     const element = document.querySelector('.slick-active')
     const textInner = element.querySelector('.text-inner')
@@ -15,13 +16,9 @@ const Banner = () => {
       textInner.classList.remove('animation-bottom')
       sale.classList.remove('animation-left-mew')
 
-      return;
-    }
-
-    if (index === 1) {
+    } else if (index === 1) {
       textInner.classList.remove('animation-left-dog')
       sale.classList.remove('animation-right-dog')
-      return ;
     }
   }
 
@@ -33,12 +30,10 @@ const Banner = () => {
     if (prev === 1) {
       textInner.classList.add('animation-left-dog')
       sale.classList.add('animation-right-dog')
-      return ;
-    }
-    if (prev === 0) {
+
+    } else if (prev === 0) {
       textInner.classList.add('animation-bottom')
       sale.classList.add('animation-left-mew')
-      return ;
     }
   };
 

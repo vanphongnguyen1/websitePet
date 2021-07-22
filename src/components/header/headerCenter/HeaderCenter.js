@@ -43,7 +43,7 @@ const HeaderCenter = () => {
   const handleToCart = () => {
     const id = sessionStorage.getItem('id')
     if (id) {
-      history.push('/cart')
+      history.push('/gio-hang')
     } else {
       dispatch(setStatusLogin(true))
     }

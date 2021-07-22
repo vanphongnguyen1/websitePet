@@ -14,6 +14,7 @@ import ServicePet from './components/main/ServicePet'
 import ShowGroupService from './components/main/ServicePet/ShowGroupService'
 import PageSearchProduct from './components/main/PageSearchProduct'
 import SettingUser from './components/SettingUser'
+import ForgotPassword from './components/ForgotPassword'
 import Page404 from './components/page404'
 
 export const routes = [
@@ -28,7 +29,12 @@ export const routes = [
     main: ({ match }) => <SettingUser match={match}/>
   },
   {
-    path: '/cart',
+    path: '/quen-mat-khau',
+    exact: true,
+    main: ({ match }) => <ForgotPassword match={match}/>
+  },
+  {
+    path: '/gio-hang',
     exact: true,
     main: ({ match }) => <PageCart match={match}/>
   },

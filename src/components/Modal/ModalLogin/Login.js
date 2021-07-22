@@ -7,11 +7,13 @@ import { fetchCartOfUser } from '../../redux/cartsSlice'
 import { fetchOrderofCart } from '../../redux/ordersSlice'
 import { fetchProductInCart } from '../../redux/productInCartSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { useLocation, useHistory } from 'react-router-dom'
 import './style.scss'
 
-const Login = props => {
+const Login = ({ setIslogin }) => {
+  const location = useLocation();
+  const history = useHistory()
   const dispatch = useDispatch()
-  const { setIslogin } = props
   const dataLogin = useSelector(state => state.login)
 
   const onFinish = values => {
@@ -35,6 +37,11 @@ const Login = props => {
             dispatch(fetchOrderofCart(data.id))
             dispatch(fetchProductInCart(data.id))
           })
+
+          if (location.pathname === '/quen-mat-khau') {
+            history.push('/')
+          }
+
         dispatch(setToken(payload.id))
 
         sessionStorage.setItem('id', payload.id)
@@ -89,7 +96,7 @@ const Login = props => {
           <div>
             <Checkbox>Nhớ mật khẩu.</Checkbox>
 
-            <Link to="/chua-Setup" className="forgot-password">
+            <Link to="/quen-mat-khau" className="forgot-password" onClick={() => dispatch(setStatusLogin(false))}>
               Quên mật khẩu?
             </Link>
           </div>

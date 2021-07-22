@@ -1,0 +1,46 @@
+.forgot-password {
+  background: #fff;
+  min-height: 250px;
+
+  &__box {
+    padding: 4rem 0 3rem;
+  }
+
+  &__title {
+    font-size: 2.6rem;
+    font-weight: 500;
+    color: #2a2d93;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    margin: 1rem 0 2rem;
+
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    height: 100%;
+    line-height: 32px;
+    padding: 0 1.3rem;
+    cursor: pointer;
+    color: #ffca44;
+    font-size: 1.6rem;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      color: #d5b258;
+    }
+  }
+
+  .ant-form.ant-form-horizontal {
+    position: relative;
+  }
+
+  .ant-form-item-extra {
+    color: #ff4d4f;
+  }
+}
