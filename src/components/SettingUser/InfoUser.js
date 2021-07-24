@@ -12,13 +12,12 @@ import { fetchUser } from '../redux/loginSlice'
 // import { fetchGender } from '../redux/genderSlice'
 import './infoUser.scss'
 
-const InfoUser = () => {
+const InfoUser = ({ dataOrder }) => {
   const dispatch = useDispatch()
   const [form] = Form.useForm()
   const [isDisabled, setIsDisable] = useState(true)
   const [infoUser, setInfoUser] = useState({})
   const dataGender = useSelector(state => state.gender.list)
-  const dataOrder = useSelector(state => state.orders.list)
   const [validEmail , setValidEmail] = useState('')
 
   useEffect(() => {

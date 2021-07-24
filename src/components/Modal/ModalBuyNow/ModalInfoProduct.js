@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ModalInfoProduct = ({ item, count }) => {
-  const { images, name, price } = item
+  const { images, name, priceSale } = item
   const listImages = images.url.split('|')
 
   return (
@@ -10,7 +10,7 @@ const ModalInfoProduct = ({ item, count }) => {
         <img src={listImages[0]} alt={name} className="my-modal__box--img"/>
         <div>
           <p className="my-modal__box--name">{name}</p>
-          <p className="my-modal__box--price">{price.toLocaleString()} VNĐ</p>
+          <p className="my-modal__box--price">{priceSale.toLocaleString()} VNĐ</p>
           <p className="my-modal__box--count">Số lượng: {count}</p>
         </div>
       </div>

@@ -11,6 +11,7 @@
   &__box {
     display: flex;
     align-items: center;
+    min-width: 11rem;
 
     &:hover .login__text-name {
       color: #c3bdbd;

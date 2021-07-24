@@ -1,12 +1,13 @@
 import { STATUS_HANDLE } from '../dataConst'
 
-export const handleDataOrder = (data, detail, user) => {
+export const handleDataOrder = (data, detail, dataCart) => {
   const newDataOrder = []
+  const { users } = dataCart
 
-  data.forEach(order => {
+  data.forEach((order) => {
     const products = []
 
-    detail.forEach(item => {
+    detail.forEach((item) => {
       if (item.detailOrderID === order.detailOrderID) {
         products.push({
           id: item.id,
@@ -19,35 +20,37 @@ export const handleDataOrder = (data, detail, user) => {
       }
     })
 
-    const {
-      detailorder,
-      peyment,
-      status,
-      trasport
-    } = order
+    if (order.cartID === dataCart.id) {
+      const { detailorder, peyment, status, trasport } = order
 
-    const newOrder = {
-      id: order.id,
-      name: user.name,
-      phone: user.phone,
-      address: user.address,
+      const newOrder = {
+        id: order.id,
+        name: users.name,
+        phone: users.phone,
+        address: users.address,
 
-      products,
+        products,
 
-      totalCount: detailorder.count,
-      totalPrice: detailorder.price,
-      intoMeny: order.intoMeny,
+        totalCount: detailorder.count,
+        totalPrice: detailorder.price,
+        intoMeny: order.intoMeny,
 
-      trasport: trasport.price,
-      status: status.name,
-      peyment: peyment.name,
+        trasport: trasport.price,
+        status: status.name,
+        peyment: peyment.name,
 
-      created: order.created_at,
-      updated: order.updated_at,
-    }
+        created: order.created_at,
+        updated: order.updated_at,
+      }
 
-    if (newOrder.status === STATUS_HANDLE.PENDING || newOrder.status === STATUS_HANDLE.DELIVERED) {
-      newDataOrder.push(newOrder)
+      if (
+        newOrder.status === STATUS_HANDLE.PENDING ||
+        newOrder.status === STATUS_HANDLE.DELIVERED
+      ) {
+
+
+        newDataOrder.push(newOrder)
+      }
     }
   })
 

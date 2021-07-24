@@ -24,7 +24,7 @@ const HeaderSearch = () => {
   return (
     <div className="header-center__box">
       <div className="header-center__search">
-        <form onSubmit={clickSearch}>
+        <form onSubmit={clickSearch} autoComplete="off">
           <input
             type="text"
             className="header-center__search--input"
