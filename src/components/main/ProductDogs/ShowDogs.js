@@ -1,8 +1,4 @@
-import {
-  DOG,
-  COLOR,
-  groupDogs as group
-} from '../../dataConst'
+import { DOG, COLOR, groupDogs as group } from '../../dataConst'
 import ShowAllProductGroup from '../../Products/ShowAllProductGroup'
 
 const ShowDogs = ({ match }) => {

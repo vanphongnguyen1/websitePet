@@ -1,10 +1,5 @@
 import React, { useState } from 'react'
-import {
-  Form,
-  Input,
-  Select,
-  Button,
-} from 'antd';
+import { Form, Input, Select, Button } from 'antd'
 import { customAxiosApi } from '../../reuse/CustomAxios'
 import { REGEX, API_NAME } from '../../dataConst'
 import { useSelector } from 'react-redux'
@@ -12,8 +7,8 @@ import './style.scss'
 
 const Register = ({ setIslogin }) => {
   const [form] = Form.useForm()
-  const [validEmail , setValidEmail] = useState('')
-  const dataGender = useSelector(state => state.gender.list)
+  const [validEmail, setValidEmail] = useState('')
+  const dataGender = useSelector((state) => state.gender.list)
 
   const validatorEmail = (rules, value) => {
     const regex = REGEX.EMAIL
@@ -61,34 +56,25 @@ const Register = ({ setIslogin }) => {
   const onFinish = (values) => {
     const data = {
       ...values,
-      role: 0
+      role: 0,
     }
 
-    customAxiosApi.post(API_NAME.USERS, data)
-      .then(resp => {
-        const { data } = resp
+    customAxiosApi.post(API_NAME.USERS, data).then((resp) => {
+      const { data } = resp
 
-        if (typeof data === 'string') {
-          setValidEmail('Email đã tồn tại !')
-        }
-        setIslogin(true)
-      })
+      if (typeof data === 'string') {
+        setValidEmail('Email đã tồn tại !')
+      }
+      setIslogin(true)
+    })
   }
 
   return (
     <div className="box-register">
-      <Form
-        form={form}
-        name="register"
-        onFinish={onFinish}
-      >
+      <Form form={form} name="register" onFinish={onFinish}>
         <Form.Item
           name="name"
-          label={
-            <span>
-              User Name
-            </span>
-          }
+          label={<span>User Name</span>}
           rules={[
             {
               required: true,
@@ -105,7 +91,7 @@ const Register = ({ setIslogin }) => {
           label="Email"
           rules={[
             {
-              validator: validatorEmail
+              validator: validatorEmail,
             },
             {
               required: true,
@@ -127,15 +113,12 @@ const Register = ({ setIslogin }) => {
           ]}
           initialValue={1}
         >
-          <Select
-          >
-            {
-              dataGender.map(item => (
-                <Select.Option value={item.id} key={item.id}>
-                  {item.name}
-                </Select.Option>
-              ))
-            }
+          <Select>
+            {dataGender.map((item) => (
+              <Select.Option value={item.id} key={item.id}>
+                {item.name}
+              </Select.Option>
+            ))}
           </Select>
         </Form.Item>
 
@@ -144,7 +127,7 @@ const Register = ({ setIslogin }) => {
           label="Phone Number"
           rules={[
             {
-              validator: validatorPhone
+              validator: validatorPhone,
             },
             {
               required: true,
@@ -178,7 +161,7 @@ const Register = ({ setIslogin }) => {
           label="Password"
           rules={[
             {
-              validator: validatorPassWord
+              validator: validatorPassWord,
             },
             {
               required: true,
@@ -203,10 +186,10 @@ const Register = ({ setIslogin }) => {
             ({ getFieldValue }) => ({
               validator(_, value) {
                 if (!value || getFieldValue('password') === value) {
-                  return Promise.resolve();
+                  return Promise.resolve()
                 }
 
-                return Promise.reject('Nhập lại mật khẩu không hợp lệ !');
+                return Promise.reject('Nhập lại mật khẩu không hợp lệ !')
               },
             }),
           ]}
@@ -214,7 +197,7 @@ const Register = ({ setIslogin }) => {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item >
+        <Form.Item>
           <Button type="primary" htmlType="submit">
             Đăng ký
           </Button>

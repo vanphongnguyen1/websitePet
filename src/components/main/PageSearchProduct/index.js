@@ -4,13 +4,13 @@ import PageSearchAndTop from '../ProductTop/PageSearchAndTop'
 import { removeAccents } from '../../assets/js/removeAccents'
 
 const PageSearchProduct = ({ match }) => {
-  const fetchDataProducts = useSelector(state => state.products.list)
-  const key = useSelector(state => state.keySearchProduct.key)
+  const fetchDataProducts = useSelector((state) => state.products.list)
+  const key = useSelector((state) => state.keySearchProduct.key)
   const [dataProducts, setDataProducts] = useState([])
 
   useEffect(() => {
     const newData = []
-    fetchDataProducts.forEach(item => {
+    fetchDataProducts.forEach((item) => {
       const removeName = removeAccents(item.name)
       if (removeName.indexOf(key) !== -1) {
         newData.push(item)

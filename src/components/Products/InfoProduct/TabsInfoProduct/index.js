@@ -8,7 +8,7 @@ const TabsInfoProduct = ({ idProduct, idGroup }) => {
     <div className="info-detail">
       <Tabs defaultActiveKey="1">
         <TabPane tab="Video giới thiệu" key="1">
-          <InfoDetailProduct idGroup={idGroup}/>
+          <InfoDetailProduct idGroup={idGroup} />
         </TabPane>
 
         <TabPane tab="Bình luận" key="2">

@@ -1,15 +1,13 @@
 import React from 'react'
 import MyCart from './MyCart'
-import PageTitle from'../../reuse/PageTitle'
+import PageTitle from '../../reuse/PageTitle'
 import './style.scss'
 
-const PageCart = props => {
-  const { match } = props
-
+const PageCart = ({ match }) => {
   return (
     <>
       <div className="page-cart">
-        <PageTitle match={match}/>
+        <PageTitle match={match} />
 
         <div className="container">
           <MyCart />

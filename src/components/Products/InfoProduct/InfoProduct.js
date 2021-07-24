@@ -11,7 +11,7 @@ const InfoProduct = ({ item, url }) => {
     <div className="container position-relative">
       <div className="row">
         <div className="col-xl-5 col-lg-5 col-md-5 col-sm-12">
-          <BoxImages imgs={item.images.url}/>
+          <BoxImages imgs={item.images.url} />
         </div>
 
         <div className="col-xl-7 col-lg-7 col-md-7 col-sm-12">
@@ -19,12 +19,16 @@ const InfoProduct = ({ item, url }) => {
         </div>
       </div>
 
-      <TabsInfoProduct idProduct={item.id} idGroup={item.lineage.groupID}/>
+      <TabsInfoProduct idProduct={item.id} idGroup={item.lineage.groupID} />
 
       <div className="similar-product">
         <div className="slider-small">
-          <BoxHeading title="Sản phẩm tương tự" color={COLOR} url={url}/>
-          <SimilarProduct lineage={item.lineageID} id={item.id} group={item.lineage.groupID}/>
+          <BoxHeading title="Sản phẩm tương tự" color={COLOR} url={url} />
+          <SimilarProduct
+            lineage={item.lineageID}
+            id={item.id}
+            group={item.lineage.groupID}
+          />
         </div>
       </div>
     </div>

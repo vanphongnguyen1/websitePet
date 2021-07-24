@@ -1,4 +1,4 @@
-@import '../../assets/animation.scss';
+@import "../../assets/animation.scss";
 
 .header-top {
   background-color: #271a1b;
@@ -25,11 +25,11 @@
     }
 
     &:not(:last-child) {
-      border-right: 1px solid #6C6465;
+      border-right: 1px solid #6c6465;
     }
 
     &--icon {
-      color: #6C6465;
+      color: #6c6465;
       padding-right: 0.5rem;
       font-size: 1.8rem;
     }
@@ -41,14 +41,14 @@
 
     &--text {
       font-size: 1.6rem;
-      color: #6C6465;
+      color: #6c6465;
     }
 
     &--icon-faceboock,
     &--icon-instagram,
     &--icon-twitter,
     &--icon-email {
-      color: #6C6465;
+      color: #6c6465;
       margin: 0 0.3rem;
     }
 

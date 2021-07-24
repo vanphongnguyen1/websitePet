@@ -20,7 +20,7 @@
     margin-bottom: 1.5rem;
 
     &__background {
-      background: rgb(255,162,0);
+      background: rgb(255, 162, 0);
       transform: rotate(45deg);
       display: flex;
       align-items: center;
@@ -63,14 +63,14 @@
 }
 
 @keyframes auto {
-  0%{
-    -webkit-transform:rotate(0deg);
-    -moz-transform:rotate(0deg);
-    -o-transform:rotate(0deg);
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
   }
-  100%{
-    -webkit-transform:rotate(360deg);
-    -moz-transform:rotate(360deg);
-    -o-transform:rotate(360deg);
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
   }
 }

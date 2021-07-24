@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Space, Button, Popconfirm } from 'antd';
-import CartNull from './CartNull';
+import { Table, Space, Button, Popconfirm } from 'antd'
+import CartNull from './CartNull'
 import { difference } from 'lodash/array'
 import { useSelector, useDispatch } from 'react-redux'
 import { MobileSmallHiden, MobileSmall } from '../../responsive'
@@ -11,18 +11,18 @@ import FormOrder from './FormOrder'
 
 const MyCart = () => {
   const dispatch = useDispatch()
-  const dataImages = useSelector(store => store.images.list)
-  const idCart = useSelector(store => store.cart.list.id)
-  const dataProduct = useSelector(store => store.productInCart.list)
+  const dataImages = useSelector((store) => store.images.list)
+  const idCart = useSelector((store) => store.cart.list.id)
+  const dataProduct = useSelector((store) => store.productInCart.list)
   const [data, setData] = useState([])
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const [isPopupPayOrder, setIsPopupPayOrder] = useState(false)
 
   useEffect(() => {
     const newData = []
-    dataProduct.forEach(item => {
+    dataProduct.forEach((item) => {
       const { id, count, price, productsID, products } = item
-      const images = dataImages.find(img => img.id === products.imagesID)
+      const images = dataImages.find((img) => img.id === products.imagesID)
       const newImage = images.url.split('|')[0]
 
       newData.push({
@@ -32,23 +32,23 @@ const MyCart = () => {
         price: products.price,
         subtotal: price,
         productsID,
-        img: newImage
+        img: newImage,
       })
 
       setData(newData)
     })
-  }, [dataProduct, dataImages]);
+  }, [dataProduct, dataImages])
 
   const handlePayment = () => {
     setIsPopupPayOrder(true)
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
 
-  const selectorDisable = id => {
-    return selectedRowKeys.find(item => item.id === id )
+  const selectorDisable = (id) => {
+    return selectedRowKeys.find((item) => item.id === id)
   }
 
-  const subTotals = arr => {
+  const subTotals = (arr) => {
     let sum = 0
     for (let i = 0; i < arr.length; i++) {
       sum += arr[i].subtotal
@@ -60,40 +60,33 @@ const MyCart = () => {
     {
       title: 'Hình Ảnh',
       dataIndex: 'img',
-      render: text => {
+      render: (text) => {
         return (
           <div className="my-cart__box-img">
-            <img src={text} alt="" className="my-cart__box-img--img"/>
+            <img src={text} alt="" className="my-cart__box-img--img" />
           </div>
         )
-      }
+      },
     },
 
     {
       title: 'Sản Phẩm',
       dataIndex: 'name',
-      render: text => {
+      render: (text) => {
         return (
-          <p
-            className="my-cart--name"
-            title={text}
-          >
+          <p className="my-cart--name" title={text}>
             {text}
           </p>
         )
-      }
+      },
     },
 
     {
       title: 'Đơn Giá',
       dataIndex: 'price',
-      render: text => {
-        return (
-          <p className="my-cart--text">
-            {text.toLocaleString()} VNĐ
-          </p>
-        )
-      }
+      render: (text) => {
+        return <p className="my-cart--text">{text.toLocaleString()} VNĐ</p>
+      },
     },
 
     {
@@ -107,7 +100,7 @@ const MyCart = () => {
               onClick={() => handleOnChangeCount(record.id, -1)}
               disabled={selectorDisable(record.id)}
             >
-              <span className="far fa-minus"/>
+              <span className="far fa-minus" />
             </Button>
 
             <MobileSmallHiden>
@@ -130,12 +123,12 @@ const MyCart = () => {
               onClick={() => handleOnChangeCount(record.id, 1)}
               disabled={selectorDisable(record.id)}
             >
-              <span className="far fa-plus"/>
+              <span className="far fa-plus" />
             </Button>
           </div>
         )
       },
-      width: '15%'
+      width: '15%',
     },
 
     {
@@ -149,7 +142,7 @@ const MyCart = () => {
         )
       },
       responsive: ['md'],
-      width: '20%'
+      width: '20%',
     },
 
     {
@@ -173,11 +166,14 @@ const MyCart = () => {
 
   const handleOnChangeCount = (id, number) => {
     const [...newData] = data
-    const index = newData.findIndex(item => item.id === id)
+    const index = newData.findIndex((item) => item.id === id)
     let newCount = newData[index].count
     let newSubtotal = newData[index].subtotal
 
-    if ((number > 0 && newData[index].count < 10) || (number < 0 && 1 < newData[index].count)) {
+    if (
+      (number > 0 && newData[index].count < 10) ||
+      (number < 0 && 1 < newData[index].count)
+    ) {
       newCount = newData[index].count + number
       newSubtotal = newData[index].price * (newData[index].count + number)
     }
@@ -185,7 +181,7 @@ const MyCart = () => {
     const product = {
       ...newData[index],
       count: newCount,
-      subtotal: newSubtotal
+      subtotal: newSubtotal,
     }
 
     newData.splice(index, 1, product)
@@ -196,12 +192,12 @@ const MyCart = () => {
     dataFormat.append('subtotal', newSubtotal)
     customAxiosApi.put(`${API_NAME.PRODUCTINCART}/${id}`, {
       count: newCount,
-      price: newSubtotal
+      price: newSubtotal,
     })
   }
 
-  const handleRemoveProduct = id => {
-    const newData = data.filter(item => item.id !== id)
+  const handleRemoveProduct = (id) => {
+    const newData = data.filter((item) => item.id !== id)
     setData(newData)
     customAxiosApi.delete(`${API_NAME.PRODUCTINCART}/${id}`)
   }
@@ -217,14 +213,14 @@ const MyCart = () => {
     }
 
     const [...newData] = data
-    const index = newData.findIndex(item => item.id === id)
+    const index = newData.findIndex((item) => item.id === id)
     let newCount = value
     let newSubtotal = newData[index].price * value
 
     const product = {
       ...newData[index],
       count: newCount,
-      subtotal: newSubtotal
+      subtotal: newSubtotal,
     }
 
     newData.splice(index, 1, product)
@@ -235,7 +231,7 @@ const MyCart = () => {
     dataFormat.append('subtotal', newSubtotal)
     customAxiosApi.put(`${API_NAME.PRODUCTINCART}/${id}`, {
       count: newCount,
-      price: newSubtotal
+      price: newSubtotal,
     })
   }
 
@@ -244,8 +240,8 @@ const MyCart = () => {
   }
 
   const rowSelection = {
-    onChange: onSelectChange
-  };
+    onChange: onSelectChange,
+  }
 
   const handleRemoveAll = async () => {
     const newData = difference(data, selectedRowKeys)
@@ -265,60 +261,58 @@ const MyCart = () => {
   return (
     <>
       <div className="my-cart">
-        {
-          isPopupPayOrder ? (
-            <>
-              <FormOrder
-                products={selectedRowKeys}
-                setIsPopupPayOrder={setIsPopupPayOrder}
-                handleRemoveAll={handleRemoveAll}
-              />
-              {/* <div className="overllow" /> */}
-            </>
-          ) : (
-            <>
-              <Table
-                rowKey="id"
-                rowSelection={{...rowSelection}}
-                columns={columns}
-                dataSource={data}
-                pagination={data.length > 10}
-              />
+        {isPopupPayOrder ? (
+          <>
+            <FormOrder
+              products={selectedRowKeys}
+              setIsPopupPayOrder={setIsPopupPayOrder}
+              handleRemoveAll={handleRemoveAll}
+            />
+          </>
+        ) : (
+          <>
+            <Table
+              rowKey="id"
+              rowSelection={{ ...rowSelection }}
+              columns={columns}
+              dataSource={data}
+              pagination={data.length > 10}
+            />
 
-              {
-                isCartNull && (
-                  <div className="box-subtotal">
-                    <h3 className="box-subtotal--text">
-                      Tổng cộng: { subTotals(selectedRowKeys).toLocaleString() || 0 } VNĐ
-                    </h3>
-                  </div>
-                )
-              }
-
-              <div className="my-cart__box-btn">
-                <Popconfirm
-                  placement="top"
-                  title="Bạn có muốn xóa sản phẩm"
-                  onConfirm={handleRemoveAll}
-                  okText="Yes"
-                  cancelText="No"
-                >
-                  <Button danger disabled={!isDisabel}>Xóa tất cả</Button>
-                </Popconfirm>
-
-                <Button
-                  type="primary"
-                  disabled={!isDisabel}
-                  onClick={handlePayment}
-                >
-                  Đặt hàng
-                </Button>
+            {isCartNull && (
+              <div className="box-subtotal">
+                <h3 className="box-subtotal--text">
+                  Tổng cộng: {subTotals(selectedRowKeys).toLocaleString() || 0}{' '}
+                  VNĐ
+                </h3>
               </div>
-            </>
-          )
-        }
+            )}
 
-        { !isCartNull && <CartNull /> }
+            <div className="my-cart__box-btn">
+              <Popconfirm
+                placement="top"
+                title="Bạn có muốn xóa sản phẩm"
+                onConfirm={handleRemoveAll}
+                okText="Yes"
+                cancelText="No"
+              >
+                <Button danger disabled={!isDisabel}>
+                  Xóa tất cả
+                </Button>
+              </Popconfirm>
+
+              <Button
+                type="primary"
+                disabled={!isDisabel}
+                onClick={handlePayment}
+              >
+                Đặt hàng
+              </Button>
+            </div>
+          </>
+        )}
+
+        {!isCartNull && <CartNull />}
       </div>
     </>
   )

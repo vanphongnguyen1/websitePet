@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tooltip } from 'antd'
 
-const ItemNetwork = props => {
+const ItemNetwork = (props) => {
   const { icon, title } = props.item
 
   return (

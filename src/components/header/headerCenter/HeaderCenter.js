@@ -4,7 +4,7 @@ import Cart from '../../Cart'
 import Login from '../../Login'
 import { TabletHiden, MobileHiden, Mobile } from '../../responsive'
 import Navigation from '../Navigation/Navigation'
-import { useHistory } from "react-router-dom"
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setStatusLogin } from '../../redux/statusLoginSlice'
 import Logo from '../../reuse/Logo'
@@ -13,7 +13,7 @@ import './style.scss'
 const HeaderCenter = () => {
   const history = useHistory()
   const dispatch = useDispatch()
-  const [ isNavMobile, setIsNavMobile ] = useState(false)
+  const [isNavMobile, setIsNavMobile] = useState(false)
   const navMobileRef = useRef(null)
 
   const handleNavigation = () => {
@@ -23,7 +23,6 @@ const HeaderCenter = () => {
     if (ele && innerWidth <= 767) {
       if (window.scrollY > 80) {
         ele.classList.add('sroll-nav')
-
       } else {
         ele.classList.remove('sroll-nav')
       }
@@ -51,29 +50,21 @@ const HeaderCenter = () => {
 
   return (
     <>
-      <div
-        className="header-center"
-        ref={navMobileRef}
-      >
+      <div className="header-center" ref={navMobileRef}>
         <div className="container">
           <div className="row align-center">
             <Mobile>
-              {
-                isNavMobile && (
-                  <>
-                    <Navigation />
-                    <span
-                      className="close-nav-mobile far fa-arrow-left"
-                      onClick={handleHidenNavMobile}
-                    />
+              {isNavMobile && (
+                <>
+                  <Navigation />
+                  <span
+                    className="close-nav-mobile far fa-arrow-left"
+                    onClick={handleHidenNavMobile}
+                  />
 
-                    <span
-                      className="follow"
-                      onClick={handleHidenNavMobile}
-                    />
-                  </>
-                )
-              }
+                  <span className="follow" onClick={handleHidenNavMobile} />
+                </>
+              )}
               <div className="col-sm-2 col-2">
                 <span
                   className="nav-mobile far fa-bars"

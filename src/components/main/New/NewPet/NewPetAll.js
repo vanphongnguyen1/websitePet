@@ -9,20 +9,20 @@ import './style.scss'
 const NewPetAll = ({ match }) => {
   const { params } = match
   const [dataNew, setDataNew] = useState([])
-  const newTeams = useSelector(state => state.newAction.infoPost)
+  const newTeams = useSelector((state) => state.newAction.infoPost)
 
   useEffect(() => {
-    const newData = dataPost.filter(item => item.activate === newTeams.id)
+    const newData = dataPost.filter((item) => item.activate === newTeams.id)
 
     if (!newData.length && params.url === 'hoat-dong-dogily-petshop') {
-      dataPost.forEach(item => {
+      dataPost.forEach((item) => {
         if (item.activate === 2) {
           newData.push(item)
         }
       })
     }
     if (!newData.length && params.url === 'tin-tuc-thu-cung') {
-      dataPost.forEach(item => {
+      dataPost.forEach((item) => {
         if (item.activate === 1) {
           newData.push(item)
         }
@@ -33,8 +33,8 @@ const NewPetAll = ({ match }) => {
 
   return (
     <>
-      <PageTitle params={{group: 'news', url: params.url}} />
-      <PageNews data={dataNew} title={newTeams.title}/>
+      <PageTitle params={{ group: 'news', url: params.url }} />
+      <PageNews data={dataNew} title={newTeams.title} />
       <MyBackTop />
     </>
   )

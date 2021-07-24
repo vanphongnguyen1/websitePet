@@ -4,11 +4,11 @@ import PageSearchAndTop from './PageSearchAndTop'
 import { PRODUCTHOT } from '../../dataConst'
 
 const ShowTop = ({ match }) => {
-  const dataProductFetch = useSelector(state => state.products)
+  const dataProductFetch = useSelector((state) => state.products)
   const [dataProducts, setDataProducts] = useState([])
 
   useEffect(() => {
-    const newDataPeoducts = dataProductFetch.list.filter(item => item.isHot)
+    const newDataPeoducts = dataProductFetch.list.filter((item) => item.isHot)
     setDataProducts(newDataPeoducts)
   }, [dataProductFetch])
 

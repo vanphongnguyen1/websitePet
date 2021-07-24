@@ -221,22 +221,6 @@ export const textBanner = [
   }
 ]
 
-// export const DATAVIDEO = [
-//   'https://www.youtube.com/embed/QLayz79GrrI?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/HVZ-Mtaly0E?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/TFZ-nskP6jg?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/melUiWWoYbo?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/-41J8qaIjUw?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/R1jIGphAn7Y?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/VwMc9yfvQcQ?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/2frAwGpv84I?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/ZV0IeaTXfZM?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/9XtkIXbpLAo?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/PXIlsc9WWI4?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/0Tk8b4vHlLw?autoplay=1&origin=http://localhost:3000"',
-//   'https://www.youtube.com/embed/wRlrKF4sueg?autoplay=1&origin=http://localhost:3000"'
-// ]
-
 export const dataDetailDog = [
   {
     video: '//www.youtube.com/embed/QLayz79GrrI?autoplay=1&mute=1&enablejsapi=1',

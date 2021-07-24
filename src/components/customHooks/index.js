@@ -1,10 +1,9 @@
-
-export const useHandleSort = ({dataAll, group, isParentSort}) => {
-  const groupData = dataAll.filter(item => item.group === group)
+export const useHandleSort = ({ dataAll, group, isParentSort }) => {
+  const groupData = dataAll.filter((item) => item.group === group)
 
   if (!groupData.length > 0) {
     if (isParentSort === 'hot') {
-      const newData = dataAll.filter(item => item.hot)
+      const newData = dataAll.filter((item) => item.hot)
       return newData
     }
 
@@ -21,16 +20,8 @@ export const useHandleSort = ({dataAll, group, isParentSort}) => {
     return dataAll
   }
 
-  // const methods = {
-  //   hot: getHotData,
-  //   expensive: getExpensiveData
-  // }
-
-  // const newData = methods[isParentSort]();
-  // return newData;
-
   if (isParentSort === 'hot') {
-    const newData = groupData.filter(item => item.hot)
+    const newData = groupData.filter((item) => item.hot)
 
     if (!newData.length > 0) {
       return groupData
@@ -58,4 +49,3 @@ export const useHandleSort = ({dataAll, group, isParentSort}) => {
 
   return groupData
 }
-

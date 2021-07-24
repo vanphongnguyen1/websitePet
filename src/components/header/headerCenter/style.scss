@@ -1,5 +1,5 @@
-@import '../../assets/avarlibel.scss';
-@import '../../assets/animation.scss';
+@import "../../assets/avarlibel.scss";
+@import "../../assets/animation.scss";
 
 .header-center {
   background-color: $color-bg-header-center;
@@ -46,8 +46,6 @@
     display: inline-block;
   }
 }
-
-
 
 // ------------------------Tables - desktop---------------------------------------------
 @media (max-width: 1024px) {

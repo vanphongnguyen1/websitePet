@@ -1,8 +1,4 @@
-import {
-  ACCESSORIES,
-  COLOR,
-  groupAccessories as group
-} from '../../dataConst'
+import { ACCESSORIES, COLOR, groupAccessories as group } from '../../dataConst'
 import ShowAllProductGroup from '../../Products/ShowAllProductGroup'
 
 const ShowAccess = ({ match }) => {

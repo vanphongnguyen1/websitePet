@@ -26,34 +26,35 @@ const FormInfo = (props) => {
       price: item.priceSale * count,
     }
 
-    customAxiosApi.post(`${API_NAME.DETAILORDER}`, dataDetailOrder)
-    .then((res) => {
-      const { data } = res.data
+    customAxiosApi
+      .post(`${API_NAME.DETAILORDER}`, dataDetailOrder)
+      .then((res) => {
+        const { data } = res.data
 
-      customAxiosApi.post(`${API_NAME.PRODUCTDETAILORDER}`, {
-        detailOrderID: data.id,
-        productsID: item.id,
-        count,
-        price: item.priceSale * count,
+        customAxiosApi.post(`${API_NAME.PRODUCTDETAILORDER}`, {
+          detailOrderID: data.id,
+          productsID: item.id,
+          count,
+          price: item.priceSale * count,
+        })
+
+        const dataOrders = {
+          intoMeny: item.priceSale * count,
+          note: values.note,
+          trasportID: 1,
+          peymentID: 1,
+          statusID: 1,
+          detailOrderID: data.id,
+          cartID: dataCart.id,
+        }
+
+        customAxiosApi.post(`${API_NAME.ORDERS}`, dataOrders).then(() => {
+          dispatch(fetchOrderofCart(dataCart.id))
+          dispatch(fetchProductDetailOrderAll())
+          message.success('Đặt hàng thành công.')
+          setIsModal(false)
+        })
       })
-
-      const dataOrders = {
-        intoMeny: item.priceSale * count,
-        note: values.note,
-        trasportID: 1,
-        peymentID: 1,
-        statusID: 1,
-        detailOrderID: data.id,
-        cartID: dataCart.id,
-      }
-
-      customAxiosApi.post(`${API_NAME.ORDERS}`, dataOrders).then(() => {
-        dispatch(fetchOrderofCart(dataCart.id))
-        dispatch(fetchProductDetailOrderAll())
-        message.success('Đặt hàng thành công.')
-        setIsModal(false)
-      })
-    })
   }
 
   return (

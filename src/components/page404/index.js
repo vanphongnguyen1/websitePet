@@ -14,17 +14,16 @@ const Page404 = () => {
             <p className="box-404__text">404</p>
           </div>
 
-          <p className="page-err__title">
-            page not found
-          </p>
+          <p className="page-err__title">page not found</p>
           <p className="page-err__text">
-            Trang bạn đang tìm kiếm có thể đã bị xóa, tên của nó đã được thay đổi hoặc tạm thời không có sẵn
+            Trang bạn đang tìm kiếm có thể đã bị xóa, tên của nó đã được thay
+            đổi hoặc tạm thời không có sẵn
           </p>
 
           <Buttom
             title="Trang chủ"
             classType="btn--back-home"
-            onClick={() => history.push("/")}
+            onClick={() => history.push('/')}
           />
         </div>
       </div>

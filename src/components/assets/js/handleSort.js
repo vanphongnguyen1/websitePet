@@ -1,10 +1,9 @@
-
-export const handleSort = ({dataAll, group, isParentSort}) => {
-  const groupData = dataAll.filter(item => item.lineage.groupID === group)
+export const handleSort = ({ dataAll, group, isParentSort }) => {
+  const groupData = dataAll.filter((item) => item.lineage.groupID === group)
 
   if (!groupData.length > 0) {
     if (isParentSort === 'hot') {
-      const newData = dataAll.filter(item => item.isHot)
+      const newData = dataAll.filter((item) => item.isHot)
       return newData
     }
 
@@ -16,23 +15,16 @@ export const handleSort = ({dataAll, group, isParentSort}) => {
     }
 
     if (isParentSort === 'cheap') {
-      const newData = [...dataAll].sort((item1, item2) => item2.priceSale - item1.priceSale)
+      const newData = [...dataAll].sort(
+        (item1, item2) => item2.priceSale - item1.priceSale,
+      )
       return newData
     }
-
     return dataAll
   }
 
-  // const methods = {
-  //   hot: getHotData,
-  //   expensive: getExpensiveData
-  // }
-
-  // const newData = methods[isParentSort]();
-  // return newData;
-
   if (isParentSort === 'hot') {
-    const newData = groupData.filter(item => item.isHot)
+    const newData = groupData.filter((item) => item.isHot)
 
     if (!newData.length > 0) {
       return groupData
@@ -41,7 +33,9 @@ export const handleSort = ({dataAll, group, isParentSort}) => {
   }
 
   if (isParentSort === 'expensive') {
-    const newData = [...groupData].sort((item1, item2) => item1.priceSale - item2.priceSale)
+    const newData = [...groupData].sort(
+      (item1, item2) => item1.priceSale - item2.priceSale,
+    )
 
     if (!newData.length > 0) {
       return groupData
@@ -50,7 +44,9 @@ export const handleSort = ({dataAll, group, isParentSort}) => {
   }
 
   if (isParentSort === 'cheap') {
-    const newData = [...groupData].sort((item1, item2) => item2.priceSale - item1.priceSale)
+    const newData = [...groupData].sort(
+      (item1, item2) => item2.priceSale - item1.priceSale,
+    )
 
     if (!newData.length > 0) {
       return groupData

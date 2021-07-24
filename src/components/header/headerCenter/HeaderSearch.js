@@ -9,12 +9,12 @@ const HeaderSearch = () => {
   const history = useHistory()
   const [keySearch, setKeySearch] = useState('')
 
-  const handleSearchProduct = e => {
+  const handleSearchProduct = (e) => {
     const { value } = e.target
     setKeySearch(value)
   }
 
-  const clickSearch = e => {
+  const clickSearch = (e) => {
     e.preventDefault()
     dispatch(setKeySearchProduct(removeAccents(keySearch)))
     history.push(`/tim-kiem/${removeAccents(keySearch)}`)

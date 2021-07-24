@@ -1,9 +1,9 @@
-@import '../../assets/avarlibel.scss';
-@import '../../assets/animation.scss';
+@import "../../assets/avarlibel.scss";
+@import "../../assets/animation.scss";
 
 .banner {
   min-height: 50rem;
-  .banner-group{
+  .banner-group {
     position: relative;
 
     &__bg {
@@ -38,10 +38,10 @@
     }
 
     .text-inner {
-        position: absolute;
-        z-index: 2;
-        visibility: hidden;
-        opacity: 0;
+      position: absolute;
+      z-index: 2;
+      visibility: hidden;
+      opacity: 0;
 
       &.dog {
         left: 13%;
@@ -85,13 +85,13 @@
     .animation-left-mew,
     .animation-bottom {
       opacity: 1;
-      visibility: visible ;
+      visibility: visible;
     }
   }
 
   .btn--start {
     text-transform: uppercase;
-    background-color: #FF5440;
+    background-color: #ff5440;
     padding: 1rem 2.5rem;
     font-size: 1.6rem;
     font-weight: 700;
@@ -126,9 +126,9 @@
 @media (max-width: 1024px) {
   .banner {
     min-height: 40rem;
-    .banner-group{
+    .banner-group {
       &__bg {
-        height: 40rem
+        height: 40rem;
       }
 
       .sale-mew,
@@ -172,7 +172,7 @@
       .animation-left-mew,
       .animation-bottom {
         opacity: 1;
-        visibility: visible ;
+        visibility: visible;
       }
     }
   }
@@ -181,8 +181,7 @@
 // -------------------Table Modile Medium------------
 @media (max-width: 991px) {
   .banner {
-    .banner-group{
-
+    .banner-group {
       .sale-mew,
       .sale-dog {
         &__img {
@@ -232,7 +231,7 @@
       .animation-left-mew,
       .animation-bottom {
         opacity: 1;
-        visibility: visible ;
+        visibility: visible;
       }
     }
   }

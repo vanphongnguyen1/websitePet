@@ -12,38 +12,42 @@ import CountProduct from './CountProduct'
 import { customAxiosApi } from '../../reuse/CustomAxios'
 
 const BoxInfo = ({ description, item }) => {
-  const idCart = useSelector(state => state.cart.list.id)
-  const dataProductInCart = useSelector(state => state.productInCart.list)
+  const idCart = useSelector((state) => state.cart.list.id)
+  const dataProductInCart = useSelector((state) => state.productInCart.list)
   const [isModal, setIsModal] = useState(false)
   const [count, setCount] = useState(1)
   const isDescription = description.length > 1
   const dispatch = useDispatch()
-  const { name, price, priceSale} = item
+  const { name, price, priceSale } = item
 
-  const addProduct = item => {
+  const addProduct = (item) => {
     const id = sessionStorage.getItem('id')
 
     if (id) {
-      const findData = dataProductInCart.find(ele => ele.productsID === item.id)
+      const findData = dataProductInCart.find(
+        (ele) => ele.productsID === item.id,
+      )
       if (findData) {
-        customAxiosApi.put(`${API_NAME.PRODUCTINCART}/${findData.id}`,{count: findData.count + count})
-        .then(() => {
-          dispatch(fetchProductInCart(idCart))
-          message.success('Đơn hàng đã được thêm vào giỏ.')
-        })
-
+        customAxiosApi
+          .put(`${API_NAME.PRODUCTINCART}/${findData.id}`, {
+            count: findData.count + count,
+          })
+          .then(() => {
+            dispatch(fetchProductInCart(idCart))
+            message.success('Đơn hàng đã được thêm vào giỏ.')
+          })
       } else {
-        customAxiosApi.post(`${API_NAME.PRODUCTINCART}`, {
-          count,
-          price: count * item.priceSale,
-          cartID: idCart,
-          productsID: item.id
-        })
-        .then(() => {
-          dispatch(fetchProductInCart(idCart))
-          message.success('Đơn hàng đã được thêm vào giỏ.')
-        })
-
+        customAxiosApi
+          .post(`${API_NAME.PRODUCTINCART}`, {
+            count,
+            price: count * item.priceSale,
+            cartID: idCart,
+            productsID: item.id,
+          })
+          .then(() => {
+            dispatch(fetchProductInCart(idCart))
+            message.success('Đơn hàng đã được thêm vào giỏ.')
+          })
       }
     } else {
       dispatch(setStatusLogin(true))
@@ -74,59 +78,48 @@ const BoxInfo = ({ description, item }) => {
               {price.toLocaleString()} VNĐ
             </span>
           </p>
-          {
-            isDescription && <ListInfoPet description={description}/>
-          }
+          {isDescription && <ListInfoPet description={description} />}
 
-          <CountProduct count={count} setCount={setCount}/>
+          <CountProduct count={count} setCount={setCount} />
 
           <div className="box-btn-info">
             <Buttom
-              title='Thêm vào giỏ'
+              title="Thêm vào giỏ"
               classType="btn--add"
               onClick={() => addProduct(item)}
             />
 
             <Buttom
-              title='Mua ngay'
+              title="Mua ngay"
               classType="btn--buy-now"
               onClick={handleVisitleModal}
             />
           </div>
 
           <div className="box-info__category">
-            <span className="box-info__category--title">
-              category:
-            </span>
+            <span className="box-info__category--title">category:</span>
 
-            <span className="box-info__category--text">
-              { item.title }
-            </span>
+            <span className="box-info__category--text">{item.title}</span>
 
             <div className="social-network">
               <ul>
-                {
-                  DATAICONTOOLTIP.map((item, index) => {
-                    return <ItemNetwork key={index} item={item}/>
-                  })
-                }
+                {DATAICONTOOLTIP.map((item, index) => {
+                  return <ItemNetwork key={index} item={item} />
+                })}
               </ul>
             </div>
           </div>
         </div>
       </div>
 
-      {
-        isModal && (
-          <MyModal
-            item={item}
-            count={count}
-            isModal={isModal}
-            setIsModal={setIsModal}
-          />
-        )
-      }
-
+      {isModal && (
+        <MyModal
+          item={item}
+          count={count}
+          isModal={isModal}
+          setIsModal={setIsModal}
+        />
+      )}
     </>
   )
 }

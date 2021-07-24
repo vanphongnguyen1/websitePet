@@ -10,20 +10,16 @@ const HeaderTop = () => {
     <>
       <TabletHiden>
         <div className="header-top">
-          <div className="container" >
+          <div className="container">
             <ul className="header-top__info">
-              {
-                DATACONTACT.map((item, index) => {
-                  return <ItemContact key={index} item={item}/>
-                })
-              }
+              {DATACONTACT.map((item, index) => {
+                return <ItemContact key={index} item={item} />
+              })}
 
               <li className="header-top__item">
-                {
-                  DATAICONTOOLTIP.map((item, index) => {
-                    return <IconToolTip item={item} key={index}/>
-                  })
-                }
+                {DATAICONTOOLTIP.map((item, index) => {
+                  return <IconToolTip item={item} key={index} />
+                })}
               </li>
             </ul>
           </div>

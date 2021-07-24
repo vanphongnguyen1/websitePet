@@ -1,8 +1,4 @@
-import {
-  PETSOTHER,
-  COLOR,
-  groupOther as group
-} from '../../dataConst'
+import { PETSOTHER, COLOR, groupOther as group } from '../../dataConst'
 import ShowAllProductGroup from '../../Products/ShowAllProductGroup'
 
 const ShowPetOther = ({ match }) => {

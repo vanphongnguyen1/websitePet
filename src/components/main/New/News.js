@@ -9,28 +9,26 @@ const News = () => {
     window.scrollTo(0, 0)
   }, [])
 
-  const newLarge = DATANEWS.find(item => item.large)
-  const newSmall = DATANEWS.filter(item => !item.large)
+  const newLarge = DATANEWS.find((item) => item.large)
+  const newSmall = DATANEWS.filter((item) => !item.large)
 
   return (
     <>
       <div className="news">
         <div className="container">
-          <BoxHeading title={NEW} color={COLOR}/>
+          <BoxHeading title={NEW} color={COLOR} />
           <div className="row">
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-              <ItemNews item={newLarge}/>
+              <ItemNews item={newLarge} />
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-              {
-                newSmall.map(item => {
-                  return (
-                    <div className="news__box-small" key={item.id}>
-                      <ItemNews item={item}/>
-                    </div>
-                  )
-                })
-              }
+              {newSmall.map((item) => {
+                return (
+                  <div className="news__box-small" key={item.id}>
+                    <ItemNews item={item} />
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>

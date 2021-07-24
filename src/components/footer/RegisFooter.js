@@ -18,11 +18,9 @@ const RegisFooter = () => {
 
       <div className="social-network">
         <ul>
-          {
-            DATAICONTOOLTIP.map((item, index) => {
-              return <ItemNetwork key={index} item={item}/>
-            })
-          }
+          {DATAICONTOOLTIP.map((item, index) => {
+            return <ItemNetwork key={index} item={item} />
+          })}
         </ul>
       </div>
     </div>

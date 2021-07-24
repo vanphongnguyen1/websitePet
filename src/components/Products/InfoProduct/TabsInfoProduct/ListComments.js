@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from'react'
-import { Comment, Avatar, Form, Button, Input } from 'antd';
+import React, { useState, useEffect } from 'react'
+import { Comment, Avatar, Form, Button, Input } from 'antd'
 import { fetchUser } from '../../../redux/loginSlice'
 import { fetchComments } from '../../../redux/commentsSlice'
 import { setStatusLogin } from '../../../redux/statusLoginSlice'
-import moment from 'moment';
+import moment from 'moment'
 import Comments from './Comments'
 import { useSelector, useDispatch } from 'react-redux'
 import { customAxiosApi } from '../../../reuse/CustomAxios'
 import { API_NAME } from '../../../dataConst'
 
-const { TextArea } = Input;
+const { TextArea } = Input
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <>
@@ -17,12 +17,17 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
       <TextArea rows={4} onChange={onChange} value={value} />
     </Form.Item>
     <Form.Item>
-      <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
+      <Button
+        htmlType="submit"
+        loading={submitting}
+        onClick={onSubmit}
+        type="primary"
+      >
         Gửi bình luận
       </Button>
     </Form.Item>
   </>
-);
+)
 
 const ListComments = ({ idProduct }) => {
   const dispatch = useDispatch()
@@ -30,17 +35,15 @@ const ListComments = ({ idProduct }) => {
   const [submitting, setSubmitting] = useState(false)
   const [value, setValue] = useState('')
   const [dataUser, setDataUser] = useState({})
-  const tokenId = useSelector(state => state.login.token)
-  const [isReply, setIsReply] = useState(true)
-  const [dataCommentProduct, setDataCommentProduct]= useState([])
+  const tokenId = useSelector((state) => state.login.token)
+  const [dataCommentProduct, setDataCommentProduct] = useState([])
 
   useEffect(() => {
-    dispatch(fetchComments())
-    .then(res => {
+    dispatch(fetchComments()).then((res) => {
       const result = res.payload
-      const newData = result.filter(ele => ele.productsID === idProduct)
+      const newData = result.filter((ele) => ele.productsID === idProduct)
 
-      setDataCommentProduct(newData);
+      setDataCommentProduct(newData)
     })
   }, [dispatch, idProduct])
 
@@ -48,8 +51,7 @@ const ListComments = ({ idProduct }) => {
     const id = sessionStorage.getItem('id')
 
     if (id || tokenId) {
-      dispatch(fetchUser(id || tokenId))
-      .then(response => {
+      dispatch(fetchUser(id || tokenId)).then((response) => {
         const data = response.payload
 
         setDataUser(data)
@@ -60,17 +62,15 @@ const ListComments = ({ idProduct }) => {
   useEffect(() => {
     if (dataCommentProduct) {
       const newData = []
-      dataCommentProduct.forEach(item => {
-        newData.push(
-          {
-            author: item.users.name,
-            avatar: item.users.avarta,
-            content: <p>{item.title}</p>,
-            datetime: item.created_at,
-            like: item.like,
-            desLike: item.desLike || 0
-          }
-        )
+      dataCommentProduct.forEach((item) => {
+        newData.push({
+          author: item.users.name,
+          avatar: item.users.avarta,
+          content: <p>{item.title}</p>,
+          datetime: item.created_at,
+          like: item.like,
+          desLike: item.desLike || 0,
+        })
       })
 
       setComments(newData)
@@ -81,11 +81,11 @@ const ListComments = ({ idProduct }) => {
     const id = sessionStorage.getItem('id')
     if (!id) {
       dispatch(setStatusLogin(true))
-      return;
+      return
     }
 
     if (!value) {
-      return;
+      return
     }
 
     setSubmitting(true)
@@ -100,10 +100,10 @@ const ListComments = ({ idProduct }) => {
           content: <p>{value}</p>,
           datetime: moment().fromNow(),
           like: 0,
-          desLike: 0
+          desLike: 0,
         },
       ])
-      setIsReply(false)
+
       const id = sessionStorage.getItem('id')
       const newData = {
         statusCommentsID: 1,
@@ -111,55 +111,43 @@ const ListComments = ({ idProduct }) => {
         productsID: 30,
         title: value,
         like: 0,
-        desLike: 0
+        desLike: 0,
       }
       customAxiosApi.post(`${API_NAME.COMMENTS}`, newData)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(() => { console.log('aaaa');})
-    }, 1000);
-  };
+    }, 1000)
+  }
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { value } = e.target
     setValue(value)
-  };
+  }
 
-    return (
-      <>
-        {
-          comments.length > 0 &&
-          comments.map((item, index) => (
-            <Comments data={item} key={index} dataUser={dataUser} setIsReply={setIsReply} isReply={isReply} />
-          ))
+  return (
+    <>
+      {comments.length > 0 &&
+        comments.map((item, index) => (
+          <Comments data={item} key={index} dataUser={dataUser} />
+        ))}
+
+      <Comment
+        avatar={
+          !dataUser.avarta ? (
+            <span className="avarta__icon fas fa-user" />
+          ) : (
+            <Avatar src={dataUser.avarta} alt={dataUser.name} />
+          )
         }
-
-        {
-          isReply &&
-          <Comment
-            avatar={
-              !dataUser.avarta ? (
-                <span className="avarta__icon fas fa-user" />
-              ) : (
-                <Avatar
-                  src={dataUser.avarta}
-                  alt={dataUser.name}
-                />
-              )
-            }
-            content={
-              <Editor
-                onChange={handleChange}
-                onSubmit={handleSubmit}
-                submitting={submitting}
-                value={value}
-              />
-            }
+        content={
+          <Editor
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+            submitting={submitting}
+            value={value}
           />
         }
-      </>
-    );
-  }
+      />
+    </>
+  )
+}
 
 export default ListComments

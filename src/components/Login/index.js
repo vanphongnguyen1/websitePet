@@ -13,8 +13,8 @@ import './style.scss'
 const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const tokenId = useSelector(state => state.login.token)
-  const statusLogin = useSelector(state => state.statusLogin.status)
+  const tokenId = useSelector((state) => state.login.token)
+  const statusLogin = useSelector((state) => state.statusLogin.status)
   const [dataUser, setDataUser] = useState({})
   const [isModel, setIsModel] = useState(false)
 
@@ -22,17 +22,15 @@ const Login = () => {
     const id = sessionStorage.getItem('id')
 
     if (id || tokenId) {
-      dispatch(fetchUser(id || tokenId))
-      .then(response => {
+      dispatch(fetchUser(id || tokenId)).then((response) => {
         const data = response.payload
 
-        dispatch(fetchCartOfUser(data.id))
-          .then(res => {
-            const data = res.payload[0]
-            dispatch(fetchOrderofCart(data.id))
-            dispatch(fetchProductInCart(data.id))
-            dispatch(fetchProductDetailOrderAll())
-          })
+        dispatch(fetchCartOfUser(data.id)).then((res) => {
+          const data = res.payload[0]
+          dispatch(fetchOrderofCart(data.id))
+          dispatch(fetchProductInCart(data.id))
+          dispatch(fetchProductDetailOrderAll())
+        })
         dispatch(setToken(data.id))
         setDataUser(data)
       })
@@ -55,61 +53,45 @@ const Login = () => {
   return (
     <>
       <div className="login">
-        {
-          tokenId ? (
-            <>
-              <div className="login__box" onClick={() => setIsModel(true)}>
-                {
-                  dataUser.avarta
-                    ? <img alt="" src="aa" />
-                    : <span className="login__icon fas fa-user-circle" />
-                }
+        {tokenId ? (
+          <>
+            <div className="login__box" onClick={() => setIsModel(true)}>
+              {dataUser.avarta ? (
+                <img alt="" src="aa" />
+              ) : (
+                <span className="login__icon fas fa-user-circle" />
+              )}
 
-                <p className="login__text-name">
-                  { dataUser.name }
-                </p>
-              </div>
-
-              <div className={`module-user ${isModel && 'visit-module'}`}>
-                <ul className="module-user__list">
-                  <li className="module-user__item" onClick={handleSetting}>
-                    Setting
-                  </li>
-
-                  <li
-                    className="module-user__item"
-                    onClick={handleLogOut}
-                  >
-                    Log out
-                  </li>
-                </ul>
-              </div>
-
-              {
-                isModel && (
-                  <div
-                    className="overlay"
-                    onClick={() => setIsModel(false)}
-                  />
-                )
-              }
-            </>
-          ) : (
-            <div
-              className="login__text"
-              onClick={() => dispatch(setStatusLogin(true))}
-            >
-              Đăng nhập
+              <p className="login__text-name">{dataUser.name}</p>
             </div>
-          )
-        }
+
+            <div className={`module-user ${isModel && 'visit-module'}`}>
+              <ul className="module-user__list">
+                <li className="module-user__item" onClick={handleSetting}>
+                  Setting
+                </li>
+
+                <li className="module-user__item" onClick={handleLogOut}>
+                  Log out
+                </li>
+              </ul>
+            </div>
+
+            {isModel && (
+              <div className="overlay" onClick={() => setIsModel(false)} />
+            )}
+          </>
+        ) : (
+          <div
+            className="login__text"
+            onClick={() => dispatch(setStatusLogin(true))}
+          >
+            Đăng nhập
+          </div>
+        )}
       </div>
 
-      {
-        statusLogin && (
-          <ModalLogin />
-        )
-      }
+      {statusLogin && <ModalLogin />}
     </>
   )
 }

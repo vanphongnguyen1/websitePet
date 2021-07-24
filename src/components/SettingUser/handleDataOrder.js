@@ -47,8 +47,6 @@ export const handleDataOrder = (data, detail, dataCart) => {
         newOrder.status === STATUS_HANDLE.PENDING ||
         newOrder.status === STATUS_HANDLE.DELIVERED
       ) {
-
-
         newDataOrder.push(newOrder)
       }
     }

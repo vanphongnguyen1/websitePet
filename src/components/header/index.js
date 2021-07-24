@@ -5,7 +5,6 @@ import Navigation from './Navigation/Navigation'
 import { MobileHiden } from '../responsive'
 
 const Header = () => {
-
   return (
     <>
       <HeaderTop />

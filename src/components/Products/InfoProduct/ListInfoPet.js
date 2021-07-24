@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 
-const ListInfoPet = props => {
+const ListInfoPet = (props) => {
   const { description } = props
   const tagParent = useRef(null)
 
@@ -9,7 +9,7 @@ const ListInfoPet = props => {
     ele.classList.add('box-info__list')
     const listEle = ele.querySelectorAll('li')
 
-    listEle.forEach(item => {
+    listEle.forEach((item) => {
       const spanIcon = document.createElement('span')
       const spanText = document.createElement('span')
       item.classList.add('box-info__list--item')
@@ -32,7 +32,7 @@ const ListInfoPet = props => {
     <>
       <div
         className="editor"
-        dangerouslySetInnerHTML={{__html:description}}
+        dangerouslySetInnerHTML={{ __html: description }}
         ref={tagParent}
       />
     </>

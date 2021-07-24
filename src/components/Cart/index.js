@@ -7,9 +7,7 @@ const Cart = () => {
   return (
     <div className="cart">
       <TabletHiden>
-        <span className="cart--text">
-          Giỏ hàng
-        </span>
+        <span className="cart--text">Giỏ hàng</span>
       </TabletHiden>
 
       <CartIcon />

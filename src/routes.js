@@ -21,54 +21,54 @@ export const routes = [
   {
     path: '/',
     exact: true,
-    main: ({ match }) => <Main match={match}/>
+    main: ({ match }) => <Main match={match} />,
   },
   {
     path: '/account',
     exact: true,
-    main: ({ match }) => <SettingUser match={match}/>
+    main: ({ match }) => <SettingUser match={match} />,
   },
   {
     path: '/quen-mat-khau',
     exact: true,
-    main: ({ match }) => <ForgotPassword match={match}/>
+    main: ({ match }) => <ForgotPassword match={match} />,
   },
   {
     path: '/gio-hang',
     exact: true,
-    main: ({ match }) => <PageCart match={match}/>
+    main: ({ match }) => <PageCart match={match} />,
   },
   {
     path: '/product-hot',
     exact: true,
-    main: ({ match }) => <ShowTop match={match}/>
+    main: ({ match }) => <ShowTop match={match} />,
   },
   {
     path: '/dogs',
     exact: true,
-    main: ({match}) => <ShowDogs match={match}/>
+    main: ({ match }) => <ShowDogs match={match} />,
   },
   {
     path: '/cats',
     exact: true,
-    main: ({ match }) => <ShowMews match={match}/>
+    main: ({ match }) => <ShowMews match={match} />,
   },
   {
     path: '/phu-kien',
     exact: true,
-    main: ({ match }) => <ShowAccess match={match}/>
+    main: ({ match }) => <ShowAccess match={match} />,
   },
   {
     path: '/pet-other',
     exact: true,
-    main: ({ match }) => <ShowPetOther match={match}/>
+    main: ({ match }) => <ShowPetOther match={match} />,
   },
   {
     path: '/:group/:lineage/:url',
     exact: true,
     auth: true,
     roles: [],
-    main: ({match}) => <RootInfoProduct match={match}/>
+    main: ({ match }) => <RootInfoProduct match={match} />,
   },
 
   {
@@ -76,7 +76,7 @@ export const routes = [
     exact: true,
     auth: true,
     roles: [],
-    main: ({match}) => <News match={match}/>
+    main: ({ match }) => <News match={match} />,
   },
 
   {
@@ -84,7 +84,7 @@ export const routes = [
     exact: true,
     auth: true,
     roles: [],
-    main: ({match}) => <NewPetAll match={match}/>
+    main: ({ match }) => <NewPetAll match={match} />,
   },
 
   {
@@ -92,7 +92,7 @@ export const routes = [
     exact: true,
     auth: true,
     roles: [],
-    main: ({match}) => <PostNew match={match}/>
+    main: ({ match }) => <PostNew match={match} />,
   },
 
   {
@@ -100,25 +100,25 @@ export const routes = [
     exact: true,
     auth: true,
     roles: [],
-    main: ({match}) => <ServicePet match={match}/>
+    main: ({ match }) => <ServicePet match={match} />,
   },
   {
     path: '/dich-vu/:url',
     exact: true,
     auth: true,
     roles: [],
-    main: ({match}) => <ShowGroupService match={match}/>
+    main: ({ match }) => <ShowGroupService match={match} />,
   },
   {
     path: '/tim-kiem/:url',
     exact: true,
     auth: true,
     roles: [],
-    main: ({match}) => <PageSearchProduct match={match}/>
+    main: ({ match }) => <PageSearchProduct match={match} />,
   },
 
   {
     path: '*',
-    main: ({ match }) => <Page404 match={match}/>
+    main: ({ match }) => <Page404 match={match} />,
   },
 ]

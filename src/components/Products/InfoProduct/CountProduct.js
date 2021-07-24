@@ -2,10 +2,10 @@ import React from 'react'
 import { Button } from 'antd'
 import './countProduct.scss'
 
-const CountProduct = props => {
+const CountProduct = (props) => {
   const { count, setCount } = props
 
-  const handleOnChangeCount = number => {
+  const handleOnChangeCount = (number) => {
     let newCount = count
     if (newCount < 10 && number > 0) {
       newCount += number
@@ -16,7 +16,7 @@ const CountProduct = props => {
     setCount(newCount)
   }
 
-  const handleInputCount = e => {
+  const handleInputCount = (e) => {
     const value = Number(e.target.value)
     if (value > 10) {
       setCount(10)
@@ -35,7 +35,7 @@ const CountProduct = props => {
         className="count-product--icon-minus"
         onClick={() => handleOnChangeCount(-1)}
       >
-        <span className="far fa-minus"/>
+        <span className="far fa-minus" />
       </Button>
 
       <input
@@ -50,7 +50,7 @@ const CountProduct = props => {
         className="count-product--icon-plus"
         onClick={() => handleOnChangeCount(1)}
       >
-        <span className="far fa-plus"/>
+        <span className="far fa-plus" />
       </Button>
       <p className="count-product--text">Min: 1 - Max: 10</p>
     </div>

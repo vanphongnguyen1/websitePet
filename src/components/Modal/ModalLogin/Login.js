@@ -1,7 +1,12 @@
 import React from 'react'
 import { Form, Input, Button, Checkbox } from 'antd'
 import { Link } from 'react-router-dom'
-import { fetchLogin, setError, setToken, defaulrError } from '../../redux/loginSlice'
+import {
+  fetchLogin,
+  setError,
+  setToken,
+  defaulrError,
+} from '../../redux/loginSlice'
 import { setStatusLogin } from '../../redux/statusLoginSlice'
 import { fetchCartOfUser } from '../../redux/cartsSlice'
 import { fetchOrderofCart } from '../../redux/ordersSlice'
@@ -11,13 +16,13 @@ import { useLocation, useHistory } from 'react-router-dom'
 import './style.scss'
 
 const Login = ({ setIslogin }) => {
-  const location = useLocation();
+  const location = useLocation()
   const history = useHistory()
   const dispatch = useDispatch()
-  const dataLogin = useSelector(state => state.login)
+  const dataLogin = useSelector((state) => state.login)
 
-  const onFinish = values => {
-    const title = "client"
+  const onFinish = (values) => {
+    const title = 'client'
     const data = new FormData()
     dispatch(defaulrError())
 
@@ -25,22 +30,20 @@ const Login = ({ setIslogin }) => {
     data.append('email', values.email)
     data.append('password', values.password)
 
-    dispatch(fetchLogin(data))
-    .then(data => {
+    dispatch(fetchLogin(data)).then((data) => {
       const { payload } = data
 
       if (typeof payload === 'object') {
-        dispatch(fetchCartOfUser(payload.id))
-          .then(res => {
-            const data = res.payload[0]
+        dispatch(fetchCartOfUser(payload.id)).then((res) => {
+          const data = res.payload[0]
 
-            dispatch(fetchOrderofCart(data.id))
-            dispatch(fetchProductInCart(data.id))
-          })
+          dispatch(fetchOrderofCart(data.id))
+          dispatch(fetchProductInCart(data.id))
+        })
 
-          if (location.pathname === '/quen-mat-khau') {
-            history.push('/')
-          }
+        if (location.pathname === '/quen-mat-khau') {
+          history.push('/')
+        }
 
         dispatch(setToken(payload.id))
 
@@ -88,15 +91,17 @@ const Login = ({ setIslogin }) => {
           <Input.Password />
         </Form.Item>
 
-        <p className="message-err">
-          {dataLogin.error}
-        </p>
+        <p className="message-err">{dataLogin.error}</p>
 
         <Form.Item name="remember" valuePropName="checked">
           <div>
             <Checkbox>Nhớ mật khẩu.</Checkbox>
 
-            <Link to="/quen-mat-khau" className="forgot-password" onClick={() => dispatch(setStatusLogin(false))}>
+            <Link
+              to="/quen-mat-khau"
+              className="forgot-password"
+              onClick={() => dispatch(setStatusLogin(false))}
+            >
               Quên mật khẩu?
             </Link>
           </div>

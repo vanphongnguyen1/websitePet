@@ -1,5 +1,5 @@
-@import '../assets/avarlibel.scss';
-@import '../assets/animation.scss';
+@import "../assets/avarlibel.scss";
+@import "../assets/animation.scss";
 
 .btn {
   border-radius: 2px;
@@ -9,11 +9,11 @@
   display: inline-block;
   text-align: center;
   color: $color-white;
-  transition: all .4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
   &--start {
     text-transform: uppercase;
-    background-color: #FF5440;
+    background-color: #ff5440;
     padding: 1rem 2.5rem;
     font-size: 1.6rem;
     font-weight: 700;
@@ -26,7 +26,7 @@
   }
 
   &--add {
-    background-color: #FF5440;
+    background-color: #ff5440;
     font-size: 1.8rem;
     font-weight: 600;
     padding: 0.5rem 2rem;

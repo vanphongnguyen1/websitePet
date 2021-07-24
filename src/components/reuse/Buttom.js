@@ -1,8 +1,8 @@
 import React from 'react'
 import './buttom.scss'
 
-const Buttom = props => {
-  const {title, classType, icon, onClick} = props
+const Buttom = (props) => {
+  const { title, classType, icon, onClick } = props
   const CLASSBTN = [
     'btn--start',
     'btn--info',
@@ -10,7 +10,7 @@ const Buttom = props => {
     'btn--back-home',
     'btn--show-all',
     'btn--buy-now',
-    'btn--order-modal'
+    'btn--order-modal',
   ]
   const passClassBtn = CLASSBTN.includes(classType) ? classType : ''
 
@@ -18,9 +18,7 @@ const Buttom = props => {
     <>
       <button className={`btn ${passClassBtn}`} onClick={onClick}>
         {title}
-        {
-          icon && <span className={icon} />
-        }
+        {icon && <span className={icon} />}
       </button>
     </>
   )

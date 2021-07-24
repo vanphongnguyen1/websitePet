@@ -3,7 +3,7 @@
   overflow: hidden;
   padding: 2rem;
 
-  width: calc(100% * 11/12);
+  width: calc(100% * 11 / 12);
   // border: 1px solid #e0e0e0;
   border-radius: 1rem;
 
@@ -37,80 +37,79 @@
     border-radius: 5px;
   }
 
-    .totals {
-      .table {
-        &__td {
-          &--name,
-          &--price {
-            width: 50%;
-
-          }
-
-          &--price {
-            text-align: right;
-          }
-        }
-      }
-    }
-
+  .totals {
     .table {
-      margin-bottom: 2rem;
-
-      &__item {}
-      &__tr {
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #E0E0E0;
-      }
-
-      &__td,
-      &__th {
-        &--name {
-          width: calc(100% * 5 / 12);
-        }
-
-        &--price ,
-        &--count {
-          width: calc(100% * 2 / 12);
-        }
-        &--totalPrice  {
-          width: calc(100% * 3 / 12);
-        }
-        &--action {
-          width: calc(100% * 1 / 12);
-          text-align: right;
-        }
-
-        &--name,
-        &--price ,
-        &--count ,
-        &--totalPrice ,
-        &--action {
-          font-weight: 500;
-          padding: 1.5rem 1rem;
-        }
-      }
-
       &__td {
         &--name,
-        &--price ,
-        &--count ,
-        &--totalPrice {
-          font-weight: 400;
+        &--price {
+          width: 50%;
         }
 
-        &--action {
-          color: #F44336;
-          cursor: pointer;
-          transition: all 0.3s ease-in-out;
-
-          &:hover {
-            color: rgba(255, 0, 0, 0.616);
-          }
+        &--price {
+          text-align: right;
         }
       }
     }
+  }
 
+  .table {
+    margin-bottom: 2rem;
+
+    &__item {
+    }
+    &__tr {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    &__td,
+    &__th {
+      &--name {
+        width: calc(100% * 5 / 12);
+      }
+
+      &--price,
+      &--count {
+        width: calc(100% * 2 / 12);
+      }
+      &--totalPrice {
+        width: calc(100% * 3 / 12);
+      }
+      &--action {
+        width: calc(100% * 1 / 12);
+        text-align: right;
+      }
+
+      &--name,
+      &--price,
+      &--count,
+      &--totalPrice,
+      &--action {
+        font-weight: 500;
+        padding: 1.5rem 1rem;
+      }
+    }
+
+    &__td {
+      &--name,
+      &--price,
+      &--count,
+      &--totalPrice {
+        font-weight: 400;
+      }
+
+      &--action {
+        color: #f44336;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          color: rgba(255, 0, 0, 0.616);
+        }
+      }
+    }
+  }
 
   .box-submit {
     display: flex;

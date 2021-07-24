@@ -1,4 +1,4 @@
-@import '../assets/avarlibel.scss';
+@import "../assets/avarlibel.scss";
 
 .login {
   display: inline-block;
@@ -37,7 +37,7 @@
 
   &__text-name {
     padding: 0 0.7rem;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   .overlay {
@@ -73,7 +73,7 @@
       text-align: center;
       padding: 0.5rem 0;
       cursor: pointer;
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
 
       &:hover {
         background-color: #e6e4e4;
@@ -85,7 +85,6 @@
     transform: scale(1);
   }
 }
-
 
 // -------------------Table Modile Medium------------
 @media (max-width: 991px) {

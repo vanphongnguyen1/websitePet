@@ -1,67 +1,75 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-  }
-  html {
-    font-size: 10px;
-    font-family: 'Roboto', sans-serif;
-  }
-  body {
-    font-size: 1.4rem;
-    background-color: #f5fbf6 !important;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  input, button, textarea {
-    font-family: inherit;
-  }
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-  h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
-    padding: 0;
-    line-height: inherit
-  }
-  img {
-    max-width: 100%;
-    display: block;
-    transform: translateZ(0);
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+html {
+  font-size: 10px;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  font-size: 1.4rem;
+  background-color: #f5fbf6 !important;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+}
+img {
+  max-width: 100%;
+  display: block;
+  transform: translateZ(0);
+}
 
-  .visible.visible.visible {
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.4s ease-in-out;
-  }
-  /* --------------------------------------------------- */
-  .position-relative {
-    position: relative;
-  }
+.visible.visible.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s ease-in-out;
+}
+/* --------------------------------------------------- */
+.position-relative {
+  position: relative;
+}
 
-  .overllow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 59;
-    background-color: rgba(#000, .2);
-    cursor: pointer;
-  }
+.overllow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 59;
+  background-color: rgba(#000, 0.2);
+  cursor: pointer;
+}
 
-  .justify-center {
-    justify-content: center;
-  }
+.justify-center {
+  justify-content: center;
+}
 
-  .align-center {
-    align-items: center;
-  }
+.align-center {
+  align-items: center;
+}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -71,7 +79,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -96,8 +104,6 @@ input[type=number] {
   }
 }
 
-
-
 // ---------------------------------Custom boxChat---------------------------------------------------------------------------
 .fb_dialog .fb_dialog_advanced + iframe {
   width: 50rem !important;
@@ -108,7 +114,6 @@ input[type=number] {
     height: 50rem !important;
   }
 }
-
 
 .justify-center {
   justify-content: center;

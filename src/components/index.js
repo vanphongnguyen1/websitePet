@@ -5,8 +5,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
-} from "react-router-dom"
+  Redirect,
+} from 'react-router-dom'
 import { routes } from '../routes'
 import ScrollToTop from './reuse/ScrollToTop'
 import { useDispatch } from 'react-redux'
@@ -16,13 +16,12 @@ import { fetchImages } from './redux/imagesSlice'
 import { fetchGender } from './redux/genderSlice'
 import { fetchLineageAll } from './redux/lineageSlice'
 import { fetchSlider } from './redux/sliderSlice'
-// import MessengerCustomerChat from 'react-messenger-customer-chat';
 import './assets/layout.scss'
 import 'antd/dist/antd.css'
 import './assets/reset.scss'
 import './assets/override.scss'
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const PetShop = () => {
   const dispatch = useDispatch()
@@ -34,7 +33,7 @@ const PetShop = () => {
     dispatch(fetchImages())
     dispatch(fetchGender())
     dispatch(fetchLineageAll())
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }, [dispatch])
 
   return (
@@ -43,29 +42,23 @@ const PetShop = () => {
         <ScrollToTop />
         <Header />
 
-          <Switch>
-            <Redirect from="/tin-tuc" exact to="/news" />
-            {
-              routes.map((item, index) => {
-                return <Route
-                  path={item.path}
-                  exact={item.exact}
-                  component={item.main}
-                  key={index}
-                />
-              })
-            }
-          </Switch>
-{/*
-          <MessengerCustomerChat
-            pageId="502018333467885"
-            appId="336352381303829"
-          /> */}
-
+        <Switch>
+          <Redirect from="/tin-tuc" exact to="/news" />
+          {routes.map((item, index) => {
+            return (
+              <Route
+                path={item.path}
+                exact={item.exact}
+                component={item.main}
+                key={index}
+              />
+            )
+          })}
+        </Switch>
         <Footer />
       </Router>
     </>
   )
 }
 
-export default PetShop;
+export default PetShop

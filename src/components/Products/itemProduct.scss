@@ -1,4 +1,4 @@
-@import '../assets/avarlibel.scss';
+@import "../assets/avarlibel.scss";
 
 .box {
   border-right: 1px solid #ccc;
@@ -78,7 +78,7 @@
       color: #fff;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 100%;
         right: 0;

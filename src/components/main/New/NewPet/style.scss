@@ -23,7 +23,7 @@
   &__box {
     display: flex;
     align-items: center;
-    border: 1px solid #E3E3E3;
+    border: 1px solid #e3e3e3;
     margin-bottom: 3rem;
     border-radius: 5px;
     cursor: pointer;
@@ -32,7 +32,7 @@
       height: 20rem;
       width: 45rem;
       margin-right: 2rem;
-      width: calc(5/12 * 100%);
+      width: calc(5 / 12 * 100%);
     }
 
     &--img {
@@ -43,7 +43,7 @@
 
     .box-content {
       padding: 1rem 5rem 1rem 0;
-      width: calc(7/12 * 100%);
+      width: calc(7 / 12 * 100%);
 
       &__title {
         font-size: 2.2rem;
@@ -74,12 +74,12 @@
 
     .box-search {
       position: relative;
-      border-top: 3px solid #E9A301;
+      border-top: 3px solid #e9a301;
 
       &__input {
         width: 100%;
         border: 1px solid #ddd;
-        padding: 0 .75em;
+        padding: 0 0.75em;
         height: 4rem;
         font-size: 1.6rem;
         font-weight: 500;
@@ -99,7 +99,7 @@
         font-size: 2rem;
         color: #fff;
         cursor: pointer;
-        transition: all .3s ease-in-out;
+        transition: all 0.3s ease-in-out;
 
         &:hover {
           background-color: #bb8301;
@@ -123,7 +123,7 @@
       &__link {
         margin-left: 1rem;
         color: #e9a301;
-        transition: all .3s ease-in-out;
+        transition: all 0.3s ease-in-out;
 
         &:hover {
           text-decoration: underline;

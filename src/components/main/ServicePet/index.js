@@ -9,7 +9,7 @@ const ServicePet = ({ match }) => {
   return (
     <>
       <PageTitle match={match} />
-      <PageService data={dataServices} title={'Dịch vụ'}/>
+      <PageService data={dataServices} title={'Dịch vụ'} />
       <MyBackTop />
     </>
   )

@@ -16,20 +16,19 @@ const ForgotPassword = () => {
   const [isBoxChangePassword, setIsBoxChangePassword] = useState(null)
 
   const layout = {
-  labelCol: {
-    span: 6,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 6,
-    span: 16,
-  },
-};
-
+    labelCol: {
+      span: 6,
+    },
+    wrapperCol: {
+      span: 16,
+    },
+  }
+  const tailLayout = {
+    wrapperCol: {
+      offset: 6,
+      span: 16,
+    },
+  }
 
   const validatorEmail = (rules, value) => {
     const regex = REGEX.EMAIL
@@ -67,7 +66,6 @@ const tailLayout = {
       const newData = res.data
 
       if (typeof newData === 'string') {
-        console.log(newData)
         setValidEmail(newData)
         return
       }
@@ -87,12 +85,13 @@ const tailLayout = {
     setValidCode('Bạn nhập sai mã Code!')
   }
 
-  const handleSubmitChangePassword = values => {
-    customAxiosApi.put(`${API_NAME.USERS}/${dataCode.id}`, {password: values.password})
-    .then(() => {
-      history.push('/')
-      dispatch(setStatusLogin(true))
-    })
+  const handleSubmitChangePassword = (values) => {
+    customAxiosApi
+      .put(`${API_NAME.USERS}/${dataCode.id}`, { password: values.password })
+      .then(() => {
+        history.push('/')
+        dispatch(setStatusLogin(true))
+      })
   }
 
   return (

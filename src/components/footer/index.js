@@ -1,5 +1,5 @@
 import React from 'react'
-import { DATACONTACT, SUPORT, DATANAV} from '../dataConst'
+import { DATACONTACT, SUPORT, DATANAV } from '../dataConst'
 import Logo from '../reuse/Logo'
 import RegisFooter from './RegisFooter'
 import { useHistory } from 'react-router-dom'
@@ -8,7 +8,7 @@ import './style.scss'
 const Footer = () => {
   const history = useHistory()
 
-  const handMenuFooter = url => {
+  const handMenuFooter = (url) => {
     history.push(url)
   }
 
@@ -22,18 +22,18 @@ const Footer = () => {
                 <div className="footer__box-logo">
                   <Logo />
                 </div>
-                  <ul className="footer__list">
-                    {
-                      DATACONTACT.map((item, index) => {
-                        return (
-                          <li className="footer__item" key={index} >
-                            <span className={`footer__item--icon ${item.iconHeader}`} />
-                            {item.text}
-                          </li>
-                        )
-                      })
-                    }
-                  </ul>
+                <ul className="footer__list">
+                  {DATACONTACT.map((item, index) => {
+                    return (
+                      <li className="footer__item" key={index}>
+                        <span
+                          className={`footer__item--icon ${item.iconHeader}`}
+                        />
+                        {item.text}
+                      </li>
+                    )
+                  })}
+                </ul>
               </div>
             </div>
 
@@ -41,17 +41,19 @@ const Footer = () => {
               <div className="footer__box">
                 <h3 className="footer__title">MENU</h3>
                 <ul className="footer__list-contact">
-                  {
-                    DATANAV.map((ele, i) => {
-                      if ( ele.title === SUPORT) return '';
+                  {DATANAV.map((ele, i) => {
+                    if (ele.title === SUPORT) return ''
 
-                      return (
-                        <li className="footer__item" onClick={() => handMenuFooter(ele.to)} key={i}>
-                          <p className="footer__link">{ele.title}</p>
-                        </li>
-                      )
-                    })
-                  }
+                    return (
+                      <li
+                        className="footer__item"
+                        onClick={() => handMenuFooter(ele.to)}
+                        key={i}
+                      >
+                        <p className="footer__link">{ele.title}</p>
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
             </div>
@@ -60,20 +62,18 @@ const Footer = () => {
               <div className="footer__box">
                 <h3 className="footer__title">{SUPORT}</h3>
                 <ul className="footer__list-contact">
-                  {
-                    DATANAV.map(item => {
-                      if ( item.title === SUPORT) {
-                        return item.child.map((ele, i) => {
-                          return (
-                            <li className="footer__item" key={i}>
-                              <p className="footer__link">{ele.title}</p>
-                            </li>
-                          )
-                        })
-                      }
-                      return ''
-                    })
-                  }
+                  {DATANAV.map((item) => {
+                    if (item.title === SUPORT) {
+                      return item.child.map((ele, i) => {
+                        return (
+                          <li className="footer__item" key={i}>
+                            <p className="footer__link">{ele.title}</p>
+                          </li>
+                        )
+                      })
+                    }
+                    return ''
+                  })}
                 </ul>
               </div>
             </div>

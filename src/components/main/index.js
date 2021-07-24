@@ -7,9 +7,6 @@ import ProductAccess from './ProductAccess'
 import ProductOther from './PetsOther'
 import News from './New/News'
 import MyBackTop from '../reuse/MyBackTop'
-// import CartIcon from '../Cart/CartIcon'
-// import { MobileHiden } from '../responsive'
-// import { Link } from 'react-router-dom'
 
 const Main = () => {
   return (
@@ -22,12 +19,6 @@ const Main = () => {
       <ProductOther />
       <News />
       <MyBackTop />
-
-      {/* <MobileHiden>
-        <Link to="/cart">
-          <CartIcon classType="cart-fixed"/>
-        </Link>
-      </MobileHiden> */}
     </>
   )
 }

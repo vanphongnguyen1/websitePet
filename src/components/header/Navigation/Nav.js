@@ -14,15 +14,14 @@ const Nav = () => {
             alt="Logo Dogily"
             className="nav__box-mobile--img"
           />
-          <HeaderSearch/>
+          <HeaderSearch />
         </div>
       </Mobile>
+
       <ul className="nav__list">
-        {
-          DATANAV.map((item, index) => {
-            return <ItemNav item={item} key={index} />
-          })
-        }
+        {DATANAV.map((item, index) => {
+          return <ItemNav item={item} key={index} />
+        })}
       </ul>
     </div>
   )

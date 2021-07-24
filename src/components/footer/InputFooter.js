@@ -5,7 +5,11 @@ const InputFooter = () => {
     <>
       <form className="registration__from" autoComplete="off">
         <div className="registration__gmail">
-          <input type="email" placeholder="Email..." className="registration__input"/>
+          <input
+            type="email"
+            placeholder="Email..."
+            className="registration__input"
+          />
           <span className="registration__icon fa fa-paper-plane" />
         </div>
       </form>

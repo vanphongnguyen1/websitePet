@@ -47,7 +47,7 @@ html {
 
 // ------------tablet - PC----------------
 // ---col-xl
-@media (min-width : 1224px) {
+@media (min-width: 1224px) {
   .container {
     max-width: 1240px;
   }
@@ -80,8 +80,8 @@ html {
     margin-right: -10px;
   }
   [class^="col-"] {
-      padding-left: 10px;
-      padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .col-0 {
     display: none;
@@ -147,8 +147,8 @@ html {
     max-width: 100%;
   }
 
-   /* column ofset */
-   .col-o-1 {
+  /* column ofset */
+  .col-o-1 {
     margin-left: 8.33333%;
   }
   .col-o-2 {
@@ -189,8 +189,8 @@ html {
     margin-right: -10px;
   }
   [class^="col-"] {
-      padding-left: 10px;
-      padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .col-sm-0 {
     display: none;
@@ -256,8 +256,8 @@ html {
     max-width: 100%;
   }
 
-   /* column ofset */
-   .col-sm-o-1 {
+  /* column ofset */
+  .col-sm-o-1 {
     margin-left: 8.33333%;
   }
   .col-sm-o-2 {
@@ -299,8 +299,8 @@ html {
     margin-right: -4px;
   }
   [class^="col-"] {
-      padding-left: 4px;
-      padding-right: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
   }
   .col-md-0 {
     display: none;
@@ -409,8 +409,8 @@ html {
     margin-right: -10px;
   }
   [class^="col-"] {
-      padding-left: 10px;
-      padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .col-lg-1 {
     -ms-flex: 0 0 8.333333%;
@@ -512,7 +512,7 @@ html {
 }
 
 /* --------------------------------------------tablet - PC----------------------------------------- */
-@media only screen  and (min-width : 1224px) {
+@media only screen and (min-width: 1224px) {
   // .row {
   //   margin-left: -8px;
   //   margin-right: -8px;
@@ -522,7 +522,7 @@ html {
   //     padding-right: 8px;
   // }
   .col-xl-0 {
-      display: none;
+    display: none;
   }
   .col-xl-1 {
     -ms-flex: 0 0 8.333333%;

@@ -1,4 +1,4 @@
-@import '../../assets/avarlibel.scss';
+@import "../../assets/avarlibel.scss";
 
 .info-product {
   .slick-next,
@@ -43,18 +43,17 @@
     }
 
     .slick-prev:before {
-      content: '\f053';
+      content: "\f053";
     }
     .slick-next:before {
-      content: '\f054';
+      content: "\f054";
     }
     .slick-prev:before,
     .slick-next:before {
       font-family: "Font Awesome 5 Pro";
-      color:#000;
+      color: #000;
       font-size: 2rem;
     }
-
   }
 
   &__box {
@@ -196,7 +195,7 @@
     }
   }
 
-  &__img-small &__box-img{
+  &__img-small &__box-img {
     height: 100%;
     padding: 0;
   }
@@ -212,7 +211,6 @@
   .info-product {
     &__box {
       .box-info {
-
         &__name {
           font-size: 2rem;
         }

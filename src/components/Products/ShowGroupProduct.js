@@ -6,23 +6,26 @@ import { useSelector } from 'react-redux'
 
 const ShowGroupProduct = ({ group, color, title }) => {
   const [isParentSort, setIsParentSort] = useState('')
-  const dataProductFetch = useSelector(state => state.products)
-  const dataGroupFetch = useSelector(state => state.groups)
+  const dataProductFetch = useSelector((state) => state.products)
+  const dataGroupFetch = useSelector((state) => state.groups)
 
   const data = useMemo(() => {
     const listData = dataProductFetch.list
     const listGroup = dataGroupFetch.list
 
-    if (dataProductFetch.loading === 'success' && dataGroupFetch.loading === 'success') {
-      const findGroup = listGroup.find(item => item.name === group)
+    if (
+      dataProductFetch.loading === 'success' &&
+      dataGroupFetch.loading === 'success'
+    ) {
+      const findGroup = listGroup.find((item) => item.name === group)
 
-      return handleSort({dataAll: listData, group: findGroup.id, isParentSort})
+      return handleSort({
+        dataAll: listData,
+        group: findGroup.id,
+        isParentSort,
+      })
     }
   }, [isParentSort, dataProductFetch, dataGroupFetch, group])
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [])
 
   return (
     <>
@@ -34,10 +37,7 @@ const ShowGroupProduct = ({ group, color, title }) => {
             setIsParentSort={setIsParentSort}
           />
 
-          <Products
-            title={title}
-            products={data ? data : [] }
-          />
+          <Products title={title} products={data ? data : []} />
         </div>
       </div>
     </>
