@@ -69,6 +69,12 @@
         font-size: 1.6rem;
         line-height: 1.6rem;
         font-weight: 600;
+        color: #dfa000;
+      }
+
+      .ant-btn-primary {
+        margin-right: 0.5rem;
+        color: #fff;
       }
 
       .forgot-password,
@@ -78,6 +84,62 @@
 
       .forgot-password {
         color: #40a9ff;
+      }
+
+      .text-or {
+        margin-right: 3rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        text-decoration: underline;
+      }
+
+      &__box {
+        margin-bottom: 1rem;
+      }
+
+      &__network {
+        display: flex;
+        align-items: center;
+
+        & > button {
+          box-shadow: none !important;
+          height: 31px !important;
+          padding: 0.3rem 1rem !important;
+          border: 1px solid #ddd !important;
+          margin-right: 0.5rem;
+          align-items: center;
+          width: 12rem;
+          justify-content: center;
+
+          div {
+            line-height: 10px !important;
+            font-size: 1.4rem !important;
+            padding: 0 !important;
+          }
+          & > span {
+            padding: 0 !important;
+            line-height: 11px;
+          }
+        }
+
+        span {
+          opacity: 1 !important;
+        }
+
+        .kep-login-facebook.metro {
+          padding: 0.3rem 1rem;
+          font-size: 1.4rem;
+          text-transform: none;
+          background: #4564b4;
+          border-radius: 2px;
+          width: 12rem;
+
+          i {
+            background: #4a78bc;
+            padding: 0.3rem 0.7rem;
+            font-size: 1.4rem;
+          }
+        }
       }
     }
 
@@ -99,8 +161,14 @@
 
   .message-err {
     margin-bottom: 15px;
-    color: red;
+    color: #ee0000;
     text-align: center;
     margin-right: 15px;
+  }
+
+  .err-login {
+    color: #ee0000;
+    margin-left: 9rem;
+    margin-bottom: 1rem;
   }
 }

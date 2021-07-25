@@ -3,9 +3,13 @@
 
 .header-center {
   background-color: $color-bg-header-center;
-
+  .box-search {
+    padding: 1rem 0;
+  }
   &__box {
     padding: 1rem 0;
+    align-items: center;
+    display: flex;
   }
 
   &__search {

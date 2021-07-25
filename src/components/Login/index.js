@@ -57,7 +57,7 @@ const Login = () => {
           <>
             <div className="login__box" onClick={() => setIsModel(true)}>
               {dataUser.avarta ? (
-                <img alt="" src="aa" />
+                <img src={dataUser.avarta} alt="avatar" />
               ) : (
                 <span className="login__icon fas fa-user-circle" />
               )}

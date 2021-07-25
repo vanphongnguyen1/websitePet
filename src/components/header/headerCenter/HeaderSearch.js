@@ -22,7 +22,7 @@ const HeaderSearch = () => {
   }
 
   return (
-    <div className="header-center__box">
+    <div className="box-search">
       <div className="header-center__search">
         <form onSubmit={clickSearch} autoComplete="off">
           <input

@@ -64,8 +64,13 @@ const Register = ({ setIslogin }) => {
 
       if (typeof data === 'string') {
         setValidEmail('Email đã tồn tại !')
+      } else {
+        customAxiosApi.post(API_NAME.CART, {
+          usersID: data.id,
+          totalCount: 0
+        })
+        setIslogin(true)
       }
-      setIslogin(true)
     })
   }
 

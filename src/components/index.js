@@ -16,6 +16,7 @@ import { fetchImages } from './redux/imagesSlice'
 import { fetchGender } from './redux/genderSlice'
 import { fetchLineageAll } from './redux/lineageSlice'
 import { fetchSlider } from './redux/sliderSlice'
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import './assets/layout.scss'
 import 'antd/dist/antd.css'
 import './assets/reset.scss'
@@ -55,6 +56,12 @@ const PetShop = () => {
             )
           })}
         </Switch>
+
+        <MessengerCustomerChat
+          appId="336352381303829"
+          pageId="502018333467885"
+          xfbml={true}
+        />
         <Footer />
       </Router>
     </>

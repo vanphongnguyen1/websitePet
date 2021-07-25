@@ -5,11 +5,13 @@ import { rootReducers } from './components/redux/rootReducers'
 
 const store =  configureStore({
   reducer: rootReducers,
-//   middleware: getDefaultMiddleware =>
-//     getDefaultMiddleware().concat(loadingBarMiddleware({
-//       scope: 'sectionBar',
-//     })
-// )
+  // middleware: getDefaultMiddleware =>
+  //   getDefaultMiddleware().concat(loadingBarMiddleware({
+  //     scope: 'sectionBar',
+
+  //   })
+  // ),
+  immutableCheck: false,
 })
 
 export default store
