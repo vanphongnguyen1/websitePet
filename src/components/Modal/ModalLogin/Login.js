@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { Form, Input, Button, Checkbox } from 'antd'
 import { Link } from 'react-router-dom'
 import {
@@ -24,7 +23,11 @@ const Login = ({ setIslogin }) => {
   const history = useHistory()
   const dispatch = useDispatch()
   const dataLogin = useSelector((state) => state.login)
-  const [valideEmailGoogle, setValideEmailGoogle] = useState('')
+
+  const validatorEmail = () => {
+    dispatch(setError(''))
+    return Promise.resolve()
+  }
 
   const onFinish = (values) => {
     const title = 'client'
@@ -62,13 +65,13 @@ const Login = ({ setIslogin }) => {
   }
 
   const responseGoogle = (response) => {
-    console.log(response.profileObj);
+    dispatch(setError(''))
     const { profileObj } = response
 
     const user = {
       email: profileObj.email,
       name: profileObj.name,
-      avatar: profileObj.imageUrl,
+      avarta: profileObj.imageUrl,
       password: 'phonghd123',
       phone: '0337263377',
       role: 0,
@@ -78,9 +81,10 @@ const Login = ({ setIslogin }) => {
 
     customAxiosApi.post(API_NAME.USERS, user).then((resp) => {
       const { data } = resp
+      console.log(resp);
 
       if (typeof data === 'string') {
-        setValideEmailGoogle('Email đã tồn tại !')
+        dispatch(setError('Email đã tồn tại !'))
       } else {
         customAxiosApi.post(API_NAME.CART, {
           usersID: data.id,
@@ -100,10 +104,11 @@ const Login = ({ setIslogin }) => {
   }
 
   const responseFacebook = (response) => {
+    dispatch(setError(''))
     const user = {
       email: response.email,
       name: response.name,
-      avatar: response.picture.data.url,
+      avarta: response.picture.data.url,
       password: 'phonghd123',
       phone: '0337263377',
       role: 0,
@@ -115,7 +120,7 @@ const Login = ({ setIslogin }) => {
       const { data } = resp
 
       if (typeof data === 'string') {
-        setValideEmailGoogle('Email đã tồn tại !')
+        dispatch(setError('Email đã tồn tại !'))
       } else {
         customAxiosApi.post(API_NAME.CART, {
           usersID: data.id,
@@ -136,10 +141,6 @@ const Login = ({ setIslogin }) => {
 
   return (
     <div className="box-login">
-    {
-      valideEmailGoogle && <p className="err-login">{valideEmailGoogle}</p>
-    }
-
       <Form
         name="login"
         initialValues={{
@@ -151,6 +152,9 @@ const Login = ({ setIslogin }) => {
           label="Email"
           name="email"
           rules={[
+            {
+              validator: validatorEmail
+            },
             {
               required: true,
               message: 'Vui lòng nhập tên đăng nhập',
@@ -164,6 +168,9 @@ const Login = ({ setIslogin }) => {
           label="Password"
           name="password"
           rules={[
+            {
+              validator: validatorEmail
+            },
             {
               required: true,
               message: 'Vui lòng nhập mật khẩu',
@@ -216,7 +223,8 @@ const Login = ({ setIslogin }) => {
 
             <FacebookLogin
               appId="336352381303829"
-              autoLoad={false}
+              autoLoad={true}
+              status={true}
               xfbml={true}
               textButton="Facebook"
               fields="name,email,picture"
